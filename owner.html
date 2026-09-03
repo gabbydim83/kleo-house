@@ -1,0 +1,3038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Kleo House — Owner Dashboard
+    </title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef5f8,
+                    #ffffff
+                );
+
+            color: #10243e;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================================
+           LOGIN
+        ========================================= */
+
+        .login-screen {
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 430px;
+
+            padding: 50px 42px;
+
+            border-radius: 24px;
+
+            background: white;
+
+            box-shadow:
+                0 25px 70px
+                rgba(8,45,80,0.15);
+
+            text-align: center;
+        }
+
+        .login-logo {
+            width: 75px;
+            height: 75px;
+
+            margin:
+                0 auto 22px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border:
+                2px solid #c99a3d;
+
+            border-radius: 50%;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 38px;
+
+            color: #c99a3d;
+        }
+
+        .login-card h1 {
+            margin-bottom: 7px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 34px;
+
+            font-weight: normal;
+
+            color: #082d50;
+        }
+
+        .login-subtitle {
+            margin-bottom: 35px;
+
+            color: #72808d;
+
+            font-size: 13px;
+        }
+
+        .login-field {
+            margin-bottom: 15px;
+
+            text-align: left;
+        }
+
+        .login-field label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            color: #52687a;
+        }
+
+        .login-field input {
+            width: 100%;
+            height: 50px;
+
+            padding:
+                0 15px;
+
+            border:
+                1px solid #dce5eb;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-size: 14px;
+        }
+
+        .login-field input:focus {
+            border-color: #c99a3d;
+        }
+
+        .login-button {
+            width: 100%;
+            height: 52px;
+
+            margin-top: 10px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background: #082d50;
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                background 0.25s;
+        }
+
+        .login-button:hover {
+            background: #c99a3d;
+        }
+
+        .login-note {
+            margin-top: 20px;
+
+            color: #9aa5ae;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+        .login-error {
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 11px;
+
+            border-radius: 8px;
+
+            background: #fdeaea;
+
+            color: #a34747;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================
+           DASHBOARD
+        ========================================= */
+
+        .dashboard {
+            display: none;
+
+            min-height: 100vh;
+        }
+
+        .dashboard-header {
+            height: 82px;
+
+            padding:
+                0 35px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            background: #ffffff;
+
+            border-bottom:
+                1px solid #e2e9ee;
+        }
+
+        .dashboard-brand {
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+        .dashboard-logo {
+            width: 46px;
+            height: 46px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid #c99a3d;
+
+            border-radius: 50%;
+
+            font-family:
+                Georgia,
+                serif;
+
+            color: #c99a3d;
+
+            font-size: 23px;
+        }
+
+        .dashboard-brand strong {
+            display: block;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 19px;
+
+            color: #082d50;
+        }
+
+        .dashboard-brand span {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #8996a1;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .logout-button {
+            padding:
+                10px 17px;
+
+            border:
+                1px solid #dce5eb;
+
+            border-radius: 8px;
+
+            background: white;
+
+            color: #173853;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           CONTENT
+        ========================================= */
+
+        .dashboard-content {
+            max-width: 1450px;
+
+            margin: 0 auto;
+
+            padding:
+                45px 40px;
+        }
+
+        .welcome-row {
+            margin-bottom: 35px;
+
+            display: flex;
+
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .welcome-row small {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #c99a3d;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .welcome-row h2 {
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 39px;
+
+            font-weight: normal;
+
+            color: #082d50;
+        }
+
+        .welcome-row p {
+            margin-top: 8px;
+
+            color: #758492;
+
+            font-size: 13px;
+        }
+
+        .add-booking-button {
+            min-height: 45px;
+
+            padding:
+                0 19px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background: #c99a3d;
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           STATS
+        ========================================= */
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            padding: 25px;
+
+            border:
+                1px solid #e1e8ed;
+
+            border-radius: 17px;
+
+            background: white;
+
+            box-shadow:
+                0 10px 30px
+                rgba(8,45,80,0.06);
+        }
+
+        .stat-card span {
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: #778692;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+        .stat-card strong {
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 31px;
+
+            color: #082d50;
+        }
+
+        .stat-card small {
+            display: block;
+
+            margin-top: 8px;
+
+            color: #96a2ab;
+
+            font-size: 10px;
+        }
+
+
+        /* =========================================
+           MAIN AREA
+        ========================================= */
+
+        .main-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.35fr 0.65fr;
+
+            gap: 22px;
+        }
+
+        .dashboard-card {
+            padding: 28px;
+
+            border:
+                1px solid #e1e8ed;
+
+            border-radius: 19px;
+
+            background: white;
+
+            box-shadow:
+                0 12px 35px
+                rgba(8,45,80,0.06);
+        }
+
+        .dashboard-card h3 {
+            margin-bottom: 20px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 25px;
+
+            font-weight: normal;
+
+            color: #082d50;
+        }
+
+
+       /* =========================================
+   OWNER CALENDAR
+========================================= */
+
+.owner-calendar {
+    width: 100%;
+}
+
+
+.owner-calendar-top {
+    margin-bottom: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.owner-calendar-title {
+    text-align: center;
+}
+
+
+.owner-calendar-title span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #c99a3d;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+.owner-calendar-title strong {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+    font-weight: normal;
+
+    color: #082d50;
+}
+
+
+.calendar-nav-button {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid #dfe7ed;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #082d50;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s;
+}
+
+
+.calendar-nav-button:hover {
+    background: #082d50;
+
+    border-color: #082d50;
+
+    color: white;
+}
+
+
+/* LEGEND */
+
+.owner-calendar-legend {
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    color: #74828e;
+
+    font-size: 10px;
+}
+
+
+.owner-calendar-legend > div {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.legend-circle {
+    width: 9px;
+    height: 9px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+}
+
+
+.legend-circle.available {
+    background: #48a96c;
+}
+
+
+.legend-circle.confirmed {
+    background: #df6868;
+}
+
+
+.legend-circle.pending {
+    background: #d9a536;
+}
+
+
+.legend-circle.blocked {
+    background: #7c8994;
+}
+
+
+/* GRID */
+
+.owner-calendar-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 7px;
+}
+
+
+.owner-calendar-day-name {
+    padding: 8px 4px;
+
+    text-align: center;
+
+    color: #98a4ae;
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+
+.owner-calendar-day {
+    position: relative;
+
+    min-height: 76px;
+
+    padding: 9px;
+
+    border:
+        1px solid #e4eaee;
+
+    border-radius: 10px;
+
+    background: #f8fafb;
+
+    color: #31506a;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s;
+}
+
+
+.owner-calendar-day:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #c99a3d;
+
+    box-shadow:
+        0 5px 15px
+        rgba(8,45,80,0.08);
+}
+
+
+.owner-calendar-day.empty {
+    visibility: hidden;
+
+    cursor: default;
+}
+
+
+.owner-day-number {
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.owner-day-status {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+.owner-calendar-day.available {
+    background: #edf8f1;
+
+    color: #34774d;
+}
+
+
+.owner-calendar-day.confirmed {
+    background: #faeaea;
+
+    color: #a24848;
+
+    border-color: #f0cece;
+}
+
+
+.owner-calendar-day.pending {
+    background: #fff6dd;
+
+    color: #956d13;
+
+    border-color: #f0e0ae;
+}
+
+
+.owner-calendar-day.blocked {
+    background: #edf0f2;
+
+    color: #66727c;
+
+    border-color: #d8dfe3;
+}
+
+
+/* TODAY */
+
+.owner-calendar-day.today {
+    outline:
+        2px solid #c99a3d;
+
+    outline-offset:
+        -2px;
+}
+
+
+/* MOBILE */
+
+@media
+(max-width: 650px) {
+
+    .owner-calendar-grid {
+        gap: 4px;
+    }
+
+    .owner-calendar-day {
+        min-height: 59px;
+
+        padding: 6px;
+    }
+
+    .owner-day-status {
+        font-size: 7px;
+    }
+
+    .owner-calendar-legend {
+        gap: 10px;
+    }
+
+}
+
+
+        /* BOOKINGS */
+
+        .booking-list {
+            display: grid;
+
+            gap: 12px;
+        }
+
+        .booking-item {
+            padding: 15px;
+
+            border:
+                1px solid #e4ebef;
+
+            border-radius: 12px;
+
+            background: #fafcfd;
+        }
+
+        .booking-item strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: #173853;
+
+            font-size: 13px;
+        }
+
+        .booking-item span {
+            display: block;
+
+            color: #788793;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+        .booking-status {
+            display: inline-block !important;
+
+            margin-top: 9px;
+
+            padding:
+                5px 8px;
+
+            border-radius: 20px;
+
+            background: #e7f7ee;
+
+            color: #2a7d4b !important;
+
+            font-weight: 800;
+        }
+
+/* =========================================
+   BOOKING MODAL
+========================================= */
+
+.booking-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 5000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+
+.booking-modal.open {
+    display: flex;
+}
+
+
+.booking-modal-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(3,24,43,0.72);
+
+    backdrop-filter:
+        blur(7px);
+}
+
+
+.booking-modal-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 570px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 42px;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,0.30);
+}
+
+
+.booking-modal-close {
+    position: absolute;
+
+    top: 17px;
+    right: 19px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #f1f5f7;
+
+    color: #526a7d;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+
+.booking-modal-close:hover {
+    background: #082d50;
+
+    color: white;
+}
+
+
+.modal-kicker {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #c99a3d;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.booking-modal-card h2 {
+    margin-bottom: 28px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 32px;
+
+    font-weight: normal;
+
+    color: #082d50;
+}
+
+
+.modal-form {
+    display: grid;
+
+    gap: 16px;
+}
+
+
+.modal-form label > span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #687988;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid #dce5eb;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: white;
+
+    color: #173853;
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+
+.modal-form input:focus,
+.modal-form select:focus,
+.modal-form textarea:focus {
+    border-color: #c99a3d;
+}
+
+
+.modal-form textarea {
+    resize: vertical;
+}
+
+
+.modal-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 13px;
+}
+
+
+.modal-actions {
+    margin-top: 27px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+
+.modal-actions button {
+    min-height: 44px;
+
+    padding: 0 16px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s;
+}
+
+
+.modal-save-button {
+    flex: 1;
+
+    border: 0;
+
+    background: #082d50;
+
+    color: white;
+}
+
+
+.modal-save-button:hover {
+    background: #c99a3d;
+}
+
+
+.modal-cancel-booking {
+    border:
+        1px solid #e0b05a;
+
+    background: #fff8e9;
+
+    color: #936919;
+}
+
+
+.modal-delete-button {
+    border:
+        1px solid #e3b8b8;
+
+    background: #fff2f2;
+
+    color: #a54848;
+}
+
+
+.modal-message {
+    min-height: 15px;
+
+    margin-top: 16px;
+
+    color: #398058;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+@media
+(max-width: 600px) {
+
+    .booking-modal {
+        padding: 14px;
+    }
+
+    .booking-modal-card {
+        padding:
+            37px 22px 25px;
+    }
+
+    .modal-row {
+        grid-template-columns:
+            1fr;
+    }
+
+    .modal-actions {
+        display: grid;
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media
+        (max-width: 950px) {
+
+            .stats-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .main-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+        @media
+        (max-width: 600px) {
+
+            .dashboard-header {
+                padding:
+                    0 18px;
+            }
+
+            .dashboard-content {
+                padding:
+                    30px 18px;
+            }
+
+            .welcome-row {
+                display: block;
+            }
+
+            .add-booking-button {
+                margin-top: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .login-card {
+                padding:
+                    40px 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================
+     LOGIN
+========================================= -->
+
+<div
+    class="login-screen"
+    id="loginScreen"
+>
+
+    <div class="login-card">
+
+        <div class="login-logo">
+            K
+        </div>
+
+        <h1>
+            Kleo House
+        </h1>
+
+        <p class="login-subtitle">
+            Owner Dashboard
+        </p>
+
+
+        <div class="login-field">
+
+            <label>
+                USERNAME
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+            >
+
+        </div>
+
+
+        <div class="login-field">
+
+            <label>
+                PASSWORD
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+            >
+
+        </div>
+
+
+        <button
+            class="login-button"
+            id="loginButton"
+        >
+            SIGN IN
+        </button>
+
+
+        <div
+            class="login-error"
+            id="loginError"
+        >
+            Incorrect username or password.
+        </div>
+
+
+        <p class="login-note">
+            Demo owner administration area for Kleo House.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     DASHBOARD
+========================================= -->
+
+<div
+    class="dashboard"
+    id="dashboard"
+>
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo">
+                K
+            </div>
+
+            <div>
+
+                <strong>
+                    Kleo House
+                </strong>
+
+                <span>
+                    OWNER DASHBOARD
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="logout-button"
+            id="logoutButton"
+        >
+            LOG OUT
+        </button>
+
+    </header>
+
+
+
+    <main class="dashboard-content">
+
+
+        <div class="welcome-row">
+
+            <div>
+
+                <small>
+                    PROPERTY MANAGEMENT
+                </small>
+
+                <h2>
+                    Welcome back
+                </h2>
+
+                <p>
+                    Manage your availability and reservations.
+                </p>
+
+            </div>
+
+
+            <button
+    type="button"
+    class="add-booking-button"
+    id="addBookingButton"
+>
+    + ADD BOOKING
+</button>
+
+        </div>
+
+
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <span>
+                    Upcoming bookings
+                </span>
+
+                <strong>
+                    4
+                </strong>
+
+                <small>
+                    Demo data
+                </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Nights booked
+                </span>
+
+                <strong>
+                    18
+                </strong>
+
+                <small>
+                    This month
+                </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Occupancy
+                </span>
+
+                <strong>
+                    60%
+                </strong>
+
+                <small>
+                    September
+                </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Guests arriving
+                </span>
+
+                <strong>
+                    11
+                </strong>
+
+                <small>
+                    Upcoming stays
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="main-grid">
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Reservation Calendar
+                </h3>
+
+
+                <div class="owner-calendar">
+
+    <div class="owner-calendar-top">
+
+        <button
+            type="button"
+            class="calendar-nav-button"
+            id="ownerPrevMonth"
+            aria-label="Previous month"
+        >
+            ‹
+        </button>
+
+        <div class="owner-calendar-title">
+
+            <span>
+                AVAILABILITY
+            </span>
+
+            <strong id="ownerCalendarMonth">
+                September 2026
+            </strong>
+
+        </div>
+
+        <button
+            type="button"
+            class="calendar-nav-button"
+            id="ownerNextMonth"
+            aria-label="Next month"
+        >
+            ›
+        </button>
+
+    </div>
+
+
+    <div class="owner-calendar-legend">
+
+        <div>
+            <span class="legend-circle available"></span>
+            Available
+        </div>
+
+        <div>
+            <span class="legend-circle confirmed"></span>
+            Confirmed
+        </div>
+
+        <div>
+            <span class="legend-circle pending"></span>
+            Pending
+        </div>
+
+        
+    </div>
+
+
+    <div
+        class="owner-calendar-grid"
+        id="ownerCalendar"
+    ></div>
+
+</div>
+
+            </div>
+
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Upcoming Reservations
+                </h3>
+
+
+                <div
+    class="booking-list"
+    id="bookingList"
+></div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+
+
+<!-- =========================================
+     BOOKING DETAILS MODAL
+========================================= -->
+
+<div
+    class="booking-modal"
+    id="bookingModal"
+>
+
+    <div class="booking-modal-overlay"></div>
+
+
+    <div class="booking-modal-card">
+
+        <button
+            type="button"
+            class="booking-modal-close"
+            id="bookingModalClose"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <span class="modal-kicker">
+            RESERVATION DETAILS
+        </span>
+
+        <h2>
+            Manage Booking
+        </h2>
+
+
+        <div class="modal-form">
+
+            <label>
+
+                <span>
+                    Guest name
+                </span>
+
+                <input
+                    type="text"
+                    id="modalGuest"
+                >
+
+            </label>
+
+
+            <div class="modal-row">
+
+                <label>
+
+                    <span>
+                        Check-in
+                    </span>
+
+                    <input
+                        type="date"
+                        id="modalCheckIn"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        Check-out
+                    </span>
+
+                    <input
+                        type="date"
+                        id="modalCheckOut"
+                    >
+
+                </label>
+
+            </div>
+
+
+            <div class="modal-row">
+
+                <label>
+
+                    <span>
+                        Guests
+                    </span>
+
+                    <input
+                        type="number"
+                        id="modalGuests"
+                        min="1"
+                        max="5"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        Status
+                    </span>
+
+                    <select id="modalStatus">
+
+                        <option value="confirmed">
+                            Confirmed
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                    </select>
+
+                </label>
+
+            </div>
+
+
+            <label>
+
+                <span>
+                    Amount €
+                </span>
+
+                <input
+                    type="number"
+                    id="modalAmount"
+                    min="0"
+                    step="0.01"
+                    placeholder="0.00"
+                >
+
+            </label>
+
+
+            <label>
+
+                <span>
+                    Notes
+                </span>
+
+                <textarea
+                    id="modalNotes"
+                    rows="4"
+                    placeholder="Private notes about this reservation..."
+                ></textarea>
+
+            </label>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="modal-save-button"
+                id="saveBookingButton"
+            >
+                SAVE CHANGES
+            </button>
+
+            <button
+                type="button"
+                class="modal-cancel-booking"
+                id="cancelBookingButton"
+            >
+                CANCEL BOOKING
+            </button>
+
+            <button
+                type="button"
+                class="modal-delete-button"
+                id="deleteBookingButton"
+            >
+                DELETE
+            </button>
+
+        </div>
+
+
+        <p
+            class="modal-message"
+            id="modalMessage"
+        ></p>
+
+    </div>
+
+</div>
+
+<script>
+
+    const loginScreen =
+        document.getElementById(
+            "loginScreen"
+        );
+
+    const dashboard =
+        document.getElementById(
+            "dashboard"
+        );
+
+    const loginButton =
+        document.getElementById(
+            "loginButton"
+        );
+
+    const logoutButton =
+        document.getElementById(
+            "logoutButton"
+        );
+
+    const usernameInput =
+        document.getElementById(
+            "username"
+        );
+
+    const passwordInput =
+        document.getElementById(
+            "password"
+        );
+
+    const loginError =
+        document.getElementById(
+            "loginError"
+        );
+
+
+    /* =========================================
+       DEMO LOGIN
+    ========================================= */
+
+    const demoUsername =
+        "owner";
+
+    const demoPassword =
+        "kleo2026";
+
+
+    function login() {
+
+        const username =
+            usernameInput.value.trim();
+
+        const password =
+            passwordInput.value;
+
+
+        if (
+            username === demoUsername &&
+            password === demoPassword
+        ) {
+
+            loginError.style.display =
+                "none";
+
+            loginScreen.style.display =
+                "none";
+
+            dashboard.style.display =
+                "block";
+
+        }
+
+        else {
+
+            loginError.style.display =
+                "block";
+
+        }
+
+    }
+
+
+    loginButton.addEventListener(
+        "click",
+        login
+    );
+
+
+    passwordInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                login();
+
+            }
+
+        }
+    );
+
+
+    logoutButton.addEventListener(
+        "click",
+        function () {
+
+            dashboard.style.display =
+                "none";
+
+            loginScreen.style.display =
+                "flex";
+
+            passwordInput.value =
+                "";
+
+        }
+    );
+
+    /* =========================================
+   INTERACTIVE OWNER CALENDAR
+========================================= */
+
+const ownerCalendar =
+    document.getElementById(
+        "ownerCalendar"
+    );
+
+const ownerCalendarMonth =
+    document.getElementById(
+        "ownerCalendarMonth"
+    );
+
+const ownerPrevMonth =
+    document.getElementById(
+        "ownerPrevMonth"
+    );
+
+const ownerNextMonth =
+    document.getElementById(
+        "ownerNextMonth"
+    );
+
+
+let ownerCalendarDate =
+    new Date();
+
+
+/*
+    DEMO RESERVATIONS
+
+    Later these will come from
+    the real reservation database.
+*/
+
+let ownerReservations = [
+
+    {
+        guest: "Anna Müller",
+
+        checkIn:
+            "2026-09-06",
+
+        checkOut:
+            "2026-09-10",
+
+        guests: 2,
+
+        amount: 480,
+
+        notes:
+            "Arriving in the afternoon.",
+
+        status:
+            "confirmed"
+    },
+
+    {
+        guest: "Andrei Popescu",
+
+        checkIn:
+            "2026-09-14",
+
+        checkOut:
+            "2026-09-19",
+
+        guests: 4,
+
+        amount: 625,
+
+        notes:
+            "Family stay.",
+
+        status:
+            "confirmed"
+    },
+
+    {
+        guest: "Elena Petrova",
+
+        checkIn:
+            "2026-09-23",
+
+        checkOut:
+            "2026-09-27",
+
+        guests: 3,
+
+        amount: 430,
+
+        notes:
+            "Waiting for final confirmation.",
+
+        status:
+            "pending"
+    }
+
+];
+
+/* =========================================
+   RESERVATION STORAGE
+========================================= */
+
+const savedReservations =
+    localStorage.getItem(
+        "kleoReservations"
+    );
+
+
+if (
+    savedReservations
+) {
+
+    try {
+
+        ownerReservations =
+            JSON.parse(
+                savedReservations
+            );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load saved reservations.",
+            error
+        );
+
+    }
+
+}
+
+
+function saveReservations() {
+
+    localStorage.setItem(
+        "kleoReservations",
+        JSON.stringify(
+            ownerReservations
+        )
+    );
+
+}
+
+/* =========================================
+   DATE HELPERS
+========================================= */
+
+function ownerDateKey(
+    year,
+    month,
+    day
+) {
+
+    return (
+        year +
+        "-" +
+        String(
+            month + 1
+        ).padStart(
+            2,
+            "0"
+        ) +
+        "-" +
+        String(
+            day
+        ).padStart(
+            2,
+            "0"
+        )
+    );
+
+}
+
+
+function parseLocalDate(
+    value
+) {
+
+    const parts =
+        value.split("-");
+
+    return new Date(
+        Number(parts[0]),
+        Number(parts[1]) - 1,
+        Number(parts[2])
+    );
+
+}
+
+
+/* =========================================
+   FIND DAY STATUS
+========================================= */
+
+function getOwnerDayInfo(
+    dateKey
+) {
+
+    const currentDate =
+        parseLocalDate(
+            dateKey
+        );
+
+
+
+    /*
+        RESERVATIONS
+    */
+
+    for (
+        const reservation
+        of ownerReservations
+    ) {
+
+        if (
+    reservation.status ===
+    "cancelled"
+) {
+    continue;
+}
+
+        const checkIn =
+            parseLocalDate(
+                reservation.checkIn
+            );
+
+        const checkOut =
+            parseLocalDate(
+                reservation.checkOut
+            );
+
+
+        /*
+            Check-out date becomes
+            available again.
+        */
+
+        if (
+            currentDate >= checkIn &&
+            currentDate < checkOut
+        ) {
+
+            return {
+
+                status:
+                    reservation.status,
+
+                label:
+                    reservation.guest,
+
+                reservation:
+                    reservation
+
+            };
+
+        }
+
+    }
+
+
+    return {
+
+        status:
+            "available",
+
+        label:
+            "Available"
+
+    };
+
+}
+
+
+/* =========================================
+   RENDER CALENDAR
+========================================= */
+
+function renderOwnerCalendar() {
+
+    if (
+        !ownerCalendar ||
+        !ownerCalendarMonth
+    ) {
+        return;
+    }
+
+
+    const year =
+        ownerCalendarDate
+            .getFullYear();
+
+    const month =
+        ownerCalendarDate
+            .getMonth();
+
+
+    ownerCalendarMonth.textContent =
+        new Intl.DateTimeFormat(
+            "en",
+            {
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+            }
+        ).format(
+            ownerCalendarDate
+        );
+
+
+    ownerCalendar.innerHTML =
+        "";
+
+
+    const weekDays = [
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI",
+        "SAT",
+        "SUN"
+    ];
+
+
+    weekDays.forEach(
+        day => {
+
+            const element =
+                document.createElement(
+                    "div"
+                );
+
+            element.className =
+                "owner-calendar-day-name";
+
+            element.textContent =
+                day;
+
+            ownerCalendar.appendChild(
+                element
+            );
+
+        }
+    );
+
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        );
+
+
+    /*
+        Convert JS Sunday=0
+        into Monday=0.
+    */
+
+    const startOffset =
+        (
+            firstDay.getDay() + 6
+        ) % 7;
+
+
+    const totalDays =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    for (
+        let i = 0;
+        i < startOffset;
+        i++
+    ) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "owner-calendar-day empty";
+
+        ownerCalendar.appendChild(
+            empty
+        );
+
+    }
+
+
+    const today =
+        new Date();
+
+
+    for (
+        let day = 1;
+        day <= totalDays;
+        day++
+    ) {
+
+        const dateKey =
+            ownerDateKey(
+                year,
+                month,
+                day
+            );
+
+
+        const info =
+            getOwnerDayInfo(
+                dateKey
+            );
+
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+
+        element.className =
+            "owner-calendar-day " +
+            info.status;
+
+
+        if (
+            year ===
+                today.getFullYear() &&
+            month ===
+                today.getMonth() &&
+            day ===
+                today.getDate()
+        ) {
+
+            element.classList.add(
+                "today"
+            );
+
+        }
+
+
+        const dayNumber =
+            document.createElement(
+                "span"
+            );
+
+        dayNumber.className =
+            "owner-day-number";
+
+        dayNumber.textContent =
+            day;
+
+
+        const status =
+            document.createElement(
+                "span"
+            );
+
+        status.className =
+            "owner-day-status";
+
+        status.textContent =
+            info.label;
+
+
+        element.appendChild(
+            dayNumber
+        );
+
+        element.appendChild(
+            status
+        );
+
+
+        /*
+            Temporary interaction:
+            click a reservation day
+            to see booking information.
+        */
+
+        element.addEventListener(
+    "click",
+    function () {
+
+        if (
+            info.reservation
+        ) {
+
+            openBookingModal(
+                info.reservation
+            );
+
+        }
+
+    }
+);
+
+
+        ownerCalendar.appendChild(
+            element
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   MONTH NAVIGATION
+========================================= */
+
+ownerPrevMonth.addEventListener(
+    "click",
+    function () {
+
+        ownerCalendarDate.setMonth(
+            ownerCalendarDate
+                .getMonth() - 1
+        );
+
+        renderOwnerCalendar();
+
+    }
+);
+
+
+ownerNextMonth.addEventListener(
+    "click",
+    function () {
+
+        ownerCalendarDate.setMonth(
+            ownerCalendarDate
+                .getMonth() + 1
+        );
+
+        renderOwnerCalendar();
+
+    }
+);
+
+
+renderOwnerCalendar();
+
+/* =========================================
+   BOOKING MANAGEMENT
+========================================= */
+
+const bookingModal =
+    document.getElementById(
+        "bookingModal"
+    );
+
+const bookingModalClose =
+    document.getElementById(
+        "bookingModalClose"
+    );
+
+const modalOverlay =
+    document.querySelector(
+        ".booking-modal-overlay"
+    );
+
+
+const modalGuest =
+    document.getElementById(
+        "modalGuest"
+    );
+
+const modalCheckIn =
+    document.getElementById(
+        "modalCheckIn"
+    );
+
+const modalCheckOut =
+    document.getElementById(
+        "modalCheckOut"
+    );
+
+const modalGuests =
+    document.getElementById(
+        "modalGuests"
+    );
+
+const modalStatus =
+    document.getElementById(
+        "modalStatus"
+    );
+
+const modalAmount =
+    document.getElementById(
+        "modalAmount"
+    );
+
+const modalNotes =
+    document.getElementById(
+        "modalNotes"
+    );
+
+const modalMessage =
+    document.getElementById(
+        "modalMessage"
+    );
+
+    const addBookingButton =
+    document.getElementById(
+        "addBookingButton"
+    );
+
+const saveBookingButton =
+    document.getElementById(
+        "saveBookingButton"
+    );
+
+const cancelBookingButton =
+    document.getElementById(
+        "cancelBookingButton"
+    );
+
+const deleteBookingButton =
+    document.getElementById(
+        "deleteBookingButton"
+    );
+
+const bookingList =
+    document.getElementById(
+        "bookingList"
+    );
+
+let selectedReservation =
+    null;
+
+    let bookingMode =
+    "edit";
+
+
+
+    /* =========================================
+   ADD NEW BOOKING
+========================================= */
+
+function openNewBookingModal() {
+
+    bookingMode =
+        "new";
+
+    selectedReservation =
+        null;
+
+
+    modalGuest.value =
+        "";
+
+    modalCheckIn.value =
+        "";
+
+    modalCheckOut.value =
+        "";
+
+    modalGuests.value =
+        2;
+
+    modalStatus.value =
+        "confirmed";
+
+    modalAmount.value =
+        "";
+
+    modalNotes.value =
+        "";
+
+    modalMessage.textContent =
+        "";
+
+
+    cancelBookingButton.style.display =
+        "none";
+
+    deleteBookingButton.style.display =
+        "none";
+
+
+    bookingModal.classList.add(
+        "open"
+    );
+
+
+    modalGuest.focus();
+
+}
+
+
+addBookingButton.addEventListener(
+    "click",
+    openNewBookingModal
+);
+
+/* OPEN */
+
+function openBookingModal(
+    reservation
+) {
+
+    bookingMode =
+    "edit";
+
+cancelBookingButton.style.display =
+    "";
+
+deleteBookingButton.style.display =
+    "";
+
+    selectedReservation =
+        reservation;
+
+
+    modalGuest.value =
+        reservation.guest || "";
+
+    modalCheckIn.value =
+        reservation.checkIn || "";
+
+    modalCheckOut.value =
+        reservation.checkOut || "";
+
+    modalGuests.value =
+        reservation.guests || 1;
+
+    modalStatus.value =
+        reservation.status || "confirmed";
+
+    modalAmount.value =
+        reservation.amount || "";
+
+    modalNotes.value =
+        reservation.notes || "";
+
+
+    modalMessage.textContent =
+        "";
+
+
+    bookingModal.classList.add(
+        "open"
+    );
+
+}
+
+
+/* CLOSE */
+
+function closeBookingModal() {
+
+    bookingModal.classList.remove(
+        "open"
+    );
+
+    selectedReservation =
+        null;
+
+}
+
+
+bookingModalClose.addEventListener(
+    "click",
+    closeBookingModal
+);
+
+
+modalOverlay.addEventListener(
+    "click",
+    closeBookingModal
+);
+
+
+/* =========================================
+   SAVE BOOKING
+========================================= */
+
+saveBookingButton.addEventListener(
+    "click",
+    function () {
+
+
+        const guest =
+            modalGuest.value.trim();
+
+        const checkIn =
+            modalCheckIn.value;
+
+        const checkOut =
+            modalCheckOut.value;
+
+        const guests =
+            Number(
+                modalGuests.value
+            );
+
+
+        if (
+            !guest ||
+            !checkIn ||
+            !checkOut
+        ) {
+
+            modalMessage.textContent =
+                "Please complete the required fields.";
+
+            return;
+
+        }
+
+
+        if (
+            checkOut <= checkIn
+        ) {
+
+            modalMessage.textContent =
+                "Check-out must be after check-in.";
+
+            return;
+
+        }
+
+
+      const wasNew =
+    bookingMode ===
+    "new";
+
+
+if (
+    wasNew
+) {
+
+    const newReservation = {
+
+        guest:
+            guest,
+
+        checkIn:
+            checkIn,
+
+        checkOut:
+            checkOut,
+
+        guests:
+            Math.max(
+                1,
+                Math.min(
+                    5,
+                    guests || 1
+                )
+            ),
+
+        status:
+            modalStatus.value,
+
+        amount:
+            Number(
+                modalAmount.value
+            ) || 0,
+
+        notes:
+            modalNotes.value.trim()
+
+    };
+
+
+    ownerReservations.push(
+        newReservation
+    );
+
+
+    selectedReservation =
+        newReservation;
+
+    bookingMode =
+        "edit";
+
+
+    cancelBookingButton.style.display =
+        "";
+
+    deleteBookingButton.style.display =
+        "";
+
+}
+
+else {
+
+    selectedReservation.guest =
+        guest;
+
+    selectedReservation.checkIn =
+        checkIn;
+
+    selectedReservation.checkOut =
+        checkOut;
+
+    selectedReservation.guests =
+        Math.max(
+            1,
+            Math.min(
+                5,
+                guests || 1
+            )
+        );
+
+    selectedReservation.status =
+        modalStatus.value;
+
+    selectedReservation.amount =
+        Number(
+            modalAmount.value
+        ) || 0;
+
+    selectedReservation.notes =
+        modalNotes.value.trim();
+
+}
+
+function renderBookingList() {
+
+    bookingList.innerHTML =
+        "";
+
+
+    const activeReservations =
+        ownerReservations
+            .filter(
+                reservation =>
+                    reservation.status !==
+                    "cancelled"
+            )
+            .sort(
+                (a, b) =>
+                    a.checkIn.localeCompare(
+                        b.checkIn
+                    )
+            );
+
+
+    activeReservations.forEach(
+        reservation => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "booking-item";
+
+
+            const guest =
+                document.createElement(
+                    "strong"
+                );
+
+            guest.textContent =
+                reservation.guest;
+
+
+            const dates =
+                document.createElement(
+                    "span"
+                );
+
+            dates.textContent =
+                reservation.checkIn +
+                " — " +
+                reservation.checkOut;
+
+
+            const guests =
+                document.createElement(
+                    "span"
+                );
+
+            guests.textContent =
+                reservation.guests +
+                (
+                    reservation.guests === 1
+                        ? " guest"
+                        : " guests"
+                );
+
+
+            const status =
+                document.createElement(
+                    "span"
+                );
+
+            status.className =
+                "booking-status";
+
+            status.textContent =
+                reservation.status ===
+                "pending"
+                    ? "Pending"
+                    : "Confirmed";
+
+
+            item.appendChild(
+                guest
+            );
+
+            item.appendChild(
+                dates
+            );
+
+            item.appendChild(
+                guests
+            );
+
+            item.appendChild(
+                status
+            );
+
+
+            item.addEventListener(
+                "click",
+                function () {
+
+                    openBookingModal(
+                        reservation
+                    );
+
+                }
+            );
+
+
+            bookingList.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+saveReservations();
+
+      renderOwnerCalendar();
+
+renderBookingList();
+
+closeBookingModal();
+
+}
+);
+
+
+/* =========================================
+   CANCEL BOOKING
+========================================= */
+
+cancelBookingButton.addEventListener(
+    "click",
+    function () {
+
+        if (
+            !selectedReservation
+        ) {
+            return;
+        }
+
+
+        const confirmed =
+            window.confirm(
+                "Cancel this booking and make the dates available again?"
+            );
+
+
+        if (
+            !confirmed
+        ) {
+            return;
+        }
+
+
+        selectedReservation.status =
+            "cancelled";
+
+saveReservations();
+
+        renderOwnerCalendar();
+
+renderBookingList();
+
+closeBookingModal();
+
+    }
+);
+
+
+/* =========================================
+   DELETE BOOKING
+========================================= */
+
+deleteBookingButton.addEventListener(
+    "click",
+    function () {
+
+        if (
+            !selectedReservation
+        ) {
+            return;
+        }
+
+
+        const confirmed =
+            window.confirm(
+                "Permanently delete this reservation?"
+            );
+
+
+        if (
+            !confirmed
+        ) {
+            return;
+        }
+
+
+        const index =
+            ownerReservations.indexOf(
+                selectedReservation
+            );
+
+
+        if (
+            index !== -1
+        ) {
+
+            ownerReservations.splice(
+                index,
+                1
+            );
+
+        }
+
+        saveReservations();
+
+
+        renderOwnerCalendar();
+
+renderBookingList();
+
+
+        closeBookingModal();
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
