@@ -1579,6 +1579,1286 @@
 
 
 
+
+/* =========================================================
+   DYNAMIC BEACH DATA
+========================================================= */
+
+.beach-live-panel {
+    max-width: 1380px;
+    margin: -68px auto 0;
+    padding: 0 55px;
+    position: relative;
+    z-index: 5;
+}
+
+.beach-live-card {
+    padding: 30px;
+    border: 1px solid #e1e8ee;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.98);
+    box-shadow: 0 20px 55px rgba(8,45,80,0.13);
+    backdrop-filter: blur(12px);
+}
+
+.beach-live-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 185px;
+    align-items: stretch;
+    gap: 28px;
+    margin-bottom: 25px;
+}
+
+.beach-live-intro {
+    min-width: 0;
+    padding: 7px 0 4px;
+}
+
+.beach-live-header h3 {
+    margin: 5px 0 7px;
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: normal;
+    color: #082d50;
+}
+
+.beach-live-type {
+    max-width: 680px;
+    margin: 0;
+    color: #6b7a88;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.beach-rating-inline {
+    width: fit-content;
+    margin-top: 15px;
+    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid #dfe7ed;
+    border-radius: 50px;
+    background: #f7fafc;
+    color: #163b5c;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.beach-rating-inline strong {
+    color: #082d50;
+    font-family: Georgia, serif;
+    font-size: 17px;
+}
+
+.beach-rating-inline small {
+    color: #85929d;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+/* LIVE WEATHER - visually separated from beach characteristics */
+
+.beach-weather-card {
+    min-height: 185px;
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 19px;
+    background:
+        linear-gradient(
+            145deg,
+            #082d50 0%,
+            #0d4f7e 65%,
+            #1778aa 100%
+        );
+    color: #ffffff;
+    box-shadow: 0 13px 32px rgba(8,45,80,0.20);
+}
+
+.weather-card-top {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #dbeaf3;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.weather-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7ee6a6;
+    box-shadow: 0 0 0 4px rgba(126,230,166,0.12);
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.weather-icon {
+    font-size: 42px;
+    line-height: 1;
+}
+
+.weather-temperature {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.weather-condition {
+    min-height: 18px;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.weather-feels {
+    padding-top: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-top: 1px solid rgba(255,255,255,0.17);
+    color: #cfe0eb;
+    font-size: 9px;
+}
+
+.weather-feels strong {
+    color: #ffffff;
+    font-size: 11px;
+}
+
+/* Beach characteristics: intentionally more spacious than before */
+
+.beach-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.beach-fact {
+    min-height: 104px;
+    padding: 17px 16px;
+    border: 1px solid #e5ebef;
+    border-radius: 15px;
+    background: #f9fbfc;
+}
+
+.beach-fact span {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 24px;
+}
+
+.beach-fact small {
+    display: block;
+    margin-bottom: 6px;
+    color: #8b97a1;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.beach-fact strong {
+    color: #173853;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.beach-extra-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.beach-extra-badge {
+    padding: 8px 12px;
+    border-radius: 50px;
+    border: 1px solid #dfe8ed;
+    background: #ffffff;
+    color: #37546c;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.beach-data-status {
+    margin-top: 14px;
+    color: #89949e;
+    font-size: 10px;
+}
+
+@media (max-width: 900px) {
+    .beach-live-header {
+        grid-template-columns: minmax(0, 1fr) 170px;
+    }
+
+    .beach-facts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .beach-live-panel {
+        margin-top: -45px;
+        padding: 0 20px;
+    }
+
+    .beach-live-card {
+        padding: 21px;
+    }
+
+    .beach-live-header {
+        grid-template-columns: 1fr;
+    }
+
+    .beach-weather-card {
+        width: 100%;
+        min-height: 155px;
+    }
+
+    .weather-main {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .beach-facts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   DYNAMIC ACTIVITIES
+========================================================= */
+
+.dynamic-activities {
+    margin: 10px 0 46px;
+}
+
+.dynamic-activities-heading {
+    max-width: 760px;
+    margin-bottom: 24px;
+}
+
+.dynamic-activities-heading h4 {
+    margin: 0 0 10px;
+    font-family: Georgia, serif;
+    font-size: 31px;
+    font-weight: normal;
+    color: #082d50;
+}
+
+.dynamic-activities-heading p {
+    margin: 0;
+    color: #6c7b89;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.activity-card {
+    min-width: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    min-height: 280px;
+    border: 1px solid #dfe8ed;
+    border-radius: 21px;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f6fbfd 100%
+        );
+    box-shadow: 0 15px 42px rgba(8,45,80,0.09);
+    transition:
+        transform 0.28s,
+        box-shadow 0.28s,
+        border-color 0.28s;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(23,120,170,0.44);
+    box-shadow: 0 22px 52px rgba(8,45,80,0.14);
+}
+
+.activity-card-image {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+    background: #e7f2f6;
+}
+
+.activity-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.activity-card:hover .activity-card-image img {
+    transform: scale(1.045);
+}
+
+.activity-category-badge {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    padding: 7px 11px;
+    border-radius: 50px;
+    background: rgba(8,45,80,0.92);
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+    backdrop-filter: blur(8px);
+}
+
+.activity-booking-badge {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    padding: 7px 10px;
+    border-radius: 50px;
+    background: rgba(201,154,61,0.94);
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+}
+
+.activity-card-content {
+    padding: 25px 24px 23px;
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-card h5 {
+    margin: 0 0 11px;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 1.18;
+    color: #082d50;
+}
+
+.activity-description {
+    margin: 0 0 15px;
+    color: #697887;
+    font-size: 12px;
+    line-height: 1.67;
+}
+
+.activity-info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 18px;
+}
+
+.activity-info-pill {
+    padding: 7px 10px;
+    border: 1px solid #dfe8ed;
+    border-radius: 50px;
+    background: #f8fbfc;
+    color: #4c6c80;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.activity-card-link {
+    margin-top: auto;
+    min-height: 43px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 9px;
+    background:
+        linear-gradient(
+            135deg,
+            #0b527d,
+            #1885b7
+        );
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 800;
+    transition:
+        transform 0.25s,
+        filter 0.25s;
+}
+
+.activity-card-link:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+}
+
+.activities-loading,
+.activities-empty {
+    grid-column: 1 / -1;
+    padding: 24px;
+    border: 1px dashed #d8e2e9;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.72);
+    color: #768592;
+    font-size: 12px;
+}
+
+@media (max-width: 1050px) {
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .activity-card {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-card-image {
+        height: 235px;
+        min-height: 235px;
+    }
+
+    .dynamic-activities-heading h4 {
+        font-size: 27px;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   DYNAMIC LOCAL BUSINESSES
+========================================================= */
+
+.dynamic-local-businesses {
+    margin: 12px 0 48px;
+}
+
+.local-businesses-heading {
+    max-width: 760px;
+    margin-bottom: 24px;
+}
+
+.local-businesses-heading h4 {
+    margin: 0 0 10px;
+    font-family: Georgia, serif;
+    font-size: 31px;
+    font-weight: normal;
+    color: #082d50;
+}
+
+.local-businesses-heading p {
+    margin: 0;
+    color: #6c7b89;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.local-businesses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.local-business-card {
+    min-width: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    min-height: 245px;
+    border: 1px solid #e0e8ed;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 14px 40px rgba(8,45,80,0.08);
+    transition:
+        transform 0.28s,
+        box-shadow 0.28s,
+        border-color 0.28s;
+}
+
+.local-business-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201,154,61,0.55);
+    box-shadow: 0 21px 48px rgba(8,45,80,0.13);
+}
+
+.local-business-image {
+    position: relative;
+    min-height: 245px;
+    overflow: hidden;
+    background: #edf3f6;
+}
+
+.local-business-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.local-business-card:hover
+.local-business-image img {
+    transform: scale(1.045);
+}
+
+.local-business-category {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    max-width: calc(100% - 28px);
+    padding: 7px 10px;
+    border-radius: 50px;
+    background: rgba(8,45,80,0.92);
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    backdrop-filter: blur(8px);
+}
+
+.local-business-distance {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    padding: 7px 10px;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.94);
+    color: #173853;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.local-business-content {
+    padding: 23px 22px 21px;
+    display: flex;
+    flex-direction: column;
+}
+
+.local-business-content h5 {
+    margin: 0 0 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.2;
+    color: #082d50;
+}
+
+.local-business-description {
+    margin: 0 0 15px;
+    color: #697887;
+    font-size: 12px;
+    line-height: 1.62;
+}
+
+.local-business-link {
+    margin-top: auto;
+    min-height: 42px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 9px;
+    background: #082d50;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 800;
+    transition: background 0.25s;
+}
+
+.local-business-link:hover {
+    background: #c99a3d;
+}
+
+.local-businesses-loading,
+.local-businesses-empty {
+    grid-column: 1 / -1;
+    padding: 24px;
+    border: 1px dashed #d8e2e9;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.72);
+    color: #768592;
+    font-size: 12px;
+}
+
+@media (max-width: 1050px) {
+    .local-businesses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .local-business-card {
+        grid-template-columns: 1fr;
+    }
+
+    .local-business-image {
+        min-height: 220px;
+        height: 220px;
+    }
+
+    .local-businesses-heading h4 {
+        font-size: 27px;
+    }
+}
+
+
+
+
+/* =========================================================
+   DYNAMIC NEARBY BEACHES
+========================================================= */
+
+.dynamic-nearby-beaches {
+    margin: 46px 0 42px;
+}
+
+.nearby-beaches-heading {
+    max-width: 760px;
+    margin-bottom: 24px;
+}
+
+.nearby-beaches-heading h4 {
+    margin: 0 0 10px;
+    font-family: Georgia, serif;
+    font-size: 31px;
+    font-weight: normal;
+    color: #082d50;
+}
+
+.nearby-beaches-heading p {
+    margin: 0;
+    color: #6c7b89;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.nearby-beaches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.nearby-beach-card {
+    overflow: hidden;
+    border: 1px solid #e0e8ed;
+    border-radius: 19px;
+    background: #ffffff;
+    box-shadow: 0 14px 38px rgba(8,45,80,0.08);
+    transition:
+        transform 0.28s,
+        box-shadow 0.28s,
+        border-color 0.28s;
+}
+
+.nearby-beach-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(23,120,170,0.42);
+    box-shadow: 0 20px 46px rgba(8,45,80,0.13);
+}
+
+.nearby-beach-image {
+    position: relative;
+    height: 205px;
+    overflow: hidden;
+    background: #eaf3f7;
+}
+
+.nearby-beach-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.nearby-beach-card:hover
+.nearby-beach-image img {
+    transform: scale(1.05);
+}
+
+.nearby-distance {
+    position: absolute;
+    left: 13px;
+    bottom: 13px;
+    padding: 7px 10px;
+    border-radius: 50px;
+    background: rgba(8,45,80,0.90);
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 800;
+    backdrop-filter: blur(8px);
+}
+
+.nearby-beach-content {
+    padding: 19px 18px 18px;
+}
+
+.nearby-beach-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 10px;
+}
+
+.nearby-beach-meta span {
+    min-height: 27px;
+    padding: 0 9px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 50px;
+    background: #f4f8fa;
+    color: #49677d;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.nearby-beach-content h5 {
+    margin: 0 0 13px;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: normal;
+    line-height: 1.2;
+    color: #082d50;
+}
+
+.nearby-beach-link {
+    min-height: 40px;
+    padding: 0 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 8px;
+    background: #082d50;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 800;
+    transition: background 0.25s;
+}
+
+.nearby-beach-link:hover {
+    background: #1778aa;
+}
+
+.nearby-beaches-loading,
+.nearby-beaches-empty {
+    grid-column: 1 / -1;
+    padding: 24px;
+    border: 1px dashed #d8e2e9;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.72);
+    color: #768592;
+    font-size: 12px;
+}
+
+@media (max-width: 950px) {
+    .nearby-beaches-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .dynamic-nearby-beaches {
+        margin-top: 35px;
+    }
+
+    .nearby-beaches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nearby-beach-image {
+        height: 220px;
+    }
+
+    .nearby-beaches-heading h4 {
+        font-size: 27px;
+    }
+}
+
+
+
+
+/* =========================================================
+   DYNAMIC RESTAURANTS
+========================================================= */
+
+.dynamic-restaurants {
+    margin: 46px 0 42px;
+}
+
+.dynamic-restaurants-heading {
+    max-width: 720px;
+    margin-bottom: 24px;
+}
+
+.dynamic-restaurants-heading .section-kicker {
+    margin-bottom: 8px;
+}
+
+.dynamic-restaurants-heading h4 {
+    margin: 0 0 10px;
+    font-family: Georgia, serif;
+    font-size: 31px;
+    font-weight: normal;
+    color: #082d50;
+}
+
+.dynamic-restaurants-heading p {
+    margin: 0;
+    color: #6c7b89;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.restaurant-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.restaurant-card {
+    min-width: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    min-height: 250px;
+    border: 1px solid #e1e8ed;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 14px 40px rgba(8,45,80,0.08);
+    transition:
+        transform 0.28s,
+        box-shadow 0.28s,
+        border-color 0.28s;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201,154,61,0.60);
+    box-shadow: 0 21px 50px rgba(8,45,80,0.13);
+}
+
+.restaurant-card-image {
+    position: relative;
+    min-height: 250px;
+    overflow: hidden;
+    background: #eaf0f4;
+}
+
+.restaurant-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.restaurant-card:hover .restaurant-card-image img {
+    transform: scale(1.045);
+}
+
+.restaurant-featured-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 7px 10px;
+    border-radius: 50px;
+    background: rgba(8,45,80,0.92);
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    backdrop-filter: blur(8px);
+}
+
+.restaurant-card-content {
+    padding: 23px 22px 21px;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.restaurant-rating,
+.restaurant-price {
+    min-height: 28px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.restaurant-rating {
+    background: #fff6df;
+    color: #876017;
+}
+
+.restaurant-price {
+    background: #edf5f8;
+    color: #31536b;
+}
+
+.restaurant-card h5 {
+    margin: 0 0 9px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.18;
+    color: #082d50;
+}
+
+.restaurant-description {
+    margin: 0 0 14px;
+    color: #697887;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.restaurant-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 17px;
+}
+
+.restaurant-tag {
+    padding: 6px 9px;
+    border: 1px solid #e1e8ed;
+    border-radius: 50px;
+    background: #f9fbfc;
+    color: #587083;
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.restaurant-card-link {
+    margin-top: auto;
+    min-height: 42px;
+    padding: 0 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 9px;
+    background: #082d50;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 800;
+    transition: background 0.25s;
+}
+
+.restaurant-card-link:hover {
+    background: #c99a3d;
+}
+
+.restaurant-loading,
+.restaurant-empty {
+    padding: 24px;
+    border: 1px dashed #d8e2e9;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.72);
+    color: #768592;
+    font-size: 12px;
+}
+
+@media (max-width: 1050px) {
+    .restaurant-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .dynamic-restaurants {
+        margin-top: 35px;
+    }
+
+    .restaurant-card {
+        grid-template-columns: 1fr;
+    }
+
+    .restaurant-card-image {
+        min-height: 220px;
+        height: 220px;
+    }
+
+    .dynamic-restaurants-heading h4 {
+        font-size: 27px;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   DYNAMIC BEACH BARS
+========================================================= */
+
+.dynamic-beachbars {
+    margin: 8px 0 46px;
+}
+
+.dynamic-beachbars-heading {
+    max-width: 720px;
+    margin-bottom: 24px;
+}
+
+.dynamic-beachbars-heading h4 {
+    margin: 0 0 10px;
+    font-family: Georgia, serif;
+    font-size: 31px;
+    font-weight: normal;
+    color: #082d50;
+}
+
+.dynamic-beachbars-heading p {
+    margin: 0;
+    color: #6c7b89;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.beachbar-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.beachbar-card {
+    min-width: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    min-height: 265px;
+    border: 1px solid #dce8ee;
+    border-radius: 20px;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f7fbfc 100%
+        );
+    box-shadow: 0 14px 40px rgba(8,45,80,0.08);
+    transition:
+        transform 0.28s,
+        box-shadow 0.28s,
+        border-color 0.28s;
+}
+
+.beachbar-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(23,120,170,0.42);
+    box-shadow: 0 21px 50px rgba(8,45,80,0.13);
+}
+
+.beachbar-card-image {
+    position: relative;
+    min-height: 265px;
+    overflow: hidden;
+    background: #eaf4f7;
+}
+
+.beachbar-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.beachbar-card:hover .beachbar-card-image img {
+    transform: scale(1.045);
+}
+
+.beachbar-type-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 7px 11px;
+    border-radius: 50px;
+    background: rgba(8,45,80,0.92);
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    backdrop-filter: blur(8px);
+}
+
+.beachbar-card-content {
+    padding: 24px 23px 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.beachbar-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.beachbar-rating,
+.beachbar-price {
+    min-height: 28px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.beachbar-rating {
+    background: #fff6df;
+    color: #876017;
+}
+
+.beachbar-price {
+    background: #eaf6fa;
+    color: #21617d;
+}
+
+.beachbar-card h5 {
+    margin: 0 0 9px;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 1.18;
+    color: #082d50;
+}
+
+.beachbar-description {
+    margin: 0 0 14px;
+    color: #697887;
+    font-size: 12px;
+    line-height: 1.62;
+}
+
+.beachbar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 17px;
+}
+
+.beachbar-tag {
+    padding: 6px 9px;
+    border: 1px solid #dfe9ee;
+    border-radius: 50px;
+    background: #f7fbfc;
+    color: #4d6f82;
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.beachbar-card-link {
+    margin-top: auto;
+    min-height: 42px;
+    padding: 0 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 9px;
+    background:
+        linear-gradient(
+            135deg,
+            #0d4f7e,
+            #1778aa
+        );
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 800;
+    transition:
+        transform 0.25s,
+        filter 0.25s;
+}
+
+.beachbar-card-link:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+}
+
+.beachbar-loading,
+.beachbar-empty {
+    padding: 24px;
+    border: 1px dashed #d8e2e9;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.72);
+    color: #768592;
+    font-size: 12px;
+}
+
+@media (max-width: 1050px) {
+    .beachbar-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .dynamic-beachbars {
+        margin-top: 28px;
+    }
+
+    .beachbar-card {
+        grid-template-columns: 1fr;
+    }
+
+    .beachbar-card-image {
+        min-height: 230px;
+        height: 230px;
+    }
+
+    .dynamic-beachbars-heading h4 {
+        font-size: 27px;
+    }
+}
+
+
+
+
 /* =========================================================
    HALKIDIKI EXPLORER ECOSYSTEM
 ========================================================= */
@@ -4182,11 +5462,11 @@
                 ONLY 190 M FROM KLEO HOUSE
             </span>
 
-            <h2>
+            <h2 id="dynamicBeachName">
                 Kalyves Beach
             </h2>
 
-            <p data-i18n="beachText">
+            <p id="dynamicBeachDescription" data-i18n="beachText">
                 Leave the car at home and walk to the sea.
                 Kalyves Beach is only a few minutes from Kleo House,
                 making it easy to enjoy the beach whenever you want.
@@ -4204,6 +5484,134 @@
 
         </div>
 
+    </div>
+
+    <div class="beach-live-panel">
+        <div class="beach-live-card">
+
+            <div class="beach-live-header">
+
+                <div class="beach-live-intro">
+
+                    <span class="section-kicker" id="dynamicBeachKicker">
+                        LIVE BEACH PROFILE
+                    </span>
+
+                    <h3 id="dynamicBeachCardName">
+                        Kalyves Beach
+                    </h3>
+
+                    <p class="beach-live-type" id="dynamicBeachType">
+                        Loading beach information...
+                    </p>
+
+                    <div class="beach-rating-inline">
+                        <span>⭐</span>
+                        <strong id="dynamicBeachRating">—</strong>
+                        <small>Halkidiki Explorer</small>
+                    </div>
+
+                </div>
+
+
+                <aside
+                    class="beach-weather-card"
+                    id="liveWeatherCard"
+                    aria-label="Live weather"
+                >
+
+                    <div class="weather-card-top">
+                        <span class="weather-live-dot"></span>
+                        <span id="weatherLiveLabel">
+                            LIVE WEATHER
+                        </span>
+                    </div>
+
+                    <div class="weather-main">
+                        <span
+                            class="weather-icon"
+                            id="weatherIcon"
+                            aria-hidden="true"
+                        >
+                            ⛅
+                        </span>
+
+                        <strong
+                            class="weather-temperature"
+                            id="weatherTemperature"
+                        >
+                            —°
+                        </strong>
+                    </div>
+
+                    <div
+                        class="weather-condition"
+                        id="weatherCondition"
+                    >
+                        Loading weather...
+                    </div>
+
+                    <div class="weather-feels">
+                        <span id="weatherFeelsLabel">
+                            Feels like
+                        </span>
+
+                        <strong id="weatherFeels">
+                            —°
+                        </strong>
+                    </div>
+
+                </aside>
+
+            </div>
+
+            <div class="beach-facts-grid">
+
+                <div class="beach-fact">
+                    <span>🌊</span>
+                    <small id="labelWaterTemp">Water temperature</small>
+                    <strong id="dynamicWaterTemp">—</strong>
+                </div>
+
+                <div class="beach-fact">
+                    <span>💧</span>
+                    <small id="labelWaterClarity">Water clarity</small>
+                    <strong id="dynamicWaterClarity">—</strong>
+                </div>
+
+                <div class="beach-fact">
+                    <span>🏖️</span>
+                    <small id="labelSand">Sand</small>
+                    <strong id="dynamicSand">—</strong>
+                </div>
+
+                <div class="beach-fact">
+                    <span>🌊</span>
+                    <small id="labelWaves">Waves</small>
+                    <strong id="dynamicWaves">—</strong>
+                </div>
+
+                <div class="beach-fact">
+                    <span>👨‍👩‍👧</span>
+                    <small id="labelChildren">Children</small>
+                    <strong id="dynamicChildren">—</strong>
+                </div>
+
+                <div class="beach-fact">
+                    <span>👥</span>
+                    <small id="labelOccupancy">Typical occupancy</small>
+                    <strong id="dynamicOccupancy">—</strong>
+                </div>
+
+            </div>
+
+            <div class="beach-extra-row" id="dynamicBeachBadges"></div>
+
+            <div class="beach-data-status" id="dynamicBeachStatus">
+                Loading data from Halkidiki Explorer...
+            </div>
+
+        </div>
     </div>
 
 
@@ -4230,154 +5638,227 @@
             </p>
 
         </div>
+<!-- =========================================================
+             DYNAMIC RESTAURANTS CONNECTED BY BEACH SLUG
+        ========================================================= -->
+
+        <section
+            class="dynamic-restaurants"
+            id="dynamicRestaurants"
+        >
+
+            <div class="dynamic-restaurants-heading">
+
+                <span
+                    class="section-kicker"
+                    id="restaurantsKicker"
+                >
+                    PLACES TO EAT
+                </span>
+
+                <h4 id="restaurantsTitle">
+                    Restaurants near Kalyves Beach
+                </h4>
+
+                <p id="restaurantsIntro">
+                    Hand-picked dining options connected directly
+                    with your beach area.
+                </p>
+
+            </div>
+
+
+            <div
+                class="restaurant-cards-grid"
+                id="restaurantCardsGrid"
+            >
+
+                <div class="restaurant-loading">
+                    Loading restaurants from Halkidiki Explorer...
+                </div>
+
+            </div>
+
+        </section>
 
 
         <!-- =========================================================
-     HALKIDIKI EXPLORER - 6 CONNECTED SERVICES
-========================================================= -->
+             DYNAMIC BEACH BARS CONNECTED BY BEACH SLUG
+        ========================================================= -->
 
-<div class="ecosystem-grid">
+        <section
+            class="dynamic-beachbars"
+            id="dynamicBeachBars"
+        >
 
+            <div class="dynamic-beachbars-heading">
 
-    <!-- 1. BEACHES -->
+                <span
+                    class="section-kicker"
+                    id="beachBarsKicker"
+                >
+                    BEACH LIFE
+                </span>
 
-    <a
-        href="https://www.halkidikiexplorer.com/beach.html?id=kalyves-beach"
-        target="_blank"
-        rel="noopener"
-        class="ecosystem-item"
-    >
+                <h4 id="beachBarsTitle">
+                    Beach bars near Kalyves Beach
+                </h4>
 
-        <span>🏖️</span>
+                <p id="beachBarsIntro">
+                    Relax by the sea with selected beach bars
+                    connected directly with the Kalyves area.
+                </p>
 
-        <strong data-i18n="ecoBeaches">
-            Beaches
-        </strong>
-
-        <small data-i18n="ecoBeachesText">
-            Discover nearby beaches
-        </small>
-
-    </a>
-
-
-
-    <!-- 2. RESTAURANTS -->
-
-    <a
-        href="https://www.halkidikiexplorer.com/place.html?id=ouzo-sarantis"
-        target="_blank"
-        rel="noopener"
-        class="ecosystem-item"
-    >
-
-        <span>🍽️</span>
-
-        <strong data-i18n="ecoRestaurants">
-            Restaurants
-        </strong>
-
-        <small data-i18n="ecoRestaurantsText">
-            Find places to eat nearby
-        </small>
-
-    </a>
+            </div>
 
 
+            <div
+                class="beachbar-cards-grid"
+                id="beachBarCardsGrid"
+            >
 
-    <!-- 3. BEACH BARS -->
+                <div class="beachbar-loading">
+                    Loading beach bars from Halkidiki Explorer...
+                </div>
 
-    <a
-        href="https://www.halkidikiexplorer.com/place.html?id=erikas-canteen"
-        target="_blank"
-        rel="noopener"
-        class="ecosystem-item"
-    >
+            </div>
 
-        <span>🍹</span>
-
-        <strong data-i18n="ecoBeachBars">
-            Beach Bars
-        </strong>
-
-        <small data-i18n="ecoBeachBarsText">
-            Enjoy the coast
-        </small>
-
-    </a>
+        </section>
 
 
+        <!-- =========================================================
+             DYNAMIC ACTIVITIES CONNECTED BY BEACH SLUG
+        ========================================================= -->
 
-    <!-- 4. BOAT RENTAL -->
+        <section
+            class="dynamic-activities"
+            id="dynamicActivities"
+        >
 
-    <a
-        href="https://www.halkidikiexplorer.com/local-business.html?id=vida-del-mar-catamarans"
-        target="_blank"
-        rel="noopener"
-        class="ecosystem-item"
-    >
+            <div class="dynamic-activities-heading">
 
-        <span>🚤</span>
+                <span
+                    class="section-kicker"
+                    id="activitiesKicker"
+                >
+                    THINGS TO DO
+                </span>
 
-        <strong data-i18n="ecoBoat">
-            Boat Rental
-        </strong>
+                <h4 id="activitiesTitle">
+                    Activities around Kalyves
+                </h4>
 
-        <small data-i18n="ecoBoatText">
-            Explore Halkidiki by sea
-        </small>
+                <p id="activitiesIntro">
+                    Experiences connected directly with the Kalyves Beach area,
+                    selected from the Halkidiki Explorer database.
+                </p>
 
-    </a>
-
-
-
-    <!-- 5. CAR RENTAL -->
-
-    <a
-        href="https://www.halkidikiexplorer.com/local-business.html?id=petros-mechanic"
-        target="_blank"
-        rel="noopener"
-        class="ecosystem-item"
-    >
-
-        <span>🚗</span>
-
-        <strong data-i18n="ecoCar">
-            Car Rental
-        </strong>
-
-        <small data-i18n="ecoCarText">
-            Travel around the region
-        </small>
-
-    </a>
+            </div>
 
 
+            <div
+                class="activities-grid"
+                id="activitiesGrid"
+            >
 
-    <!-- 6. ACTIVITIES -->
+                <div class="activities-loading">
+                    Loading activities from Halkidiki Explorer...
+                </div>
 
-    <a
-        href="https://www.halkidikiexplorer.com/local-business.html?id=wake-to-wake"
-        target="_blank"
-        rel="noopener"
-        class="ecosystem-item"
-    >
+            </div>
 
-        <span>🧭</span>
-
-        <strong data-i18n="ecoActivities">
-            Activities
-        </strong>
-
-        <small data-i18n="ecoActivitiesText">
-            Make more of your holiday
-        </small>
-
-    </a>
+        </section>
 
 
-</div>
+        <!-- =========================================================
+             DYNAMIC LOCAL BUSINESSES
+        ========================================================= -->
 
+        <section
+            class="dynamic-local-businesses"
+            id="dynamicLocalBusinesses"
+        >
+
+            <div class="local-businesses-heading">
+
+                <span
+                    class="section-kicker"
+                    id="localBusinessesKicker"
+                >
+                    LOCAL BUSINESSES
+                </span>
+
+                <h4 id="localBusinessesTitle">
+                    Useful services around Kalyves
+                </h4>
+
+                <p id="localBusinessesIntro">
+                    Nearby local services selected automatically
+                    from the Halkidiki Explorer database.
+                </p>
+
+            </div>
+
+
+            <div
+                class="local-businesses-grid"
+                id="localBusinessesGrid"
+            >
+
+                <div class="local-businesses-loading">
+                    Loading local businesses...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             DYNAMIC NEARBY BEACHES
+        ========================================================= -->
+
+        <section
+            class="dynamic-nearby-beaches"
+            id="dynamicNearbyBeaches"
+        >
+
+            <div class="nearby-beaches-heading">
+
+                <span
+                    class="section-kicker"
+                    id="nearbyBeachesKicker"
+                >
+                    EXPLORE MORE
+                </span>
+
+                <h4 id="nearbyBeachesTitle">
+                    Beaches near Kalyves
+                </h4>
+
+                <p id="nearbyBeachesIntro">
+                    Discover three nearby beaches, selected automatically
+                    by distance from Kalyves Beach.
+                </p>
+
+            </div>
+
+
+            <div
+                class="nearby-beaches-grid"
+                id="nearbyBeachesGrid"
+            >
+
+                <div class="nearby-beaches-loading">
+                    Finding nearby beaches...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
     </div>
 
 </section>
@@ -5741,6 +7222,14 @@ const translations = {
    CHANGE LANGUAGE
 ========================================================= */
 
+let loadedBeachData = null;
+let loadedWeatherData = null;
+let loadedRestaurantItems = [];
+let loadedBeachBarItems = [];
+let loadedNearbyBeachItems = [];
+let loadedActivityItems = [];
+let loadedLocalBusinessItems = [];
+
 const languageDropdown =
     document.getElementById(
         "languageDropdown"
@@ -5792,6 +7281,49 @@ function changeLanguage(language) {
         "kleoLanguage",
         language
     );
+
+    if (typeof loadedBeachData !== "undefined" && loadedBeachData) {
+        renderDynamicBeach(loadedBeachData);
+    }
+
+    if (typeof loadedWeatherData !== "undefined" && loadedWeatherData) {
+        renderLiveWeather(loadedWeatherData);
+    }
+
+    if (
+        typeof loadedRestaurantItems !== "undefined" &&
+        loadedRestaurantItems.length
+    ) {
+        renderRestaurantCards(loadedRestaurantItems);
+    }
+
+    if (
+        typeof loadedBeachBarItems !== "undefined" &&
+        loadedBeachBarItems.length
+    ) {
+        renderBeachBarCards(loadedBeachBarItems);
+    }
+
+    if (
+        typeof loadedNearbyBeachItems !== "undefined" &&
+        loadedNearbyBeachItems.length
+    ) {
+        renderNearbyBeaches(loadedNearbyBeachItems);
+    }
+
+    if (
+        typeof loadedActivityItems !== "undefined" &&
+        loadedActivityItems.length
+    ) {
+        renderActivityCards(loadedActivityItems);
+    }
+
+    if (
+        typeof loadedLocalBusinessItems !== "undefined" &&
+        loadedLocalBusinessItems.length
+    ) {
+        renderLocalBusinessCards(loadedLocalBusinessItems);
+    }
 
 }
 
@@ -5912,6 +7444,3830 @@ changeLanguage(
 );
 
 }
+
+/* =========================================================
+   HALKIDIKI EXPLORER - DYNAMIC BEACH DATA
+========================================================= */
+
+const PROPERTY_CONFIG = {
+    beachSlug: "kalyves-beach"
+};
+
+const HALKIDIKI_DATA_BASE =
+    "https://raw.githubusercontent.com/gabridim18-lab/halkidiki-data/main/data";
+
+function getBeachLanguage() {
+
+    const lang =
+        document.documentElement.lang || "en";
+
+    return lang === "ro"
+        ? "ro"
+        : "en";
+}
+
+
+function beachLocalized(value) {
+
+    const lang =
+        getBeachLanguage();
+
+    if (
+        value &&
+        typeof value === "object" &&
+        !Array.isArray(value)
+    ) {
+
+        return (
+            value[lang] ||
+            value.en ||
+            value.ro ||
+            ""
+        );
+
+    }
+
+    return value ?? "";
+
+}
+
+
+function updateDynamicBeachLabels() {
+
+    const lang =
+        getBeachLanguage();
+
+    const labels = {
+
+        en: {
+            kicker: "LIVE BEACH PROFILE",
+            waterTemp: "Water temperature",
+            clarity: "Water clarity",
+            sand: "Sand",
+            waves: "Waves",
+            children: "Children",
+            occupancy: "Typical occupancy",
+            yes: "Family friendly",
+            no: "Not specifically marked",
+            source: "Beach data loaded from Halkidiki Explorer"
+        },
+
+        ro: {
+            kicker: "PROFILUL PLAJEI",
+            waterTemp: "Temperatura apei",
+            clarity: "Claritatea apei",
+            sand: "Nisip",
+            waves: "Valuri",
+            children: "Copii",
+            occupancy: "Grad obișnuit de ocupare",
+            yes: "Potrivită pentru familii",
+            no: "Fără marcaj special",
+            source: "Date despre plajă încărcate din Halkidiki Explorer"
+        }
+
+    };
+
+    const t =
+        labels[lang] || labels.en;
+
+    document.getElementById("dynamicBeachKicker").textContent = t.kicker;
+    document.getElementById("labelWaterTemp").textContent = t.waterTemp;
+    document.getElementById("labelWaterClarity").textContent = t.clarity;
+    document.getElementById("labelSand").textContent = t.sand;
+    document.getElementById("labelWaves").textContent = t.waves;
+    document.getElementById("labelChildren").textContent = t.children;
+    document.getElementById("labelOccupancy").textContent = t.occupancy;
+
+    return t;
+}
+
+
+function renderDynamicBeach(data) {
+
+    loadedBeachData =
+        data;
+
+    const labels =
+        updateDynamicBeachLabels();
+
+    const name =
+        beachLocalized(data.name);
+
+    const type =
+        beachLocalized(data.beachType);
+
+    const description =
+        beachLocalized(data.description);
+
+    document.getElementById("dynamicBeachName").textContent =
+        name || "Kalyves Beach";
+
+    document.getElementById("dynamicBeachCardName").textContent =
+        name || "Kalyves Beach";
+
+    document.getElementById("dynamicBeachType").textContent =
+        type || "";
+
+    if (description) {
+        document.getElementById("dynamicBeachDescription").textContent =
+            description;
+    }
+
+    document.getElementById("dynamicBeachRating").textContent =
+        data.recommendationRating ?? "—";
+
+    document.getElementById("dynamicWaterTemp").textContent =
+        data.water?.averageTemperature !== undefined
+            ? data.water.averageTemperature + "°C"
+            : "—";
+
+    document.getElementById("dynamicWaterClarity").textContent =
+        beachLocalized(data.water?.clarity) || "—";
+
+    document.getElementById("dynamicSand").textContent =
+        beachLocalized(data.sand) || "—";
+
+    document.getElementById("dynamicWaves").textContent =
+        beachLocalized(data.beachInfo?.waveLevel) || "—";
+
+    document.getElementById("dynamicChildren").textContent =
+        data.suitableForChildren
+            ? labels.yes
+            : labels.no;
+
+    document.getElementById("dynamicOccupancy").textContent =
+        data.occupancy || "—";
+
+
+    const badges =
+        document.getElementById(
+            "dynamicBeachBadges"
+        );
+
+    badges.innerHTML =
+        "";
+
+
+    const badgeItems = [];
+
+    if (data.facilities?.sunbeds) {
+        badgeItems.push(
+            getBeachLanguage() === "ro"
+                ? "Șezlonguri"
+                : "Sunbeds"
+        );
+    }
+
+    if (data.facilities?.toiletsAvailable) {
+        badgeItems.push(
+            getBeachLanguage() === "ro"
+                ? "Toalete"
+                : "Toilets"
+        );
+    }
+
+    if (data.facilities?.parkingAvailable) {
+        badgeItems.push(
+            getBeachLanguage() === "ro"
+                ? "Parcare"
+                : "Parking"
+        );
+    }
+
+    if (data.facilities?.accessible) {
+        badgeItems.push(
+            getBeachLanguage() === "ro"
+                ? "Accesibilă"
+                : "Accessible"
+        );
+    }
+
+    if (data.sunsetView) {
+        badgeItems.push(
+            getBeachLanguage() === "ro"
+                ? "Apus"
+                : "Sunset view"
+        );
+    }
+
+    if (data.bestTimeToVisit) {
+        badgeItems.push(
+            (
+                getBeachLanguage() === "ro"
+                    ? "Perioadă: "
+                    : "Best time: "
+            ) +
+            beachLocalized(
+                data.bestTimeToVisit
+            )
+        );
+    }
+
+
+    badgeItems.forEach(
+        item => {
+
+            const badge =
+                document.createElement(
+                    "span"
+                );
+
+            badge.className =
+                "beach-extra-badge";
+
+            badge.textContent =
+                item;
+
+            badges.appendChild(
+                badge
+            );
+
+        }
+    );
+
+
+    document.getElementById("dynamicBeachStatus").textContent =
+        labels.source;
+}
+
+
+
+/* =========================================================
+   LIVE WEATHER - OPEN-METEO
+========================================================= */
+
+function getCurrentSiteLanguage() {
+
+    const lang =
+        document.documentElement.lang || "en";
+
+    const supported =
+        ["en", "ro", "el", "bg", "sr", "de"];
+
+    return supported.includes(lang)
+        ? lang
+        : "en";
+}
+
+
+const weatherUiText = {
+
+    en: {
+        live: "LIVE WEATHER",
+        feels: "Feels like",
+        loading: "Loading weather...",
+        unavailable: "Weather unavailable"
+    },
+
+    ro: {
+        live: "VREME LIVE",
+        feels: "Se simte ca",
+        loading: "Se încarcă vremea...",
+        unavailable: "Vreme indisponibilă"
+    },
+
+    el: {
+        live: "ΖΩΝΤΑΝΟΣ ΚΑΙΡΟΣ",
+        feels: "Αίσθηση",
+        loading: "Φόρτωση καιρού...",
+        unavailable: "Ο καιρός δεν είναι διαθέσιμος"
+    },
+
+    bg: {
+        live: "ВРЕМЕ НА ЖИВО",
+        feels: "Усеща се като",
+        loading: "Зареждане на времето...",
+        unavailable: "Времето не е достъпно"
+    },
+
+    sr: {
+        live: "VREME UŽIVO",
+        feels: "Osećaj kao",
+        loading: "Učitavanje vremena...",
+        unavailable: "Vreme nije dostupno"
+    },
+
+    de: {
+        live: "LIVE-WETTER",
+        feels: "Gefühlt",
+        loading: "Wetter wird geladen...",
+        unavailable: "Wetter nicht verfügbar"
+    }
+
+};
+
+
+const weatherConditionText = {
+
+    en: {
+        clear: "Clear sky",
+        mainlyClear: "Mostly clear",
+        partlyCloudy: "Partly cloudy",
+        overcast: "Overcast",
+        fog: "Foggy",
+        drizzle: "Light drizzle",
+        rain: "Rain",
+        showers: "Rain showers",
+        snow: "Snow",
+        snowShowers: "Snow showers",
+        thunderstorm: "Thunderstorm"
+    },
+
+    ro: {
+        clear: "Cer senin",
+        mainlyClear: "Mai mult senin",
+        partlyCloudy: "Parțial noros",
+        overcast: "Noros",
+        fog: "Ceață",
+        drizzle: "Burniță ușoară",
+        rain: "Ploaie",
+        showers: "Averse",
+        snow: "Ninsoare",
+        snowShowers: "Averse de ninsoare",
+        thunderstorm: "Furtună"
+    },
+
+    el: {
+        clear: "Καθαρός ουρανός",
+        mainlyClear: "Κυρίως αίθριος",
+        partlyCloudy: "Μερική συννεφιά",
+        overcast: "Συννεφιά",
+        fog: "Ομίχλη",
+        drizzle: "Ελαφριά ψιχάλα",
+        rain: "Βροχή",
+        showers: "Μπόρες",
+        snow: "Χιόνι",
+        snowShowers: "Χιονοπτώσεις",
+        thunderstorm: "Καταιγίδα"
+    },
+
+    bg: {
+        clear: "Ясно",
+        mainlyClear: "Предимно ясно",
+        partlyCloudy: "Частично облачно",
+        overcast: "Облачно",
+        fog: "Мъгла",
+        drizzle: "Лек ръмеж",
+        rain: "Дъжд",
+        showers: "Превалявания",
+        snow: "Сняг",
+        snowShowers: "Снежни превалявания",
+        thunderstorm: "Гръмотевична буря"
+    },
+
+    sr: {
+        clear: "Vedro",
+        mainlyClear: "Pretežno vedro",
+        partlyCloudy: "Delimično oblačno",
+        overcast: "Oblačno",
+        fog: "Magla",
+        drizzle: "Slaba rosulja",
+        rain: "Kiša",
+        showers: "Pljuskovi",
+        snow: "Sneg",
+        snowShowers: "Snežni pljuskovi",
+        thunderstorm: "Grmljavina"
+    },
+
+    de: {
+        clear: "Klarer Himmel",
+        mainlyClear: "Überwiegend klar",
+        partlyCloudy: "Teilweise bewölkt",
+        overcast: "Bedeckt",
+        fog: "Nebel",
+        drizzle: "Leichter Nieselregen",
+        rain: "Regen",
+        showers: "Regenschauer",
+        snow: "Schnee",
+        snowShowers: "Schneeschauer",
+        thunderstorm: "Gewitter"
+    }
+
+};
+
+
+function getWeatherVisual(
+    weatherCode,
+    isDay
+) {
+
+    if (weatherCode === 0) {
+        return {
+            key: "clear",
+            icon: isDay ? "☀️" : "🌙"
+        };
+    }
+
+    if (weatherCode === 1) {
+        return {
+            key: "mainlyClear",
+            icon: isDay ? "🌤️" : "🌙"
+        };
+    }
+
+    if (weatherCode === 2) {
+        return {
+            key: "partlyCloudy",
+            icon: "⛅"
+        };
+    }
+
+    if (weatherCode === 3) {
+        return {
+            key: "overcast",
+            icon: "☁️"
+        };
+    }
+
+    if (
+        weatherCode === 45 ||
+        weatherCode === 48
+    ) {
+        return {
+            key: "fog",
+            icon: "🌫️"
+        };
+    }
+
+    if (
+        weatherCode >= 51 &&
+        weatherCode <= 57
+    ) {
+        return {
+            key: "drizzle",
+            icon: "🌦️"
+        };
+    }
+
+    if (
+        weatherCode >= 61 &&
+        weatherCode <= 67
+    ) {
+        return {
+            key: "rain",
+            icon: "🌧️"
+        };
+    }
+
+    if (
+        weatherCode >= 71 &&
+        weatherCode <= 77
+    ) {
+        return {
+            key: "snow",
+            icon: "❄️"
+        };
+    }
+
+    if (
+        weatherCode >= 80 &&
+        weatherCode <= 82
+    ) {
+        return {
+            key: "showers",
+            icon: "🌦️"
+        };
+    }
+
+    if (
+        weatherCode >= 85 &&
+        weatherCode <= 86
+    ) {
+        return {
+            key: "snowShowers",
+            icon: "🌨️"
+        };
+    }
+
+    if (
+        weatherCode >= 95 &&
+        weatherCode <= 99
+    ) {
+        return {
+            key: "thunderstorm",
+            icon: "⛈️"
+        };
+    }
+
+    return {
+        key: "partlyCloudy",
+        icon: "⛅"
+    };
+}
+
+
+function renderLiveWeather(weatherData) {
+
+    loadedWeatherData =
+        weatherData;
+
+    const lang =
+        getCurrentSiteLanguage();
+
+    const ui =
+        weatherUiText[lang] ||
+        weatherUiText.en;
+
+    const conditions =
+        weatherConditionText[lang] ||
+        weatherConditionText.en;
+
+    const current =
+        weatherData.current || {};
+
+    const visual =
+        getWeatherVisual(
+            Number(current.weather_code),
+            Number(current.is_day) !== 0
+        );
+
+
+    document.getElementById("weatherLiveLabel").textContent =
+        ui.live;
+
+    document.getElementById("weatherFeelsLabel").textContent =
+        ui.feels;
+
+    document.getElementById("weatherIcon").textContent =
+        visual.icon;
+
+    document.getElementById("weatherCondition").textContent =
+        conditions[visual.key] ||
+        conditions.partlyCloudy;
+
+
+    document.getElementById("weatherTemperature").textContent =
+        Number.isFinite(Number(current.temperature_2m))
+            ? Math.round(Number(current.temperature_2m)) + "°"
+            : "—°";
+
+    document.getElementById("weatherFeels").textContent =
+        Number.isFinite(Number(current.apparent_temperature))
+            ? Math.round(Number(current.apparent_temperature)) + "°"
+            : "—°";
+}
+
+
+async function loadLiveWeather(
+    coordinates
+) {
+
+    const lang =
+        getCurrentSiteLanguage();
+
+    const ui =
+        weatherUiText[lang] ||
+        weatherUiText.en;
+
+
+    document.getElementById("weatherLiveLabel").textContent =
+        ui.live;
+
+    document.getElementById("weatherFeelsLabel").textContent =
+        ui.feels;
+
+    document.getElementById("weatherCondition").textContent =
+        ui.loading;
+
+
+    const lat =
+        Number(coordinates?.lat);
+
+    const lon =
+        Number(
+            coordinates?.lon ??
+            coordinates?.lng
+        );
+
+
+    if (
+        !Number.isFinite(lat) ||
+        !Number.isFinite(lon)
+    ) {
+
+        document.getElementById("weatherCondition").textContent =
+            ui.unavailable;
+
+        return;
+
+    }
+
+
+    const weatherUrl =
+        "https://api.open-meteo.com/v1/forecast" +
+        "?latitude=" +
+        encodeURIComponent(lat) +
+        "&longitude=" +
+        encodeURIComponent(lon) +
+        "&current=temperature_2m,apparent_temperature,weather_code,is_day" +
+        "&temperature_unit=celsius" +
+        "&timezone=auto";
+
+
+    try {
+
+        const response =
+            await fetch(
+                weatherUrl,
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Weather HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const weatherData =
+            await response.json();
+
+
+        renderLiveWeather(
+            weatherData
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load live weather.",
+            error
+        );
+
+
+        document.getElementById("weatherIcon").textContent =
+            "⛅";
+
+        document.getElementById("weatherTemperature").textContent =
+            "—°";
+
+        document.getElementById("weatherFeels").textContent =
+            "—°";
+
+        document.getElementById("weatherCondition").textContent =
+            ui.unavailable;
+
+    }
+
+}
+
+
+async function loadDynamicBeach() {
+
+    const status =
+        document.getElementById(
+            "dynamicBeachStatus"
+        );
+
+    const url =
+        HALKIDIKI_DATA_BASE +
+        "/beaches/" +
+        PROPERTY_CONFIG.beachSlug +
+        "/index.json";
+
+
+    try {
+
+        const response =
+            await fetch(
+                url,
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        renderDynamicBeach(
+            data
+        );
+
+        loadLiveWeather(
+            data.coordinates
+        );
+
+        loadDynamicLocalBusinesses(
+            data.coordinates
+        );
+
+        loadNearbyBeaches(
+            data.coordinates
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load beach data.",
+            error
+        );
+
+
+        status.textContent =
+            getBeachLanguage() === "ro"
+                ? "Datele live despre plajă nu sunt disponibile momentan."
+                : "Live beach data is temporarily unavailable.";
+
+    }
+
+}
+
+
+loadDynamicBeach();
+
+
+
+
+/* =========================================================
+   DYNAMIC ACTIVITIES - CONNECTED BY BEACH SLUG
+========================================================= */
+
+const LOCAL_BUSINESSES_INDEX_URL =
+    HALKIDIKI_DATA_BASE +
+    "/local-businesses/local-businesses-index.json";
+
+
+const activityUiText = {
+
+    en: {
+        kicker: "THINGS TO DO",
+        title: "Activities around your beach",
+        intro: "Experiences connected directly with your beach area, selected from the Halkidiki Explorer database.",
+        booking: "BOOKING AVAILABLE",
+        explore: "EXPLORE ACTIVITY",
+        loading: "Loading activities from Halkidiki Explorer...",
+        empty: "No connected activities are available yet."
+    },
+
+    ro: {
+        kicker: "CE POȚI FACE",
+        title: "Activități în zona plajei",
+        intro: "Experiențe conectate direct cu zona plajei, selectate din baza Halkidiki Explorer.",
+        booking: "REZERVARE DISPONIBILĂ",
+        explore: "DESCOPERĂ ACTIVITATEA",
+        loading: "Se încarcă activitățile din Halkidiki Explorer...",
+        empty: "Momentan nu sunt activități conectate pentru această plajă."
+    },
+
+    el: {
+        kicker: "ΤΙ ΝΑ ΚΑΝΕΤΕ",
+        title: "Δραστηριότητες κοντά στην παραλία",
+        intro: "Εμπειρίες που συνδέονται άμεσα με την περιοχή της παραλίας.",
+        booking: "ΔΙΑΘΕΣΙΜΗ ΚΡΑΤΗΣΗ",
+        explore: "ΔΕΙΤΕ ΤΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑ",
+        loading: "Φόρτωση δραστηριοτήτων...",
+        empty: "Δεν υπάρχουν ακόμη συνδεδεμένες δραστηριότητες."
+    },
+
+    bg: {
+        kicker: "КАКВО ДА ПРАВИТЕ",
+        title: "Активности около плажа",
+        intro: "Преживявания, свързани директно с района на плажа.",
+        booking: "ВЪЗМОЖНА РЕЗЕРВАЦИЯ",
+        explore: "РАЗГЛЕДАЙ АКТИВНОСТТА",
+        loading: "Зареждане на активности...",
+        empty: "Все още няма свързани активности."
+    },
+
+    sr: {
+        kicker: "ŠTA RADITI",
+        title: "Aktivnosti u okolini plaže",
+        intro: "Iskustva povezana direktno sa područjem vaše plaže.",
+        booking: "REZERVACIJA DOSTUPNA",
+        explore: "ISTRAŽI AKTIVNOST",
+        loading: "Učitavanje aktivnosti...",
+        empty: "Još nema povezanih aktivnosti."
+    },
+
+    de: {
+        kicker: "AKTIVITÄTEN",
+        title: "Aktivitäten rund um den Strand",
+        intro: "Erlebnisse, die direkt mit Ihrem Strandgebiet verbunden sind.",
+        booking: "BUCHUNG VERFÜGBAR",
+        explore: "AKTIVITÄT ENTDECKEN",
+        loading: "Aktivitäten werden geladen...",
+        empty: "Für diesen Strand sind noch keine Aktivitäten verknüpft."
+    }
+
+};
+
+
+function getActivityLanguage() {
+
+    const lang =
+        document.documentElement.lang || "en";
+
+    return activityUiText[lang]
+        ? lang
+        : "en";
+}
+
+
+function activityLocalized(
+    item,
+    enKey,
+    roKey
+) {
+
+    const lang =
+        getActivityLanguage();
+
+    if (
+        lang === "ro" &&
+        item[roKey]
+    ) {
+        return item[roKey];
+    }
+
+    return (
+        item[enKey] ||
+        item[roKey] ||
+        ""
+    );
+}
+
+
+function firstActivityParagraph(text) {
+
+    const value =
+        String(text || "").trim();
+
+    if (!value) {
+        return "";
+    }
+
+    const first =
+        value.split(/\n\s*\n/)[0];
+
+    if (first.length <= 390) {
+        return first;
+    }
+
+    return (
+        first.slice(0, 387)
+        .trimEnd() +
+        "..."
+    );
+}
+
+
+function isActivityBusiness(item) {
+
+    const category =
+        String(
+            item.category ||
+            item.categoryEn ||
+            ""
+        ).toLowerCase();
+
+    const activityKeywords = [
+        "watersport",
+        "water sport",
+        "boat",
+        "cruise",
+        "waterpark",
+        "water park",
+        "diving",
+        "aerial",
+        "horse",
+        "equestrian",
+        "sailing",
+        "kayak",
+        "sup"
+    ];
+
+    return activityKeywords.some(
+        keyword =>
+            category.includes(
+                keyword
+            )
+    );
+}
+
+
+async function fetchActivityDetail(item) {
+
+    try {
+
+        const response =
+            await fetch(
+                HALKIDIKI_DATA_BASE +
+                "/local-businesses/" +
+                encodeURIComponent(item.id) +
+                "/index.json",
+                {
+                    cache: "no-store"
+                }
+            );
+
+        if (!response.ok) {
+            return item;
+        }
+
+        const detail =
+            await response.json();
+
+        return {
+            ...item,
+            ...detail
+        };
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            "Could not load activity detail:",
+            item.id,
+            error
+        );
+
+        return item;
+
+    }
+}
+
+
+function createActivityCard(
+    item,
+    ui
+) {
+
+    const article =
+        document.createElement(
+            "article"
+        );
+
+    article.className =
+        "activity-card";
+
+
+    const imageWrap =
+        document.createElement(
+            "div"
+        );
+
+    imageWrap.className =
+        "activity-card-image";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+    const imageName =
+        item.heroImage ||
+        item.thumbnail ||
+        "hero.webp";
+
+    image.src =
+        String(imageName).startsWith("http")
+            ? imageName
+            : (
+                HALKIDIKI_DATA_BASE +
+                "/local-businesses/" +
+                encodeURIComponent(item.id) +
+                "/images/" +
+                encodeURIComponent(imageName)
+            );
+
+    image.alt =
+        activityLocalized(
+            item,
+            "titleEn",
+            "titleRo"
+        );
+
+    image.loading =
+        "lazy";
+
+    imageWrap.appendChild(
+        image
+    );
+
+
+    const category =
+        document.createElement(
+            "span"
+        );
+
+    category.className =
+        "activity-category-badge";
+
+    category.textContent =
+        activityLocalized(
+            item,
+            "categoryEn",
+            "categoryRo"
+        ) ||
+        item.category ||
+        "Activity";
+
+    imageWrap.appendChild(
+        category
+    );
+
+
+    if (
+        Number(item.booking) === 1
+    ) {
+
+        const booking =
+            document.createElement(
+                "span"
+            );
+
+        booking.className =
+            "activity-booking-badge";
+
+        booking.textContent =
+            ui.booking;
+
+        imageWrap.appendChild(
+            booking
+        );
+
+    }
+
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+    content.className =
+        "activity-card-content";
+
+
+    const title =
+        document.createElement(
+            "h5"
+        );
+
+    title.textContent =
+        activityLocalized(
+            item,
+            "titleEn",
+            "titleRo"
+        ) ||
+        item.id;
+
+
+    const description =
+        document.createElement(
+            "p"
+        );
+
+    description.className =
+        "activity-description";
+
+    description.textContent =
+        firstActivityParagraph(
+            activityLocalized(
+                item,
+                "descriptionEn",
+                "descriptionRo"
+            )
+        );
+
+
+    const infoRow =
+        document.createElement(
+            "div"
+        );
+
+    infoRow.className =
+        "activity-info-row";
+
+
+    const categoryPill =
+        document.createElement(
+            "span"
+        );
+
+    categoryPill.className =
+        "activity-info-pill";
+
+    categoryPill.textContent =
+        "🌊 " +
+        (
+            activityLocalized(
+                item,
+                "categoryEn",
+                "categoryRo"
+            ) ||
+            item.category ||
+            "Activity"
+        );
+
+    infoRow.appendChild(
+        categoryPill
+    );
+
+
+    if (
+        Array.isArray(item.beaches) &&
+        item.beaches.includes(
+            PROPERTY_CONFIG.beachSlug
+        )
+    ) {
+
+        const connected =
+            document.createElement(
+                "span"
+            );
+
+        connected.className =
+            "activity-info-pill";
+
+        connected.textContent =
+            getActivityLanguage() === "ro"
+                ? "✓ Relevant pentru Kalyves"
+                : "✓ Connected to Kalyves";
+
+        infoRow.appendChild(
+            connected
+        );
+
+    }
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+    link.className =
+        "activity-card-link";
+
+    link.href =
+        "https://www.halkidikiexplorer.com/local-business.html?id=" +
+        encodeURIComponent(
+            item.id
+        );
+
+    link.target =
+        "_blank";
+
+    link.rel =
+        "noopener";
+
+    link.innerHTML =
+        "<span>" +
+        ui.explore +
+        "</span><span>→</span>";
+
+
+    content.appendChild(
+        title
+    );
+
+    if (description.textContent) {
+        content.appendChild(
+            description
+        );
+    }
+
+    content.appendChild(
+        infoRow
+    );
+
+    content.appendChild(
+        link
+    );
+
+
+    article.appendChild(
+        imageWrap
+    );
+
+    article.appendChild(
+        content
+    );
+
+
+    return article;
+}
+
+
+function renderActivityCards(
+    items
+) {
+
+    loadedActivityItems =
+        items;
+
+
+    const lang =
+        getActivityLanguage();
+
+    const ui =
+        activityUiText[lang];
+
+
+    document.getElementById(
+        "activitiesKicker"
+    ).textContent =
+        ui.kicker;
+
+    document.getElementById(
+        "activitiesTitle"
+    ).textContent =
+        ui.title;
+
+    document.getElementById(
+        "activitiesIntro"
+    ).textContent =
+        ui.intro;
+
+
+    const grid =
+        document.getElementById(
+            "activitiesGrid"
+        );
+
+    grid.innerHTML =
+        "";
+
+
+    if (!items.length) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "activities-empty";
+
+        empty.textContent =
+            ui.empty;
+
+        grid.appendChild(
+            empty
+        );
+
+        return;
+    }
+
+
+    items.forEach(
+        item => {
+
+            grid.appendChild(
+                createActivityCard(
+                    item,
+                    ui
+                )
+            );
+
+        }
+    );
+
+}
+
+
+async function loadDynamicActivities() {
+
+    const grid =
+        document.getElementById(
+            "activitiesGrid"
+        );
+
+    const ui =
+        activityUiText[
+            getActivityLanguage()
+        ];
+
+
+    grid.innerHTML =
+        '<div class="activities-loading">' +
+        ui.loading +
+        "</div>";
+
+
+    try {
+
+        const response =
+            await fetch(
+                LOCAL_BUSINESSES_INDEX_URL,
+                {
+                    cache: "no-store"
+                }
+            );
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Local businesses HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const allBusinesses =
+            await response.json();
+
+
+        const linkedActivities =
+            allBusinesses
+                .filter(
+                    item =>
+                        Array.isArray(item.beaches) &&
+                        item.beaches.includes(
+                            PROPERTY_CONFIG.beachSlug
+                        )
+                )
+                .filter(
+                    isActivityBusiness
+                );
+
+
+        const detailedActivities =
+            await Promise.all(
+                linkedActivities.map(
+                    fetchActivityDetail
+                )
+            );
+
+
+        renderActivityCards(
+            detailedActivities
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load activities.",
+            error
+        );
+
+        renderActivityCards(
+            []
+        );
+
+    }
+
+}
+
+
+loadDynamicActivities();
+
+
+/* =========================================================
+   DYNAMIC LOCAL BUSINESSES
+========================================================= */
+
+const localBusinessUiText = {
+
+    en: {
+        kicker: "LOCAL BUSINESSES",
+        title: "Useful services around Kalyves",
+        intro: "Nearby local services selected automatically from the Halkidiki Explorer database.",
+        explore: "VIEW BUSINESS",
+        loading: "Loading local businesses...",
+        empty: "No nearby local businesses are available yet.",
+        away: "away"
+    },
+
+    ro: {
+        kicker: "AFACERI LOCALE",
+        title: "Servicii utile în zona Kalyves",
+        intro: "Servicii locale din apropiere, selectate automat din baza Halkidiki Explorer.",
+        explore: "VEZI AFACEREA",
+        loading: "Se încarcă afacerile locale...",
+        empty: "Momentan nu sunt disponibile afaceri locale în apropiere.",
+        away: "distanță"
+    },
+
+    el: {
+        kicker: "ΤΟΠΙΚΕΣ ΕΠΙΧΕΙΡΗΣΕΙΣ",
+        title: "Χρήσιμες υπηρεσίες κοντά στις Καλύβες",
+        intro: "Κοντινές τοπικές υπηρεσίες από τη βάση Halkidiki Explorer.",
+        explore: "ΔΕΙΤΕ ΤΗΝ ΕΠΙΧΕΙΡΗΣΗ",
+        loading: "Φόρτωση τοπικών επιχειρήσεων...",
+        empty: "Δεν υπάρχουν ακόμη διαθέσιμες κοντινές επιχειρήσεις.",
+        away: "μακριά"
+    },
+
+    bg: {
+        kicker: "МЕСТЕН БИЗНЕС",
+        title: "Полезни услуги около Каливес",
+        intro: "Близки местни услуги от базата Halkidiki Explorer.",
+        explore: "ВИЖ БИЗНЕСА",
+        loading: "Зареждане на местни бизнеси...",
+        empty: "Все още няма налични близки местни бизнеси.",
+        away: "разстояние"
+    },
+
+    sr: {
+        kicker: "LOKALNI BIZNISI",
+        title: "Korisne usluge oko Kalivesa",
+        intro: "Obližnje lokalne usluge iz Halkidiki Explorer baze.",
+        explore: "POGLEDAJ BIZNIS",
+        loading: "Učitavanje lokalnih biznisa...",
+        empty: "Još nema dostupnih lokalnih biznisa u blizini.",
+        away: "udaljeno"
+    },
+
+    de: {
+        kicker: "LOKALE UNTERNEHMEN",
+        title: "Nützliche Services rund um Kalyves",
+        intro: "Nahegelegene lokale Services aus der Halkidiki Explorer Datenbank.",
+        explore: "UNTERNEHMEN ANSEHEN",
+        loading: "Lokale Unternehmen werden geladen...",
+        empty: "Noch keine lokalen Unternehmen in der Nähe verfügbar.",
+        away: "entfernt"
+    }
+
+};
+
+
+function getLocalBusinessLanguage() {
+
+    const lang =
+        document.documentElement.lang || "en";
+
+    return localBusinessUiText[lang]
+        ? lang
+        : "en";
+}
+
+
+function localBusinessLocalized(
+    item,
+    enKey,
+    roKey
+) {
+
+    const lang =
+        getLocalBusinessLanguage();
+
+    if (
+        lang === "ro" &&
+        item[roKey]
+    ) {
+        return item[roKey];
+    }
+
+    return (
+        item[enKey] ||
+        item[roKey] ||
+        ""
+    );
+}
+
+
+function shortLocalBusinessDescription(text) {
+
+    const value =
+        String(text || "")
+            .trim();
+
+    if (!value) {
+        return "";
+    }
+
+    const firstParagraph =
+        value.split(/\n\s*\n/)[0];
+
+    if (firstParagraph.length <= 280) {
+        return firstParagraph;
+    }
+
+    return (
+        firstParagraph
+            .slice(0, 277)
+            .trimEnd() +
+        "..."
+    );
+}
+
+
+async function fetchLocalBusinessDetail(item) {
+
+    try {
+
+        const response =
+            await fetch(
+                HALKIDIKI_DATA_BASE +
+                "/local-businesses/" +
+                encodeURIComponent(item.id) +
+                "/index.json",
+                {
+                    cache: "no-store"
+                }
+            );
+
+        if (!response.ok) {
+            return item;
+        }
+
+        const detail =
+            await response.json();
+
+        return {
+            ...item,
+            ...detail
+        };
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            "Could not load local business detail:",
+            item.id,
+            error
+        );
+
+        return item;
+    }
+}
+
+
+function createLocalBusinessCard(
+    item,
+    ui
+) {
+
+    const article =
+        document.createElement(
+            "article"
+        );
+
+    article.className =
+        "local-business-card";
+
+
+    const imageWrap =
+        document.createElement(
+            "div"
+        );
+
+    imageWrap.className =
+        "local-business-image";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+    const imageName =
+        item.heroImage ||
+        item.thumbnail ||
+        "hero.webp";
+
+    image.src =
+        String(imageName).startsWith("http")
+            ? imageName
+            : (
+                HALKIDIKI_DATA_BASE +
+                "/local-businesses/" +
+                encodeURIComponent(item.id) +
+                "/images/" +
+                encodeURIComponent(imageName)
+            );
+
+    image.alt =
+        localBusinessLocalized(
+            item,
+            "titleEn",
+            "titleRo"
+        ) ||
+        item.id;
+
+    image.loading =
+        "lazy";
+
+    image.onerror =
+        function () {
+            this.style.display =
+                "none";
+        };
+
+    imageWrap.appendChild(
+        image
+    );
+
+
+    const category =
+        document.createElement(
+            "span"
+        );
+
+    category.className =
+        "local-business-category";
+
+    category.textContent =
+        localBusinessLocalized(
+            item,
+            "categoryEn",
+            "categoryRo"
+        ) ||
+        item.category ||
+        "Local business";
+
+    imageWrap.appendChild(
+        category
+    );
+
+
+    if (
+        Number.isFinite(
+            Number(item._distanceKm)
+        )
+    ) {
+
+        const distance =
+            document.createElement(
+                "span"
+            );
+
+        distance.className =
+            "local-business-distance";
+
+        distance.textContent =
+            formatNearbyDistance(
+                item._distanceKm
+            ) +
+            " " +
+            ui.away;
+
+        imageWrap.appendChild(
+            distance
+        );
+    }
+
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+    content.className =
+        "local-business-content";
+
+
+    const title =
+        document.createElement(
+            "h5"
+        );
+
+    title.textContent =
+        localBusinessLocalized(
+            item,
+            "titleEn",
+            "titleRo"
+        ) ||
+        item.id;
+
+
+    const description =
+        document.createElement(
+            "p"
+        );
+
+    description.className =
+        "local-business-description";
+
+    description.textContent =
+        shortLocalBusinessDescription(
+            localBusinessLocalized(
+                item,
+                "descriptionEn",
+                "descriptionRo"
+            )
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+    link.className =
+        "local-business-link";
+
+    link.href =
+        "https://www.halkidikiexplorer.com/local-business.html?id=" +
+        encodeURIComponent(
+            item.id
+        );
+
+    link.target =
+        "_blank";
+
+    link.rel =
+        "noopener";
+
+    link.innerHTML =
+        "<span>" +
+        ui.explore +
+        "</span><span>→</span>";
+
+
+    content.appendChild(
+        title
+    );
+
+    if (description.textContent) {
+        content.appendChild(
+            description
+        );
+    }
+
+    content.appendChild(
+        link
+    );
+
+
+    article.appendChild(
+        imageWrap
+    );
+
+    article.appendChild(
+        content
+    );
+
+    return article;
+}
+
+
+function renderLocalBusinessCards(
+    items
+) {
+
+    loadedLocalBusinessItems =
+        items;
+
+
+    const ui =
+        localBusinessUiText[
+            getLocalBusinessLanguage()
+        ];
+
+
+    document.getElementById(
+        "localBusinessesKicker"
+    ).textContent =
+        ui.kicker;
+
+    document.getElementById(
+        "localBusinessesTitle"
+    ).textContent =
+        ui.title;
+
+    document.getElementById(
+        "localBusinessesIntro"
+    ).textContent =
+        ui.intro;
+
+
+    const grid =
+        document.getElementById(
+            "localBusinessesGrid"
+        );
+
+    grid.innerHTML =
+        "";
+
+
+    if (!items.length) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "local-businesses-empty";
+
+        empty.textContent =
+            ui.empty;
+
+        grid.appendChild(
+            empty
+        );
+
+        return;
+    }
+
+
+    items.forEach(
+        item => {
+
+            grid.appendChild(
+                createLocalBusinessCard(
+                    item,
+                    ui
+                )
+            );
+
+        }
+    );
+}
+
+
+async function loadDynamicLocalBusinesses(
+    mainCoordinates
+) {
+
+    const grid =
+        document.getElementById(
+            "localBusinessesGrid"
+        );
+
+    const ui =
+        localBusinessUiText[
+            getLocalBusinessLanguage()
+        ];
+
+
+    grid.innerHTML =
+        '<div class="local-businesses-loading">' +
+        ui.loading +
+        "</div>";
+
+
+    const mainLat =
+        Number(
+            mainCoordinates?.lat
+        );
+
+    const mainLon =
+        Number(
+            mainCoordinates?.lon ??
+            mainCoordinates?.lng
+        );
+
+
+    if (
+        !Number.isFinite(mainLat) ||
+        !Number.isFinite(mainLon)
+    ) {
+
+        renderLocalBusinessCards(
+            []
+        );
+
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                LOCAL_BUSINESSES_INDEX_URL,
+                {
+                    cache: "no-store"
+                }
+            );
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Local businesses HTTP " +
+                response.status
+            );
+        }
+
+
+        const allBusinesses =
+            await response.json();
+
+
+        const nonActivityBusinesses =
+            allBusinesses
+                .filter(
+                    item =>
+                        !isActivityBusiness(
+                            item
+                        )
+                )
+                .filter(
+                    item =>
+                        Number.isFinite(
+                            Number(
+                                item.lat ??
+                                item.coordinates?.lat
+                            )
+                        ) &&
+                        Number.isFinite(
+                            Number(
+                                item.lon ??
+                                item.coordinates?.lng
+                            )
+                        )
+                )
+                .map(
+                    item => {
+
+                        const lat =
+                            Number(
+                                item.lat ??
+                                item.coordinates?.lat
+                            );
+
+                        const lon =
+                            Number(
+                                item.lon ??
+                                item.coordinates?.lng
+                            );
+
+                        return {
+                            ...item,
+                            _distanceKm:
+                                calculateBeachDistanceKm(
+                                    mainLat,
+                                    mainLon,
+                                    lat,
+                                    lon
+                                )
+                        };
+                    }
+                )
+                .filter(
+                    item =>
+                        item._distanceKm <= 25
+                )
+                .sort(
+                    (a, b) =>
+                        a._distanceKm -
+                        b._distanceKm
+                )
+                .slice(
+                    0,
+                    4
+                );
+
+
+        const detailed =
+            await Promise.all(
+                nonActivityBusinesses.map(
+                    fetchLocalBusinessDetail
+                )
+            );
+
+
+        const withDistances =
+            detailed.map(
+                (item, index) => ({
+                    ...item,
+                    _distanceKm:
+                        nonActivityBusinesses[index]
+                            ?._distanceKm
+                })
+            );
+
+
+        renderLocalBusinessCards(
+            withDistances
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load local businesses.",
+            error
+        );
+
+        renderLocalBusinessCards(
+            []
+        );
+    }
+}
+
+
+
+
+/* =========================================================
+   DYNAMIC NEARBY BEACHES
+========================================================= */
+
+const BEACHES_INDEX_URL =
+    HALKIDIKI_DATA_BASE +
+    "/beaches/beaches-index.json";
+
+
+const nearbyBeachUiText = {
+
+    en: {
+        kicker: "EXPLORE MORE",
+        title: "Nearby beaches",
+        intro: "Discover three nearby beaches selected automatically by distance from your main beach.",
+        distance: "away",
+        rating: "Rating",
+        water: "Water",
+        family: "Family friendly",
+        explore: "EXPLORE BEACH",
+        loading: "Finding nearby beaches...",
+        empty: "No nearby beaches are available yet."
+    },
+
+    ro: {
+        kicker: "DESCOPERĂ MAI MULT",
+        title: "Plaje din apropiere",
+        intro: "Descoperă trei plaje apropiate, selectate automat în funcție de distanța față de plaja principală.",
+        distance: "distanță",
+        rating: "Rating",
+        water: "Apă",
+        family: "Potrivită pentru familii",
+        explore: "DESCOPERĂ PLAJA",
+        loading: "Căutăm plajele din apropiere...",
+        empty: "Momentan nu sunt disponibile alte plaje apropiate."
+    },
+
+    el: {
+        kicker: "ΑΝΑΚΑΛΥΨΤΕ ΠΕΡΙΣΣΟΤΕΡΑ",
+        title: "Κοντινές παραλίες",
+        intro: "Ανακαλύψτε τρεις κοντινές παραλίες, επιλεγμένες αυτόματα με βάση την απόσταση.",
+        distance: "μακριά",
+        rating: "Βαθμολογία",
+        water: "Νερό",
+        family: "Κατάλληλη για οικογένειες",
+        explore: "ΔΕΙΤΕ ΤΗΝ ΠΑΡΑΛΙΑ",
+        loading: "Αναζήτηση κοντινών παραλιών...",
+        empty: "Δεν υπάρχουν ακόμη διαθέσιμες κοντινές παραλίες."
+    },
+
+    bg: {
+        kicker: "ОТКРИЙТЕ ОЩЕ",
+        title: "Плажове наблизо",
+        intro: "Открийте три близки плажа, избрани автоматично според разстоянието.",
+        distance: "разстояние",
+        rating: "Оценка",
+        water: "Вода",
+        family: "Подходящ за семейства",
+        explore: "РАЗГЛЕДАЙ ПЛАЖА",
+        loading: "Търсим близки плажове...",
+        empty: "Все още няма налични близки плажове."
+    },
+
+    sr: {
+        kicker: "ISTRAŽITE VIŠE",
+        title: "Plaže u blizini",
+        intro: "Otkrijte tri obližnje plaže, automatski izabrane prema udaljenosti.",
+        distance: "udaljeno",
+        rating: "Ocena",
+        water: "Voda",
+        family: "Pogodno za porodice",
+        explore: "ISTRAŽI PLAŽU",
+        loading: "Tražimo plaže u blizini...",
+        empty: "Još nema dostupnih obližnjih plaža."
+    },
+
+    de: {
+        kicker: "MEHR ENTDECKEN",
+        title: "Strände in der Nähe",
+        intro: "Entdecken Sie drei nahegelegene Strände, automatisch nach Entfernung ausgewählt.",
+        distance: "entfernt",
+        rating: "Bewertung",
+        water: "Wasser",
+        family: "Familienfreundlich",
+        explore: "STRAND ENTDECKEN",
+        loading: "Nahegelegene Strände werden gesucht...",
+        empty: "Noch keine nahegelegenen Strände verfügbar."
+    }
+
+};
+
+
+function getNearbyBeachLanguage() {
+
+    const lang =
+        document.documentElement.lang || "en";
+
+    return nearbyBeachUiText[lang]
+        ? lang
+        : "en";
+}
+
+
+function nearbyBeachName(item) {
+
+    const lang =
+        getNearbyBeachLanguage();
+
+    return (
+        item.name?.[lang] ||
+        item.name?.en ||
+        item.name?.ro ||
+        item.id
+    );
+}
+
+
+function calculateBeachDistanceKm(
+    lat1,
+    lon1,
+    lat2,
+    lon2
+) {
+
+    const earthRadiusKm =
+        6371;
+
+    const toRadians =
+        degrees =>
+            degrees *
+            Math.PI /
+            180;
+
+
+    const dLat =
+        toRadians(
+            lat2 - lat1
+        );
+
+    const dLon =
+        toRadians(
+            lon2 - lon1
+        );
+
+
+    const a =
+        Math.sin(dLat / 2) *
+        Math.sin(dLat / 2) +
+        Math.cos(toRadians(lat1)) *
+        Math.cos(toRadians(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+
+
+    const c =
+        2 *
+        Math.atan2(
+            Math.sqrt(a),
+            Math.sqrt(1 - a)
+        );
+
+
+    return (
+        earthRadiusKm *
+        c
+    );
+
+}
+
+
+function formatNearbyDistance(
+    distanceKm
+) {
+
+    if (distanceKm < 1) {
+
+        return (
+            Math.round(
+                distanceKm *
+                1000
+            ) +
+            " m"
+        );
+
+    }
+
+    return (
+        distanceKm.toFixed(1) +
+        " km"
+    );
+
+}
+
+
+function createNearbyBeachCard(
+    item,
+    ui
+) {
+
+    const article =
+        document.createElement(
+            "article"
+        );
+
+    article.className =
+        "nearby-beach-card";
+
+
+    const imageWrap =
+        document.createElement(
+            "div"
+        );
+
+    imageWrap.className =
+        "nearby-beach-image";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+    image.src =
+        HALKIDIKI_DATA_BASE +
+        "/beaches/" +
+        encodeURIComponent(item.id) +
+        "/images/" +
+        encodeURIComponent(
+            item.previewImage || ""
+        );
+
+    image.alt =
+        nearbyBeachName(
+            item
+        );
+
+    image.loading =
+        "lazy";
+
+
+    image.onerror =
+        function () {
+
+            this.style.display =
+                "none";
+
+        };
+
+
+    imageWrap.appendChild(
+        image
+    );
+
+
+    const distance =
+        document.createElement(
+            "span"
+        );
+
+    distance.className =
+        "nearby-distance";
+
+    distance.textContent =
+        formatNearbyDistance(
+            item._distanceKm
+        ) +
+        " " +
+        ui.distance;
+
+    imageWrap.appendChild(
+        distance
+    );
+
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+    content.className =
+        "nearby-beach-content";
+
+
+    const meta =
+        document.createElement(
+            "div"
+        );
+
+    meta.className =
+        "nearby-beach-meta";
+
+
+    if (
+        item.rating !== undefined &&
+        item.rating !== null
+    ) {
+
+        const rating =
+            document.createElement(
+                "span"
+            );
+
+        rating.textContent =
+            "⭐ " +
+            item.rating;
+
+        meta.appendChild(
+            rating
+        );
+
+    }
+
+
+    if (
+        item.waterTemperature !== undefined &&
+        item.waterTemperature !== null
+    ) {
+
+        const water =
+            document.createElement(
+                "span"
+            );
+
+        water.textContent =
+            "🌊 " +
+            item.waterTemperature +
+            "°C";
+
+        meta.appendChild(
+            water
+        );
+
+    }
+
+
+    if (item.suitableForChildren) {
+
+        const family =
+            document.createElement(
+                "span"
+            );
+
+        family.textContent =
+            "👨‍👩‍👧 " +
+            ui.family;
+
+        meta.appendChild(
+            family
+        );
+
+    }
+
+
+    const title =
+        document.createElement(
+            "h5"
+        );
+
+    title.textContent =
+        nearbyBeachName(
+            item
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+    link.className =
+        "nearby-beach-link";
+
+    link.href =
+        "https://www.halkidikiexplorer.com/beach.html?id=" +
+        encodeURIComponent(
+            item.id
+        );
+
+    link.target =
+        "_blank";
+
+    link.rel =
+        "noopener";
+
+    link.innerHTML =
+        "<span>" +
+        ui.explore +
+        "</span><span>→</span>";
+
+
+    content.appendChild(
+        meta
+    );
+
+    content.appendChild(
+        title
+    );
+
+    content.appendChild(
+        link
+    );
+
+
+    article.appendChild(
+        imageWrap
+    );
+
+    article.appendChild(
+        content
+    );
+
+
+    return article;
+}
+
+
+function renderNearbyBeaches(
+    items
+) {
+
+    loadedNearbyBeachItems =
+        items;
+
+
+    const lang =
+        getNearbyBeachLanguage();
+
+    const ui =
+        nearbyBeachUiText[lang];
+
+
+    document.getElementById(
+        "nearbyBeachesKicker"
+    ).textContent =
+        ui.kicker;
+
+
+    document.getElementById(
+        "nearbyBeachesTitle"
+    ).textContent =
+        ui.title;
+
+
+    document.getElementById(
+        "nearbyBeachesIntro"
+    ).textContent =
+        ui.intro;
+
+
+    const grid =
+        document.getElementById(
+            "nearbyBeachesGrid"
+        );
+
+
+    grid.innerHTML =
+        "";
+
+
+    if (!items.length) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "nearby-beaches-empty";
+
+        empty.textContent =
+            ui.empty;
+
+        grid.appendChild(
+            empty
+        );
+
+        return;
+
+    }
+
+
+    items.forEach(
+        item => {
+
+            grid.appendChild(
+                createNearbyBeachCard(
+                    item,
+                    ui
+                )
+            );
+
+        }
+    );
+
+}
+
+
+async function loadNearbyBeaches(
+    mainCoordinates
+) {
+
+    const grid =
+        document.getElementById(
+            "nearbyBeachesGrid"
+        );
+
+
+    const lang =
+        getNearbyBeachLanguage();
+
+    const ui =
+        nearbyBeachUiText[lang];
+
+
+    grid.innerHTML =
+        '<div class="nearby-beaches-loading">' +
+        ui.loading +
+        "</div>";
+
+
+    const mainLat =
+        Number(
+            mainCoordinates?.lat
+        );
+
+    const mainLon =
+        Number(
+            mainCoordinates?.lon ??
+            mainCoordinates?.lng
+        );
+
+
+    if (
+        !Number.isFinite(mainLat) ||
+        !Number.isFinite(mainLon)
+    ) {
+
+        renderNearbyBeaches(
+            []
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                BEACHES_INDEX_URL,
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Beaches HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const allBeaches =
+            await response.json();
+
+
+        const nearby =
+            allBeaches
+                .filter(
+                    item =>
+                        item.id !==
+                        PROPERTY_CONFIG.beachSlug
+                )
+                .filter(
+                    item =>
+                        Number.isFinite(
+                            Number(
+                                item.coordinates?.lat
+                            )
+                        ) &&
+                        Number.isFinite(
+                            Number(
+                                item.coordinates?.lon
+                            )
+                        )
+                )
+                .map(
+                    item => ({
+
+                        ...item,
+
+                        _distanceKm:
+                            calculateBeachDistanceKm(
+                                mainLat,
+                                mainLon,
+                                Number(
+                                    item.coordinates.lat
+                                ),
+                                Number(
+                                    item.coordinates.lon
+                                )
+                            )
+
+                    })
+                )
+                .sort(
+                    (a, b) =>
+                        a._distanceKm -
+                        b._distanceKm
+                )
+                .slice(
+                    0,
+                    3
+                );
+
+
+        renderNearbyBeaches(
+            nearby
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load nearby beaches.",
+            error
+        );
+
+
+        renderNearbyBeaches(
+            []
+        );
+
+    }
+
+}
+
+
+
+
+/* =========================================================
+   DYNAMIC RESTAURANTS - CONNECTED BY BEACH SLUG
+========================================================= */
+
+const RESTAURANTS_INDEX_URL =
+    HALKIDIKI_DATA_BASE +
+    "/restaurants/restaurants-index.json";
+
+
+const restaurantUiText = {
+
+    en: {
+        kicker: "PLACES TO EAT",
+        title: "Restaurants near your beach",
+        intro: "Hand-picked dining options connected directly with your beach area.",
+        featured: "FEATURED",
+        explore: "EXPLORE RESTAURANT",
+        loading: "Loading restaurants from Halkidiki Explorer...",
+        empty: "No connected restaurants are available yet."
+    },
+
+    ro: {
+        kicker: "UNDE SĂ MĂNÂNCI",
+        title: "Restaurante în apropierea plajei",
+        intro: "Locuri atent selectate, conectate direct cu zona plajei tale.",
+        featured: "RECOMANDAT",
+        explore: "DESCOPERĂ RESTAURANTUL",
+        loading: "Se încarcă restaurantele din Halkidiki Explorer...",
+        empty: "Momentan nu sunt restaurante conectate pentru această plajă."
+    },
+
+    el: {
+        kicker: "ΠΟΥ ΝΑ ΦΑΤΕ",
+        title: "Εστιατόρια κοντά στην παραλία",
+        intro: "Επιλεγμένες προτάσεις φαγητού συνδεδεμένες με την περιοχή της παραλίας.",
+        featured: "ΠΡΟΤΕΙΝΟΜΕΝΟ",
+        explore: "ΔΕΙΤΕ ΤΟ ΕΣΤΙΑΤΟΡΙΟ",
+        loading: "Φόρτωση εστιατορίων από το Halkidiki Explorer...",
+        empty: "Δεν υπάρχουν ακόμη συνδεδεμένα εστιατόρια."
+    },
+
+    bg: {
+        kicker: "КЪДЕ ДА ХАПНЕТЕ",
+        title: "Ресторанти близо до плажа",
+        intro: "Подбрани места за хранене, свързани директно с района на плажа.",
+        featured: "ПРЕПОРЪЧАНО",
+        explore: "РАЗГЛЕДАЙ РЕСТОРАНТА",
+        loading: "Зареждане на ресторанти от Halkidiki Explorer...",
+        empty: "Все още няма свързани ресторанти."
+    },
+
+    sr: {
+        kicker: "GDE JESTI",
+        title: "Restorani u blizini plaže",
+        intro: "Pažljivo odabrani restorani povezani direktno sa vašom plažom.",
+        featured: "PREPORUČENO",
+        explore: "ISTRAŽI RESTORAN",
+        loading: "Učitavanje restorana iz Halkidiki Explorer-a...",
+        empty: "Još nema povezanih restorana."
+    },
+
+    de: {
+        kicker: "ESSEN & GENIESSEN",
+        title: "Restaurants in Strandnähe",
+        intro: "Ausgewählte Restaurants, die direkt mit Ihrem Strandgebiet verbunden sind.",
+        featured: "EMPFOHLEN",
+        explore: "RESTAURANT ENTDECKEN",
+        loading: "Restaurants werden aus Halkidiki Explorer geladen...",
+        empty: "Für diesen Strand sind noch keine Restaurants verknüpft."
+    }
+
+};
+
+
+function getRestaurantUiLanguage() {
+
+    const lang =
+        document.documentElement.lang || "en";
+
+    return restaurantUiText[lang]
+        ? lang
+        : "en";
+}
+
+
+function restaurantLocalized(
+    item,
+    englishKey,
+    romanianKey
+) {
+
+    const lang =
+        getRestaurantUiLanguage();
+
+    if (
+        lang === "ro" &&
+        item[romanianKey]
+    ) {
+        return item[romanianKey];
+    }
+
+    return (
+        item[englishKey] ||
+        item[romanianKey] ||
+        ""
+    );
+}
+
+
+function cleanRestaurantTag(value) {
+
+    return String(value || "")
+        .replaceAll("_", " ")
+        .replaceAll("-", " ");
+}
+
+
+function createRestaurantCard(
+    item,
+    ui
+) {
+
+    const article =
+        document.createElement(
+            "article"
+        );
+
+    article.className =
+        "restaurant-card";
+
+
+    const imageWrap =
+        document.createElement(
+            "div"
+        );
+
+    imageWrap.className =
+        "restaurant-card-image";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+    image.src =
+        item.image || "";
+
+    image.alt =
+        restaurantLocalized(
+            item,
+            "titleEn",
+            "titleRo"
+        );
+
+    image.loading =
+        "lazy";
+
+    imageWrap.appendChild(
+        image
+    );
+
+
+    if (item.featured) {
+
+        const featured =
+            document.createElement(
+                "span"
+            );
+
+        featured.className =
+            "restaurant-featured-badge";
+
+        featured.textContent =
+            ui.featured;
+
+        imageWrap.appendChild(
+            featured
+        );
+
+    }
+
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+    content.className =
+        "restaurant-card-content";
+
+
+    const meta =
+        document.createElement(
+            "div"
+        );
+
+    meta.className =
+        "restaurant-meta";
+
+
+    if (item.rating) {
+
+        const rating =
+            document.createElement(
+                "span"
+            );
+
+        rating.className =
+            "restaurant-rating";
+
+        rating.textContent =
+            "⭐ " +
+            item.rating;
+
+        meta.appendChild(
+            rating
+        );
+
+    }
+
+
+    if (item.price) {
+
+        const price =
+            document.createElement(
+                "span"
+            );
+
+        price.className =
+            "restaurant-price";
+
+        price.textContent =
+            item.price;
+
+        meta.appendChild(
+            price
+        );
+
+    }
+
+
+    const title =
+        document.createElement(
+            "h5"
+        );
+
+    title.textContent =
+        restaurantLocalized(
+            item,
+            "titleEn",
+            "titleRo"
+        );
+
+
+    const description =
+        document.createElement(
+            "p"
+        );
+
+    description.className =
+        "restaurant-description";
+
+    description.textContent =
+        restaurantLocalized(
+            item,
+            "shortEn",
+            "shortRo"
+        );
+
+
+    const tags =
+        document.createElement(
+            "div"
+        );
+
+    tags.className =
+        "restaurant-tags";
+
+
+    const tagValues = [
+        ...(Array.isArray(item.cuisineTypes)
+            ? item.cuisineTypes
+            : []),
+        ...(Array.isArray(item.features)
+            ? item.features
+            : [])
+    ]
+        .filter(Boolean)
+        .filter(
+            (value, index, array) =>
+                array.indexOf(value) === index
+        )
+        .slice(0, 4);
+
+
+    tagValues.forEach(
+        value => {
+
+            const tag =
+                document.createElement(
+                    "span"
+                );
+
+            tag.className =
+                "restaurant-tag";
+
+            tag.textContent =
+                cleanRestaurantTag(
+                    value
+                );
+
+            tags.appendChild(
+                tag
+            );
+
+        }
+    );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+    link.className =
+        "restaurant-card-link";
+
+    link.href =
+        "https://www.halkidikiexplorer.com/place.html?id=" +
+        encodeURIComponent(
+            item.id
+        );
+
+    link.target =
+        "_blank";
+
+    link.rel =
+        "noopener";
+
+    link.innerHTML =
+        "<span>" +
+        ui.explore +
+        "</span><span>→</span>";
+
+
+    content.appendChild(
+        meta
+    );
+
+    content.appendChild(
+        title
+    );
+
+    content.appendChild(
+        description
+    );
+
+    content.appendChild(
+        tags
+    );
+
+    content.appendChild(
+        link
+    );
+
+
+    article.appendChild(
+        imageWrap
+    );
+
+    article.appendChild(
+        content
+    );
+
+
+    return article;
+}
+
+
+function renderRestaurantCards(
+    items
+) {
+
+    loadedRestaurantItems =
+        items;
+
+
+    const lang =
+        getRestaurantUiLanguage();
+
+    const ui =
+        restaurantUiText[lang];
+
+
+    document.getElementById(
+        "restaurantsKicker"
+    ).textContent =
+        ui.kicker;
+
+
+    document.getElementById(
+        "restaurantsTitle"
+    ).textContent =
+        ui.title;
+
+
+    document.getElementById(
+        "restaurantsIntro"
+    ).textContent =
+        ui.intro;
+
+
+    const grid =
+        document.getElementById(
+            "restaurantCardsGrid"
+        );
+
+
+    grid.innerHTML =
+        "";
+
+
+    if (!items.length) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "restaurant-empty";
+
+        empty.textContent =
+            ui.empty;
+
+        grid.appendChild(
+            empty
+        );
+
+        return;
+
+    }
+
+
+    items.forEach(
+        item => {
+
+            grid.appendChild(
+                createRestaurantCard(
+                    item,
+                    ui
+                )
+            );
+
+        }
+    );
+
+}
+
+
+async function loadDynamicRestaurants() {
+
+    const grid =
+        document.getElementById(
+            "restaurantCardsGrid"
+        );
+
+
+    const lang =
+        getRestaurantUiLanguage();
+
+    const ui =
+        restaurantUiText[lang];
+
+
+    grid.innerHTML =
+        '<div class="restaurant-loading">' +
+        ui.loading +
+        "</div>";
+
+
+    try {
+
+        const response =
+            await fetch(
+                RESTAURANTS_INDEX_URL,
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Restaurants HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const allPlaces =
+            await response.json();
+
+
+        const restaurants =
+            allPlaces
+                .filter(
+                    item =>
+                        item.beachSlug ===
+                        PROPERTY_CONFIG.beachSlug
+                )
+                .filter(
+                    item =>
+                        item.type ===
+                        "restaurant"
+                )
+                .sort(
+                    (a, b) => {
+
+                        if (
+                            Boolean(a.featured) !==
+                            Boolean(b.featured)
+                        ) {
+                            return a.featured
+                                ? -1
+                                : 1;
+                        }
+
+                        return (
+                            Number(b.rating || 0) -
+                            Number(a.rating || 0)
+                        );
+
+                    }
+                );
+
+
+        renderRestaurantCards(
+            restaurants
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load connected restaurants.",
+            error
+        );
+
+
+        grid.innerHTML =
+            '<div class="restaurant-empty">' +
+            ui.empty +
+            "</div>";
+
+    }
+
+}
+
+
+loadDynamicRestaurants();
+
+
+
+
+
+/* =========================================================
+   DYNAMIC BEACH BARS - CONNECTED BY BEACH SLUG
+========================================================= */
+
+const beachBarUiText = {
+
+    en: {
+        kicker: "BEACH LIFE",
+        title: "Beach bars near your beach",
+        intro: "Relax by the sea with selected beach bars connected directly with your beach area.",
+        featured: "BEACH BAR",
+        explore: "EXPLORE BEACH BAR",
+        loading: "Loading beach bars from Halkidiki Explorer...",
+        empty: "No connected beach bars are available yet."
+    },
+
+    ro: {
+        kicker: "RELAXARE LA PLAJĂ",
+        title: "Beach baruri în apropierea plajei",
+        intro: "Relaxează-te lângă mare în beach baruri selectate, conectate direct cu zona plajei tale.",
+        featured: "BEACH BAR",
+        explore: "DESCOPERĂ BEACH BARUL",
+        loading: "Se încarcă beach barurile din Halkidiki Explorer...",
+        empty: "Momentan nu sunt beach baruri conectate pentru această plajă."
+    },
+
+    el: {
+        kicker: "ΖΩΗ ΣΤΗΝ ΠΑΡΑΛΙΑ",
+        title: "Beach bars κοντά στην παραλία",
+        intro: "Χαλαρώστε δίπλα στη θάλασσα σε επιλεγμένα beach bars της περιοχής.",
+        featured: "BEACH BAR",
+        explore: "ΔΕΙΤΕ ΤΟ BEACH BAR",
+        loading: "Φόρτωση beach bars από το Halkidiki Explorer...",
+        empty: "Δεν υπάρχουν ακόμη συνδεδεμένα beach bars."
+    },
+
+    bg: {
+        kicker: "ЖИВОТ НА ПЛАЖА",
+        title: "Плажни барове наблизо",
+        intro: "Отпуснете се край морето в подбрани плажни барове, свързани с района.",
+        featured: "BEACH BAR",
+        explore: "РАЗГЛЕДАЙ BEACH BAR",
+        loading: "Зареждане на beach bars от Halkidiki Explorer...",
+        empty: "Все още няма свързани beach bars."
+    },
+
+    sr: {
+        kicker: "ŽIVOT NA PLAŽI",
+        title: "Beach barovi u blizini",
+        intro: "Opustite se pored mora u pažljivo odabranim beach barovima povezanim sa vašom plažom.",
+        featured: "BEACH BAR",
+        explore: "ISTRAŽI BEACH BAR",
+        loading: "Učitavanje beach barova iz Halkidiki Explorer-a...",
+        empty: "Još nema povezanih beach barova."
+    },
+
+    de: {
+        kicker: "STRANDLEBEN",
+        title: "Beach Bars in Strandnähe",
+        intro: "Entspannen Sie am Meer in ausgewählten Beach Bars rund um Ihren Strand.",
+        featured: "BEACH BAR",
+        explore: "BEACH BAR ENTDECKEN",
+        loading: "Beach Bars werden aus Halkidiki Explorer geladen...",
+        empty: "Für diesen Strand sind noch keine Beach Bars verknüpft."
+    }
+
+};
+
+
+function getBeachBarUiLanguage() {
+
+    const lang =
+        document.documentElement.lang || "en";
+
+    return beachBarUiText[lang]
+        ? lang
+        : "en";
+}
+
+
+function beachBarLocalized(
+    item,
+    englishKey,
+    romanianKey
+) {
+
+    const lang =
+        getBeachBarUiLanguage();
+
+    if (
+        lang === "ro" &&
+        item[romanianKey]
+    ) {
+        return item[romanianKey];
+    }
+
+    return (
+        item[englishKey] ||
+        item[romanianKey] ||
+        ""
+    );
+}
+
+
+function cleanBeachBarTag(value) {
+
+    return String(value || "")
+        .replaceAll("_", " ")
+        .replaceAll("-", " ");
+}
+
+
+function createBeachBarCard(
+    item,
+    ui
+) {
+
+    const article =
+        document.createElement(
+            "article"
+        );
+
+    article.className =
+        "beachbar-card";
+
+
+    const imageWrap =
+        document.createElement(
+            "div"
+        );
+
+    imageWrap.className =
+        "beachbar-card-image";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+    image.src =
+        item.image || "";
+
+    image.alt =
+        beachBarLocalized(
+            item,
+            "titleEn",
+            "titleRo"
+        );
+
+    image.loading =
+        "lazy";
+
+    imageWrap.appendChild(
+        image
+    );
+
+
+    const typeBadge =
+        document.createElement(
+            "span"
+        );
+
+    typeBadge.className =
+        "beachbar-type-badge";
+
+    typeBadge.textContent =
+        ui.featured;
+
+    imageWrap.appendChild(
+        typeBadge
+    );
+
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+    content.className =
+        "beachbar-card-content";
+
+
+    const meta =
+        document.createElement(
+            "div"
+        );
+
+    meta.className =
+        "beachbar-meta";
+
+
+    if (item.rating) {
+
+        const rating =
+            document.createElement(
+                "span"
+            );
+
+        rating.className =
+            "beachbar-rating";
+
+        rating.textContent =
+            "⭐ " +
+            item.rating;
+
+        meta.appendChild(
+            rating
+        );
+
+    }
+
+
+    if (item.price) {
+
+        const price =
+            document.createElement(
+                "span"
+            );
+
+        price.className =
+            "beachbar-price";
+
+        price.textContent =
+            item.price;
+
+        meta.appendChild(
+            price
+        );
+
+    }
+
+
+    const title =
+        document.createElement(
+            "h5"
+        );
+
+    title.textContent =
+        beachBarLocalized(
+            item,
+            "titleEn",
+            "titleRo"
+        );
+
+
+    const description =
+        document.createElement(
+            "p"
+        );
+
+    description.className =
+        "beachbar-description";
+
+    description.textContent =
+        beachBarLocalized(
+            item,
+            "shortEn",
+            "shortRo"
+        );
+
+
+    const tags =
+        document.createElement(
+            "div"
+        );
+
+    tags.className =
+        "beachbar-tags";
+
+
+    const priorityFeatures = [
+        "sunbeds",
+        "cocktails",
+        "sea_view",
+        "sunset_view",
+        "family_friendly",
+        "parking"
+    ];
+
+
+    const availableFeatures =
+        Array.isArray(item.features)
+            ? item.features
+            : [];
+
+
+    const orderedFeatures = [
+        ...priorityFeatures.filter(
+            feature =>
+                availableFeatures.includes(
+                    feature
+                )
+        ),
+        ...availableFeatures.filter(
+            feature =>
+                !priorityFeatures.includes(
+                    feature
+                )
+        )
+    ]
+        .filter(
+            (value, index, array) =>
+                array.indexOf(value) === index
+        )
+        .slice(0, 5);
+
+
+    orderedFeatures.forEach(
+        value => {
+
+            const tag =
+                document.createElement(
+                    "span"
+                );
+
+            tag.className =
+                "beachbar-tag";
+
+            tag.textContent =
+                cleanBeachBarTag(
+                    value
+                );
+
+            tags.appendChild(
+                tag
+            );
+
+        }
+    );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+    link.className =
+        "beachbar-card-link";
+
+    link.href =
+        "https://www.halkidikiexplorer.com/place.html?id=" +
+        encodeURIComponent(
+            item.id
+        );
+
+    link.target =
+        "_blank";
+
+    link.rel =
+        "noopener";
+
+    link.innerHTML =
+        "<span>" +
+        ui.explore +
+        "</span><span>→</span>";
+
+
+    content.appendChild(
+        meta
+    );
+
+    content.appendChild(
+        title
+    );
+
+    content.appendChild(
+        description
+    );
+
+    content.appendChild(
+        tags
+    );
+
+    content.appendChild(
+        link
+    );
+
+
+    article.appendChild(
+        imageWrap
+    );
+
+    article.appendChild(
+        content
+    );
+
+
+    return article;
+}
+
+
+function renderBeachBarCards(
+    items
+) {
+
+    loadedBeachBarItems =
+        items;
+
+
+    const lang =
+        getBeachBarUiLanguage();
+
+    const ui =
+        beachBarUiText[lang];
+
+
+    document.getElementById(
+        "beachBarsKicker"
+    ).textContent =
+        ui.kicker;
+
+
+    document.getElementById(
+        "beachBarsTitle"
+    ).textContent =
+        ui.title;
+
+
+    document.getElementById(
+        "beachBarsIntro"
+    ).textContent =
+        ui.intro;
+
+
+    const grid =
+        document.getElementById(
+            "beachBarCardsGrid"
+        );
+
+
+    grid.innerHTML =
+        "";
+
+
+    if (!items.length) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "beachbar-empty";
+
+        empty.textContent =
+            ui.empty;
+
+        grid.appendChild(
+            empty
+        );
+
+        return;
+
+    }
+
+
+    items.forEach(
+        item => {
+
+            grid.appendChild(
+                createBeachBarCard(
+                    item,
+                    ui
+                )
+            );
+
+        }
+    );
+
+}
+
+
+async function loadDynamicBeachBars() {
+
+    const grid =
+        document.getElementById(
+            "beachBarCardsGrid"
+        );
+
+
+    const lang =
+        getBeachBarUiLanguage();
+
+    const ui =
+        beachBarUiText[lang];
+
+
+    grid.innerHTML =
+        '<div class="beachbar-loading">' +
+        ui.loading +
+        "</div>";
+
+
+    try {
+
+        const response =
+            await fetch(
+                RESTAURANTS_INDEX_URL,
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Beach bars HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const allPlaces =
+            await response.json();
+
+
+        const beachBars =
+            allPlaces
+                .filter(
+                    item =>
+                        item.beachSlug ===
+                        PROPERTY_CONFIG.beachSlug
+                )
+                .filter(
+                    item =>
+                        item.type ===
+                        "beach_bar"
+                )
+                .sort(
+                    (a, b) => {
+
+                        if (
+                            Boolean(a.featured) !==
+                            Boolean(b.featured)
+                        ) {
+                            return a.featured
+                                ? -1
+                                : 1;
+                        }
+
+                        return (
+                            Number(b.rating || 0) -
+                            Number(a.rating || 0)
+                        );
+
+                    }
+                );
+
+
+        renderBeachBarCards(
+            beachBars
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not load connected beach bars.",
+            error
+        );
+
+
+        grid.innerHTML =
+            '<div class="beachbar-empty">' +
+            ui.empty +
+            "</div>";
+
+    }
+
+}
+
+
+loadDynamicBeachBars();
+
+
+
+
 /* =========================================================
    DEMO AVAILABILITY CALENDAR
 ========================================================= */
