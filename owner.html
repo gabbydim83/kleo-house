@@ -1245,13 +1245,14 @@
         <div class="login-field">
 
             <label>
-                USERNAME
+                EMAIL
             </label>
 
             <input
-                type="text"
+                type="email"
                 id="username"
-                placeholder="Enter username"
+                placeholder="Enter email address"
+                autocomplete="email"
             >
 
         </div>
@@ -1267,6 +1268,7 @@
                 type="password"
                 id="password"
                 placeholder="Enter password"
+                autocomplete="current-password"
             >
 
         </div>
@@ -1284,12 +1286,12 @@
             class="login-error"
             id="loginError"
         >
-            Incorrect username or password.
+            Unable to sign in. Please check your email and password.
         </div>
 
 
         <p class="login-note">
-            Demo owner administration area for Kleo House.
+            Secure owner access for Kleo House.
         </p>
 
     </div>
@@ -1747,7 +1749,35 @@
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+
+    const SUPABASE_URL =
+        "https://cimdefypgbkfizyykhkm.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_Ps8bDeuKhgf2NY4lNdGoOA_fQP15uAD";
+
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY,
+            {
+                auth: {
+                    persistSession: true,
+                    autoRefreshToken: true,
+                    detectSessionInUrl: true
+                }
+            }
+        );
+
+    const OWNER_WEBSITE_ACCOUNT_SLUG =
+        "kleo-house";
+
+    const OWNER_PROPERTY_SLUG =
+        "kleo-house";
+
 
     const loginScreen =
         document.getElementById(
@@ -1786,88 +1816,230 @@
 
 
     /* =========================================
-       DEMO LOGIN
+       SUPABASE AUTH LOGIN
     ========================================= */
 
-    const demoUsername =
-        "owner";
+    function showLoginError(message) {
+        loginError.textContent =
+            message ||
+            "Unable to sign in.";
 
-    const demoPassword =
-        "kleo2026";
+        loginError.style.display =
+            "block";
+    }
 
+    function hideLoginError() {
+        loginError.style.display =
+            "none";
+    }
 
-    function login() {
+    function showDashboard() {
+        hideLoginError();
+        loginScreen.style.display =
+            "none";
+        dashboard.style.display =
+            "block";
+    }
 
-        const username =
-            usernameInput.value.trim();
+    function showLoginScreen() {
+        dashboard.style.display =
+            "none";
+        loginScreen.style.display =
+            "flex";
+    }
+
+    async function userHasKleoHouseAccess() {
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .from("accounts")
+                .select("id, name, slug")
+                .eq(
+                    "slug",
+                    OWNER_WEBSITE_ACCOUNT_SLUG
+                )
+                .maybeSingle();
+
+        if (error) {
+            console.error(
+                "Could not verify property access.",
+                error
+            );
+            return false;
+        }
+
+        return Boolean(
+            data &&
+            data.slug ===
+                OWNER_WEBSITE_ACCOUNT_SLUG
+        );
+    }
+
+    async function login() {
+        const email =
+            usernameInput.value
+                .trim()
+                .toLowerCase();
 
         const password =
             passwordInput.value;
 
-
-        if (
-            username === demoUsername &&
-            password === demoPassword
-        ) {
-
-            loginError.style.display =
-                "none";
-
-            loginScreen.style.display =
-                "none";
-
-            dashboard.style.display =
-                "block";
-
+        if (!email || !password) {
+            showLoginError(
+                "Please enter your email and password."
+            );
+            return;
         }
 
-        else {
+        loginButton.disabled =
+            true;
+        loginButton.textContent =
+            "SIGNING IN...";
+        hideLoginError();
 
-            loginError.style.display =
-                "block";
+        try {
+            const {
+                data,
+                error
+            } =
+                await supabaseClient
+                    .auth
+                    .signInWithPassword({
+                        email,
+                        password
+                    });
 
+            if (
+                error ||
+                !data?.session
+            ) {
+                throw (
+                    error ||
+                    new Error(
+                        "No session returned."
+                    )
+                );
+            }
+
+            const allowed =
+                await userHasKleoHouseAccess();
+
+            if (!allowed) {
+                await supabaseClient
+                    .auth
+                    .signOut();
+
+                showLoginError(
+                    "This account does not have access to Kleo House."
+                );
+
+                showLoginScreen();
+                return;
+            }
+
+            await initializeOwnerDashboard();
         }
 
+        catch (error) {
+            console.error(
+                "Sign-in failed.",
+                error
+            );
+
+            showLoginError(
+                "Unable to sign in. Please check your email and password."
+            );
+
+            showLoginScreen();
+        }
+
+        finally {
+            loginButton.disabled =
+                false;
+            loginButton.textContent =
+                "SIGN IN";
+        }
     }
-
 
     loginButton.addEventListener(
         "click",
         login
     );
 
-
     passwordInput.addEventListener(
         "keydown",
         function (event) {
-
-            if (
-                event.key === "Enter"
-            ) {
-
+            if (event.key === "Enter") {
                 login();
-
             }
-
         }
     );
 
+    usernameInput.addEventListener(
+        "keydown",
+        function (event) {
+            if (event.key === "Enter") {
+                passwordInput.focus();
+            }
+        }
+    );
 
     logoutButton.addEventListener(
         "click",
-        function () {
-
-            dashboard.style.display =
-                "none";
-
-            loginScreen.style.display =
-                "flex";
+        async function () {
+            await supabaseClient
+                .auth
+                .signOut();
 
             passwordInput.value =
                 "";
 
+            showLoginScreen();
         }
     );
+
+    async function restoreSupabaseSession() {
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .auth
+                .getSession();
+
+        if (error) {
+            console.error(
+                "Could not restore session.",
+                error
+            );
+
+            showLoginScreen();
+            return;
+        }
+
+        if (!data?.session) {
+            showLoginScreen();
+            return;
+        }
+
+        const allowed =
+            await userHasKleoHouseAccess();
+
+        if (allowed) {
+            await initializeOwnerDashboard();
+        }
+
+        else {
+            await supabaseClient
+                .auth
+                .signOut();
+
+            showLoginScreen();
+        }
+    }
+
 
     /* =========================================
    INTERACTIVE OWNER CALENDAR
@@ -1905,115 +2077,279 @@ let ownerCalendarDate =
     the real reservation database.
 */
 
-let ownerReservations = [
+let ownerReservations =
+    [];
 
-    {
-        guest: "Anna Müller",
+let ownerProperty =
+    null;
 
-        checkIn:
-            "2026-09-06",
-
-        checkOut:
-            "2026-09-10",
-
-        guests: 2,
-
-        amount: 480,
-
-        notes:
-            "Arriving in the afternoon.",
-
-        status:
-            "confirmed"
-    },
-
-    {
-        guest: "Andrei Popescu",
-
-        checkIn:
-            "2026-09-14",
-
-        checkOut:
-            "2026-09-19",
-
-        guests: 4,
-
-        amount: 625,
-
-        notes:
-            "Family stay.",
-
-        status:
-            "confirmed"
-    },
-
-    {
-        guest: "Elena Petrova",
-
-        checkIn:
-            "2026-09-23",
-
-        checkOut:
-            "2026-09-27",
-
-        guests: 3,
-
-        amount: 430,
-
-        notes:
-            "Waiting for final confirmation.",
-
-        status:
-            "pending"
-    }
-
-];
 
 /* =========================================
-   RESERVATION STORAGE
+   SUPABASE RESERVATION DATA
 ========================================= */
 
-const savedReservations =
-    localStorage.getItem(
-        "kleoReservations"
-    );
+async function loadOwnerProperty() {
+
+    const {
+        data: account,
+        error: accountError
+    } =
+        await supabaseClient
+            .from("accounts")
+            .select("id, name, slug")
+            .eq(
+                "slug",
+                OWNER_WEBSITE_ACCOUNT_SLUG
+            )
+            .maybeSingle();
 
 
-if (
-    savedReservations
-) {
+    if (
+        accountError ||
+        !account
+    ) {
 
-    try {
+        console.error(
+            "Could not load owner account.",
+            accountError
+        );
 
-        ownerReservations =
-            JSON.parse(
-                savedReservations
-            );
+        return false;
 
     }
 
-    catch (error) {
+
+    const {
+        data: property,
+        error: propertyError
+    } =
+        await supabaseClient
+            .from("properties")
+            .select(
+                "id, account_id, name, slug, max_guests"
+            )
+            .eq(
+                "account_id",
+                account.id
+            )
+            .eq(
+                "slug",
+                OWNER_PROPERTY_SLUG
+            )
+            .eq(
+                "active",
+                true
+            )
+            .maybeSingle();
+
+
+    if (
+        propertyError ||
+        !property
+    ) {
 
         console.error(
-            "Could not load saved reservations.",
-            error
+            "Could not load owner property.",
+            propertyError
+        );
+
+        return false;
+
+    }
+
+
+    ownerProperty =
+        property;
+
+    return true;
+
+}
+
+
+async function loadReservationsFromSupabase() {
+
+    if (
+        !ownerProperty
+    ) {
+
+        throw new Error(
+            "Property context is not loaded."
         );
 
     }
 
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from(
+                "calendar_entries"
+            )
+            .select(`
+                id,
+                check_in,
+                check_out,
+                status,
+                source,
+                reservation_details (
+                    guest_name,
+                    guests,
+                    amount,
+                    currency,
+                    notes
+                )
+            `)
+            .eq(
+                "property_id",
+                ownerProperty.id
+            )
+            .eq(
+                "entry_type",
+                "reservation"
+            )
+            .order(
+                "check_in",
+                {
+                    ascending:
+                        true
+                }
+            );
+
+
+    if (
+        error
+    ) {
+
+        console.error(
+            "Could not load reservations.",
+            error
+        );
+
+        throw error;
+
+    }
+
+
+    ownerReservations =
+        (data || []).map(
+            row => {
+
+                const details =
+                    Array.isArray(
+                        row.reservation_details
+                    )
+                        ? (
+                            row.reservation_details[0] ||
+                            null
+                        )
+                        : (
+                            row.reservation_details ||
+                            null
+                        );
+
+
+                return {
+
+                    id:
+                        row.id,
+
+                    guest:
+                        details?.guest_name ||
+                        (
+                            row.source ===
+                                "manual" ||
+                            row.source ===
+                                "direct"
+                                ? "Reservation"
+                                : "External reservation"
+                        ),
+
+                    checkIn:
+                        row.check_in,
+
+                    checkOut:
+                        row.check_out,
+
+                    guests:
+                        Number(
+                            details?.guests ||
+                            1
+                        ),
+
+                    amount:
+                        Number(
+                            details?.amount ||
+                            0
+                        ),
+
+                    currency:
+                        details?.currency ||
+                        "EUR",
+
+                    notes:
+                        details?.notes ||
+                        "",
+
+                    status:
+                        row.status,
+
+                    source:
+                        row.source
+
+                };
+
+            }
+        );
+
 }
 
 
-function saveReservations() {
+async function refreshReservationData() {
 
-    localStorage.setItem(
-        "kleoReservations",
-        JSON.stringify(
-            ownerReservations
-        )
-    );
+    await loadReservationsFromSupabase();
+
+    renderOwnerCalendar();
+
+    renderBookingList();
 
 }
+
+
+async function initializeOwnerDashboard() {
+
+    const propertyLoaded =
+        await loadOwnerProperty();
+
+
+    if (
+        !propertyLoaded
+    ) {
+
+        await supabaseClient
+            .auth
+            .signOut();
+
+        showLoginScreen();
+
+        showLoginError(
+            "Kleo House property access could not be loaded."
+        );
+
+        throw new Error(
+            "Property access could not be loaded."
+        );
+
+    }
+
+
+    await refreshReservationData();
+
+    showDashboard();
+
+}
+
 
 /* =========================================
    DATE HELPERS
@@ -2552,6 +2888,9 @@ function openNewBookingModal() {
         "";
 
 
+    saveBookingButton.style.display =
+        "";
+
     cancelBookingButton.style.display =
         "none";
 
@@ -2615,8 +2954,36 @@ deleteBookingButton.style.display =
         reservation.notes || "";
 
 
+    const editableReservation =
+        !reservation.source ||
+        [
+            "manual",
+            "direct"
+        ].includes(
+            reservation.source
+        );
+
+
+    saveBookingButton.style.display =
+        editableReservation
+            ? ""
+            : "none";
+
+    cancelBookingButton.style.display =
+        editableReservation
+            ? ""
+            : "none";
+
+    deleteBookingButton.style.display =
+        editableReservation
+            ? ""
+            : "none";
+
+
     modalMessage.textContent =
-        "";
+        editableReservation
+            ? ""
+            : "Imported reservation — manage changes on the source platform.";
 
 
     bookingModal.classList.add(
@@ -2653,150 +3020,8 @@ modalOverlay.addEventListener(
 
 
 /* =========================================
-   SAVE BOOKING
+   BOOKING LIST
 ========================================= */
-
-saveBookingButton.addEventListener(
-    "click",
-    function () {
-
-
-        const guest =
-            modalGuest.value.trim();
-
-        const checkIn =
-            modalCheckIn.value;
-
-        const checkOut =
-            modalCheckOut.value;
-
-        const guests =
-            Number(
-                modalGuests.value
-            );
-
-
-        if (
-            !guest ||
-            !checkIn ||
-            !checkOut
-        ) {
-
-            modalMessage.textContent =
-                "Please complete the required fields.";
-
-            return;
-
-        }
-
-
-        if (
-            checkOut <= checkIn
-        ) {
-
-            modalMessage.textContent =
-                "Check-out must be after check-in.";
-
-            return;
-
-        }
-
-
-      const wasNew =
-    bookingMode ===
-    "new";
-
-
-if (
-    wasNew
-) {
-
-    const newReservation = {
-
-        guest:
-            guest,
-
-        checkIn:
-            checkIn,
-
-        checkOut:
-            checkOut,
-
-        guests:
-            Math.max(
-                1,
-                Math.min(
-                    5,
-                    guests || 1
-                )
-            ),
-
-        status:
-            modalStatus.value,
-
-        amount:
-            Number(
-                modalAmount.value
-            ) || 0,
-
-        notes:
-            modalNotes.value.trim()
-
-    };
-
-
-    ownerReservations.push(
-        newReservation
-    );
-
-
-    selectedReservation =
-        newReservation;
-
-    bookingMode =
-        "edit";
-
-
-    cancelBookingButton.style.display =
-        "";
-
-    deleteBookingButton.style.display =
-        "";
-
-}
-
-else {
-
-    selectedReservation.guest =
-        guest;
-
-    selectedReservation.checkIn =
-        checkIn;
-
-    selectedReservation.checkOut =
-        checkOut;
-
-    selectedReservation.guests =
-        Math.max(
-            1,
-            Math.min(
-                5,
-                guests || 1
-            )
-        );
-
-    selectedReservation.status =
-        modalStatus.value;
-
-    selectedReservation.amount =
-        Number(
-            modalAmount.value
-        ) || 0;
-
-    selectedReservation.notes =
-        modalNotes.value.trim();
-
-}
 
 function renderBookingList() {
 
@@ -2817,6 +3042,32 @@ function renderBookingList() {
                         b.checkIn
                     )
             );
+
+
+    if (
+        activeReservations.length ===
+        0
+    ) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "booking-item";
+
+        empty.innerHTML =
+            "<strong>No upcoming reservations</strong>" +
+            "<span>New reservations will appear here.</span>";
+
+        bookingList.appendChild(
+            empty
+        );
+
+        return;
+
+    }
 
 
     activeReservations.forEach(
@@ -2918,15 +3169,206 @@ function renderBookingList() {
 
 }
 
-saveReservations();
 
-      renderOwnerCalendar();
+/* =========================================
+   SAVE BOOKING TO SUPABASE
+========================================= */
 
-renderBookingList();
+saveBookingButton.addEventListener(
+    "click",
+    async function () {
 
-closeBookingModal();
+        const guest =
+            modalGuest.value.trim();
 
-}
+        const checkIn =
+            modalCheckIn.value;
+
+        const checkOut =
+            modalCheckOut.value;
+
+        const guests =
+            Math.max(
+                1,
+                Math.min(
+                    5,
+                    Number(
+                        modalGuests.value
+                    ) || 1
+                )
+            );
+
+
+        if (
+            !guest ||
+            !checkIn ||
+            !checkOut
+        ) {
+
+            modalMessage.textContent =
+                "Please complete the required fields.";
+
+            return;
+
+        }
+
+
+        if (
+            checkOut <= checkIn
+        ) {
+
+            modalMessage.textContent =
+                "Check-out must be after check-in.";
+
+            return;
+
+        }
+
+
+        if (
+            !ownerProperty
+        ) {
+
+            modalMessage.textContent =
+                "Property data is not available.";
+
+            return;
+
+        }
+
+
+        if (
+            bookingMode ===
+                "edit" &&
+            selectedReservation &&
+            ![
+                "manual",
+                "direct"
+            ].includes(
+                selectedReservation.source
+            )
+        ) {
+
+            modalMessage.textContent =
+                "Imported reservations must be managed on the source platform.";
+
+            return;
+
+        }
+
+
+        saveBookingButton.disabled =
+            true;
+
+        saveBookingButton.textContent =
+            "SAVING...";
+
+        modalMessage.textContent =
+            "";
+
+
+        try {
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient
+                    .rpc(
+                        "owner_save_reservation",
+                        {
+                            p_property_id:
+                                ownerProperty.id,
+
+                            p_entry_id:
+                                bookingMode ===
+                                    "new"
+                                    ? null
+                                    : (
+                                        selectedReservation?.id ||
+                                        null
+                                    ),
+
+                            p_check_in:
+                                checkIn,
+
+                            p_check_out:
+                                checkOut,
+
+                            p_status:
+                                modalStatus.value,
+
+                            p_guest_name:
+                                guest,
+
+                            p_guests:
+                                guests,
+
+                            p_amount:
+                                Number(
+                                    modalAmount.value
+                                ) || 0,
+
+                            p_currency:
+                                "EUR",
+
+                            p_notes:
+                                modalNotes.value.trim()
+                        }
+                    );
+
+
+            if (
+                error
+            ) {
+
+                throw error;
+
+            }
+
+
+            await refreshReservationData();
+
+            selectedReservation =
+                ownerReservations.find(
+                    reservation =>
+                        reservation.id === data
+                ) || null;
+
+            bookingMode =
+                "edit";
+
+            modalMessage.textContent =
+                "Reservation saved.";
+
+            closeBookingModal();
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Could not save reservation.",
+                error
+            );
+
+            modalMessage.textContent =
+                error?.message ||
+                "Could not save reservation.";
+
+        }
+
+        finally {
+
+            saveBookingButton.disabled =
+                false;
+
+            saveBookingButton.textContent =
+                "SAVE CHANGES";
+
+        }
+
+    }
 );
 
 
@@ -2936,12 +3378,30 @@ closeBookingModal();
 
 cancelBookingButton.addEventListener(
     "click",
-    function () {
+    async function () {
 
         if (
-            !selectedReservation
+            !selectedReservation ||
+            !selectedReservation.id
         ) {
             return;
+        }
+
+
+        if (
+            ![
+                "manual",
+                "direct"
+            ].includes(
+                selectedReservation.source
+            )
+        ) {
+
+            modalMessage.textContent =
+                "Imported reservations must be managed on the source platform.";
+
+            return;
+
         }
 
 
@@ -2958,16 +3418,56 @@ cancelBookingButton.addEventListener(
         }
 
 
-        selectedReservation.status =
-            "cancelled";
+        try {
 
-saveReservations();
+            const {
+                error
+            } =
+                await supabaseClient
+                    .from(
+                        "calendar_entries"
+                    )
+                    .update({
+                        status:
+                            "cancelled"
+                    })
+                    .eq(
+                        "id",
+                        selectedReservation.id
+                    )
+                    .eq(
+                        "property_id",
+                        ownerProperty.id
+                    );
 
-        renderOwnerCalendar();
 
-renderBookingList();
+            if (
+                error
+            ) {
 
-closeBookingModal();
+                throw error;
+
+            }
+
+
+            await refreshReservationData();
+
+            closeBookingModal();
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Could not cancel reservation.",
+                error
+            );
+
+            modalMessage.textContent =
+                error?.message ||
+                "Could not cancel reservation.";
+
+        }
 
     }
 );
@@ -2979,12 +3479,30 @@ closeBookingModal();
 
 deleteBookingButton.addEventListener(
     "click",
-    function () {
+    async function () {
 
         if (
-            !selectedReservation
+            !selectedReservation ||
+            !selectedReservation.id
         ) {
             return;
+        }
+
+
+        if (
+            ![
+                "manual",
+                "direct"
+            ].includes(
+                selectedReservation.source
+            )
+        ) {
+
+            modalMessage.textContent =
+                "Imported reservations must be managed on the source platform.";
+
+            return;
+
         }
 
 
@@ -3001,35 +3519,63 @@ deleteBookingButton.addEventListener(
         }
 
 
-        const index =
-            ownerReservations.indexOf(
-                selectedReservation
-            );
+        try {
+
+            const {
+                error
+            } =
+                await supabaseClient
+                    .from(
+                        "calendar_entries"
+                    )
+                    .delete()
+                    .eq(
+                        "id",
+                        selectedReservation.id
+                    )
+                    .eq(
+                        "property_id",
+                        ownerProperty.id
+                    );
 
 
-        if (
-            index !== -1
-        ) {
+            if (
+                error
+            ) {
 
-            ownerReservations.splice(
-                index,
-                1
-            );
+                throw error;
+
+            }
+
+
+            await refreshReservationData();
+
+            closeBookingModal();
 
         }
 
-        saveReservations();
+        catch (error) {
 
+            console.error(
+                "Could not delete reservation.",
+                error
+            );
 
-        renderOwnerCalendar();
+            modalMessage.textContent =
+                error?.message ||
+                "Could not delete reservation.";
 
-renderBookingList();
-
-
-        closeBookingModal();
+        }
 
     }
 );
+
+
+/* =========================================
+   INITIAL SESSION RESTORE
+========================================= */
+
+restoreSupabaseSession();
 
 </script>
 
