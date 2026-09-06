@@ -864,6 +864,276 @@
             font-weight: 800;
         }
 
+
+/* =========================================
+   OWNER TOOLS
+========================================= */
+
+.calendar-card-heading {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.calendar-card-heading h3 {
+    margin-bottom: 0;
+}
+
+.owner-tool-button {
+    min-height: 42px;
+    padding: 0 15px;
+    border: 1px solid #d8e2e8;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #173853;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.owner-tool-button:hover {
+    border-color: #c99a3d;
+    color: #ffffff;
+    background: #c99a3d;
+}
+
+.owner-print-sheet {
+    display: none;
+}
+
+@media print {
+
+    @page {
+        size: A4 portrait;
+        margin: 12mm;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #10243e !important;
+    }
+
+    body > * {
+        display: none !important;
+    }
+
+    #ownerPrintSheet {
+        display: block !important;
+    }
+
+    .owner-print-sheet {
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #10243e;
+        background: #ffffff;
+    }
+
+    .print-sheet-header {
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 2px solid #082d50;
+    }
+
+    .print-sheet-kicker {
+        display: block;
+        margin-bottom: 6px;
+        color: #c99a3d;
+        font-size: 8pt;
+        font-weight: 800;
+        letter-spacing: 1.6px;
+    }
+
+    .print-sheet-header h1 {
+        margin: 0 0 4px;
+        font-family: Georgia, serif;
+        font-size: 22pt;
+        font-weight: normal;
+        color: #082d50;
+    }
+
+    .print-sheet-header p {
+        margin: 0;
+        color: #657585;
+        font-size: 8.5pt;
+    }
+
+    .print-sheet-property {
+        color: #687887;
+        text-align: right;
+        font-size: 7.5pt;
+        font-weight: 800;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+    }
+
+    .print-calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 3px;
+        margin-bottom: 16px;
+    }
+
+    .print-day-name {
+        padding: 5px 2px;
+        text-align: center;
+        color: #6f7d88;
+        font-size: 7pt;
+        font-weight: 800;
+    }
+
+    .print-day {
+        min-height: 46px;
+        padding: 5px;
+        border: 1px solid #dfe6ea;
+        border-radius: 5px;
+        background: #f8fafb;
+        font-size: 7pt;
+        break-inside: avoid;
+    }
+
+    .print-day.empty {
+        border-color: transparent;
+        background: transparent;
+    }
+
+    .print-day.confirmed {
+        background: #f9e8e8;
+        border-color: #e8c6c6;
+    }
+
+    .print-day.pending {
+        background: #fff5dc;
+        border-color: #eadba5;
+    }
+
+    .print-day.available {
+        background: #edf8f1;
+        border-color: #d8ebdf;
+    }
+
+    .print-day-number {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 800;
+        font-size: 8pt;
+    }
+
+    .print-day-label {
+        display: block;
+        overflow: hidden;
+        color: #4f6374;
+        font-size: 6.4pt;
+        line-height: 1.15;
+    }
+
+    .print-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        margin-bottom: 17px;
+    }
+
+    .print-summary-grid > div {
+        padding: 8px;
+        border: 1px solid #dfe6ea;
+        border-radius: 6px;
+        background: #f8fafb;
+    }
+
+    .print-summary-grid span {
+        display: block;
+        margin-bottom: 4px;
+        color: #7a8994;
+        font-size: 6.5pt;
+        font-weight: 800;
+    }
+
+    .print-summary-grid strong {
+        color: #082d50;
+        font-family: Georgia, serif;
+        font-size: 15pt;
+        font-weight: normal;
+    }
+
+    .print-bookings-section h2 {
+        margin: 0 0 8px;
+        color: #082d50;
+        font-family: Georgia, serif;
+        font-size: 14pt;
+        font-weight: normal;
+    }
+
+    .print-bookings-list {
+        display: grid;
+        gap: 5px;
+    }
+
+    .print-booking-row {
+        display: grid;
+        grid-template-columns: 1.5fr 1.15fr 0.55fr 0.65fr 0.65fr;
+        gap: 6px;
+        padding: 7px 8px;
+        border-bottom: 1px solid #e2e8ec;
+        font-size: 7pt;
+        break-inside: avoid;
+    }
+
+    .print-booking-row.header {
+        background: #082d50;
+        color: #ffffff;
+        border-radius: 5px;
+        border-bottom: 0;
+        font-weight: 800;
+    }
+
+    .print-booking-row strong {
+        color: #173853;
+        font-size: 7.3pt;
+    }
+
+    .print-booking-row.header strong {
+        color: #ffffff;
+    }
+
+    .print-empty-bookings {
+        padding: 12px;
+        border: 1px dashed #d8e1e6;
+        border-radius: 6px;
+        color: #778691;
+        text-align: center;
+        font-size: 8pt;
+    }
+
+    .print-sheet-footer {
+        margin-top: 16px;
+        padding-top: 8px;
+        border-top: 1px solid #dfe6ea;
+        color: #8996a1;
+        text-align: center;
+        font-size: 6.5pt;
+    }
+}
+
+@media (max-width: 700px) {
+    .calendar-card-heading {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .owner-tool-button {
+        width: 100%;
+    }
+}
+
+
 /* =========================================
    BOOKING MODAL
 ========================================= */
@@ -1158,6 +1428,408 @@
     }
 
 }
+
+
+        /* =========================================
+           CALENDAR SYNC
+        ========================================= */
+
+        .calendar-sync-section {
+            margin-top: 28px;
+        }
+
+
+        .calendar-sync-heading {
+            margin-bottom: 18px;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        .calendar-sync-heading small {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #c99a3d;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+
+        .calendar-sync-heading h3 {
+            margin-bottom: 8px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 29px;
+
+            font-weight: normal;
+
+            color: #082d50;
+        }
+
+
+        .calendar-sync-heading p {
+            max-width: 760px;
+
+            color: #748391;
+
+            font-size: 12px;
+
+            line-height: 1.65;
+        }
+
+
+
+        .sync-all-button {
+            min-height: 44px;
+            padding: 0 17px;
+            flex-shrink: 0;
+            border: 0;
+            border-radius: 9px;
+            background: #c99a3d;
+            color: #ffffff;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sync-all-button:hover {
+            background: #082d50;
+        }
+
+        .sync-all-button:disabled {
+            opacity: 0.55;
+            cursor: wait;
+        }
+
+        .sync-meta {
+            margin-top: 11px;
+            padding-top: 10px;
+            border-top: 1px solid #edf1f4;
+            color: #8996a1;
+            font-size: 8px;
+            line-height: 1.55;
+        }
+
+        .sync-meta.error {
+            color: #a54848;
+        }
+
+        .calendar-sync-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+        }
+
+
+        .calendar-sync-card {
+            padding: 25px;
+
+            border:
+                1px solid #e0e8ed;
+
+            border-radius: 18px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 12px 35px
+                rgba(8,45,80,0.06);
+        }
+
+
+        .sync-provider-head {
+            margin-bottom: 22px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        .sync-provider-icon {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 12px;
+
+            background: #123f72;
+
+            color: #ffffff;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+
+        .sync-provider-icon.airbnb {
+            background: #ff5a5f;
+        }
+
+
+        .sync-provider-head strong {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: #173853;
+
+            font-size: 14px;
+        }
+
+
+        .sync-status-pill {
+            display: inline-flex;
+
+            align-items: center;
+
+            min-height: 22px;
+
+            padding:
+                0 8px;
+
+            border-radius: 50px;
+
+            background: #edf1f4;
+
+            color: #71808c;
+
+            font-size: 7px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.7px;
+        }
+
+
+        .sync-status-pill.connected {
+            background: #e5f7ed;
+
+            color: #2c7c4e;
+        }
+
+
+        .sync-feed-label > span {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #71818f;
+
+            font-size: 9px;
+
+            font-weight: 800;
+        }
+
+
+        .sync-feed-label input {
+            width: 100%;
+
+            min-height: 47px;
+
+            padding:
+                0 13px;
+
+            border:
+                1px solid #dce5eb;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            color: #173853;
+
+            background: #ffffff;
+
+            font-size: 12px;
+        }
+
+
+        .sync-feed-label input:focus {
+            border-color: #c99a3d;
+        }
+
+
+        .sync-card-actions {
+            margin-top: 13px;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+
+        .sync-card-actions button {
+            min-height: 40px;
+
+            padding:
+                0 14px;
+
+            border-radius: 8px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                all 0.2s;
+        }
+
+
+        .sync-primary-button {
+            border: 0;
+
+            background: #082d50;
+
+            color: #ffffff;
+        }
+
+
+        .sync-primary-button:hover {
+            background: #c99a3d;
+        }
+
+
+        .sync-primary-button:disabled,
+        .sync-secondary-button:disabled {
+            opacity: 0.55;
+
+            cursor: wait;
+        }
+
+
+        .sync-secondary-button {
+            border:
+                1px solid #dfc5c5;
+
+            background: #fff5f5;
+
+            color: #9e4a4a;
+        }
+
+
+        .sync-message {
+            min-height: 16px;
+
+            margin-top: 12px;
+
+            color: #758492;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+        }
+
+
+        .sync-message.success {
+            color: #2f7d50;
+        }
+
+
+        .sync-message.error {
+            color: #a54848;
+        }
+
+
+        .calendar-sync-security-note {
+            margin-top: 14px;
+
+            padding: 14px 16px;
+
+            display: flex;
+            align-items: flex-start;
+
+            gap: 12px;
+
+            border:
+                1px solid #e1e8ed;
+
+            border-radius: 12px;
+
+            background: #f7fafc;
+
+            color: #6e7d89;
+
+            font-size: 10px;
+
+            line-height: 1.55;
+        }
+
+
+        .calendar-sync-security-note strong {
+            flex-shrink: 0;
+
+            color: #173853;
+        }
+
+
+        @media
+        (max-width: 850px) {
+
+            .calendar-sync-heading {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .sync-all-button {
+                width: 100%;
+            }
+
+            .calendar-sync-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media
+        (max-width: 600px) {
+
+            .calendar-sync-security-note {
+                display: block;
+            }
+
+            .calendar-sync-security-note strong {
+                display: block;
+
+                margin-bottom: 6px;
+            }
+
+        }
+
 
         /* =========================================
            RESPONSIVE
@@ -1455,9 +2127,21 @@
 
             <div class="dashboard-card">
 
-                <h3>
-                    Reservation Calendar
-                </h3>
+                <div class="calendar-card-heading">
+
+                    <h3>
+                        Reservation Calendar
+                    </h3>
+
+                    <button
+                        type="button"
+                        class="owner-tool-button"
+                        id="printMonthButton"
+                    >
+                        🖨 PRINT / SAVE MONTH AS PDF
+                    </button>
+
+                </div>
 
 
                 <div class="owner-calendar">
@@ -1547,12 +2231,314 @@
         </section>
 
 
+
+        <!-- =========================================
+             CALENDAR SYNC
+        ========================================= -->
+
+        <section class="calendar-sync-section">
+
+            <div class="calendar-sync-heading">
+
+                <div>
+                    <small>
+                        CHANNEL CALENDARS
+                    </small>
+
+                    <h3>
+                        Calendar Sync
+                    </h3>
+
+                    <p>
+                        Connect the private iCal export links from Booking.com
+                        and Airbnb. These links are stored securely for this
+                        property and are never exposed on the public website.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="sync-all-button"
+                    id="syncAllCalendarsButton"
+                >
+                    ↻ SYNC ALL NOW
+                </button>
+
+            </div>
+
+
+            <div class="calendar-sync-grid">
+
+
+                <article class="calendar-sync-card">
+
+                    <div class="sync-provider-head">
+
+                        <div class="sync-provider-icon">
+                            B
+                        </div>
+
+                        <div>
+                            <strong>
+                                Booking.com
+                            </strong>
+
+                            <span
+                                class="sync-status-pill"
+                                id="bookingSyncStatus"
+                            >
+                                NOT CONNECTED
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <label class="sync-feed-label">
+
+                        <span>
+                            PRIVATE ICAL URL
+                        </span>
+
+                        <input
+                            type="password"
+                            id="bookingIcalUrl"
+                            placeholder="Paste Booking.com iCal export URL"
+                            autocomplete="off"
+                            spellcheck="false"
+                        >
+
+                    </label>
+
+
+                    <div class="sync-card-actions">
+
+                        <button
+                            type="button"
+                            class="sync-primary-button"
+                            id="saveBookingFeedButton"
+                        >
+                            CONNECT
+                        </button>
+
+                        <button
+                            type="button"
+                            class="sync-secondary-button"
+                            id="removeBookingFeedButton"
+                            style="display:none;"
+                        >
+                            REMOVE
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        class="sync-message"
+                        id="bookingSyncMessage"
+                    ></p>
+
+                    <div
+                        class="sync-meta"
+                        id="bookingSyncMeta"
+                    >
+                        Last sync: Never
+                    </div>
+
+                </article>
+
+
+                <article class="calendar-sync-card">
+
+                    <div class="sync-provider-head">
+
+                        <div class="sync-provider-icon airbnb">
+                            A
+                        </div>
+
+                        <div>
+                            <strong>
+                                Airbnb
+                            </strong>
+
+                            <span
+                                class="sync-status-pill"
+                                id="airbnbSyncStatus"
+                            >
+                                NOT CONNECTED
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <label class="sync-feed-label">
+
+                        <span>
+                            PRIVATE ICAL URL
+                        </span>
+
+                        <input
+                            type="password"
+                            id="airbnbIcalUrl"
+                            placeholder="Paste Airbnb iCal export URL"
+                            autocomplete="off"
+                            spellcheck="false"
+                        >
+
+                    </label>
+
+
+                    <div class="sync-card-actions">
+
+                        <button
+                            type="button"
+                            class="sync-primary-button"
+                            id="saveAirbnbFeedButton"
+                        >
+                            CONNECT
+                        </button>
+
+                        <button
+                            type="button"
+                            class="sync-secondary-button"
+                            id="removeAirbnbFeedButton"
+                            style="display:none;"
+                        >
+                            REMOVE
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        class="sync-message"
+                        id="airbnbSyncMessage"
+                    ></p>
+
+                    <div
+                        class="sync-meta"
+                        id="airbnbSyncMeta"
+                    >
+                        Last sync: Never
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <div class="calendar-sync-security-note">
+
+                <strong>
+                    🔒 Private feed URLs
+                </strong>
+
+                <span>
+                    Only authenticated owners with access to this property
+                    can manage these links. Automatic reservation importing
+                    will use them server-side.
+                </span>
+
+            </div>
+
+        </section>
+
     </main>
 
 </div>
 
 
 
+
+
+<!-- =========================================
+     MONTHLY PRINT / PDF SHEET
+========================================= -->
+
+<section
+    class="owner-print-sheet"
+    id="ownerPrintSheet"
+    aria-hidden="true"
+>
+
+    <div class="print-sheet-header">
+
+        <div>
+
+            <span class="print-sheet-kicker">
+                KLEO HOUSE · OWNER REPORT
+            </span>
+
+            <h1 id="printMonthTitle">
+                Monthly Reservation Report
+            </h1>
+
+            <p id="printMonthSubtitle">
+                Reservation calendar and booking summary
+            </p>
+
+        </div>
+
+        <div class="print-sheet-property">
+            KLEO HOUSE<br>
+            KALYVES · HALKIDIKI
+        </div>
+
+    </div>
+
+
+    <div
+        class="print-calendar-grid"
+        id="printCalendarGrid"
+    ></div>
+
+
+    <div class="print-summary-grid">
+
+        <div>
+            <span>RESERVATIONS</span>
+            <strong id="printReservationCount">0</strong>
+        </div>
+
+        <div>
+            <span>BOOKED NIGHTS</span>
+            <strong id="printBookedNights">0</strong>
+        </div>
+
+        <div>
+            <span>GUESTS</span>
+            <strong id="printGuestCount">0</strong>
+        </div>
+
+        <div>
+            <span>REVENUE</span>
+            <strong id="printRevenue">€0</strong>
+        </div>
+
+    </div>
+
+
+    <div class="print-bookings-section">
+
+        <h2>
+            Reservations
+        </h2>
+
+        <div
+            class="print-bookings-list"
+            id="printBookingsList"
+        ></div>
+
+    </div>
+
+
+    <div class="print-sheet-footer">
+        Generated from Kleo House Owner Dashboard
+    </div>
+
+</section>
 
 
 <!-- =========================================
@@ -2065,6 +3051,51 @@ const ownerNextMonth =
         "ownerNextMonth"
     );
 
+const printMonthButton =
+    document.getElementById(
+        "printMonthButton"
+    );
+
+const printMonthTitle =
+    document.getElementById(
+        "printMonthTitle"
+    );
+
+const printMonthSubtitle =
+    document.getElementById(
+        "printMonthSubtitle"
+    );
+
+const printCalendarGrid =
+    document.getElementById(
+        "printCalendarGrid"
+    );
+
+const printBookingsList =
+    document.getElementById(
+        "printBookingsList"
+    );
+
+const printReservationCount =
+    document.getElementById(
+        "printReservationCount"
+    );
+
+const printBookedNights =
+    document.getElementById(
+        "printBookedNights"
+    );
+
+const printGuestCount =
+    document.getElementById(
+        "printGuestCount"
+    );
+
+const printRevenue =
+    document.getElementById(
+        "printRevenue"
+    );
+
 
 let ownerCalendarDate =
     new Date();
@@ -2082,6 +3113,81 @@ let ownerReservations =
 
 let ownerProperty =
     null;
+
+
+
+/* =========================================
+   CALENDAR FEED ELEMENTS
+========================================= */
+
+const bookingIcalUrl =
+    document.getElementById(
+        "bookingIcalUrl"
+    );
+
+const airbnbIcalUrl =
+    document.getElementById(
+        "airbnbIcalUrl"
+    );
+
+const bookingSyncStatus =
+    document.getElementById(
+        "bookingSyncStatus"
+    );
+
+const airbnbSyncStatus =
+    document.getElementById(
+        "airbnbSyncStatus"
+    );
+
+const bookingSyncMessage =
+    document.getElementById(
+        "bookingSyncMessage"
+    );
+
+const airbnbSyncMessage =
+    document.getElementById(
+        "airbnbSyncMessage"
+    );
+
+const saveBookingFeedButton =
+    document.getElementById(
+        "saveBookingFeedButton"
+    );
+
+const saveAirbnbFeedButton =
+    document.getElementById(
+        "saveAirbnbFeedButton"
+    );
+
+const removeBookingFeedButton =
+    document.getElementById(
+        "removeBookingFeedButton"
+    );
+
+const removeAirbnbFeedButton =
+    document.getElementById(
+        "removeAirbnbFeedButton"
+    );
+
+const syncAllCalendarsButton =
+    document.getElementById(
+        "syncAllCalendarsButton"
+    );
+
+const bookingSyncMeta =
+    document.getElementById(
+        "bookingSyncMeta"
+    );
+
+const airbnbSyncMeta =
+    document.getElementById(
+        "airbnbSyncMeta"
+    );
+
+
+let ownerCalendarFeeds =
+    [];
 
 
 /* =========================================
@@ -2306,6 +3412,952 @@ async function loadReservationsFromSupabase() {
 }
 
 
+
+/* =========================================
+   CALENDAR FEEDS
+========================================= */
+
+function isValidPrivateFeedUrl(
+    value
+) {
+
+    try {
+
+        const parsed =
+            new URL(
+                value
+            );
+
+
+        return (
+            parsed.protocol ===
+                "https:" ||
+            parsed.protocol ===
+                "http:"
+        );
+
+    }
+
+    catch {
+
+        return false;
+
+    }
+
+}
+
+
+function getCalendarFeed(
+    provider
+) {
+
+    return (
+        ownerCalendarFeeds.find(
+            feed =>
+                feed.provider ===
+                provider
+        ) ||
+        null
+    );
+
+}
+
+
+function formatSyncDate(
+    value
+) {
+
+    if (!value) {
+        return "Never";
+    }
+
+    const date =
+        new Date(value);
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+        return "Unknown";
+    }
+
+    return new Intl.DateTimeFormat(
+        "en-GB",
+        {
+            dateStyle: "medium",
+            timeStyle: "short"
+        }
+    ).format(date);
+}
+
+
+function updateCalendarFeedUi(
+    provider
+) {
+
+    const feed =
+        getCalendarFeed(
+            provider
+        );
+
+
+    const isBooking =
+        provider ===
+        "booking_com";
+
+
+    const input =
+        isBooking
+            ? bookingIcalUrl
+            : airbnbIcalUrl;
+
+    const status =
+        isBooking
+            ? bookingSyncStatus
+            : airbnbSyncStatus;
+
+    const saveButton =
+        isBooking
+            ? saveBookingFeedButton
+            : saveAirbnbFeedButton;
+
+    const removeButton =
+        isBooking
+            ? removeBookingFeedButton
+            : removeAirbnbFeedButton;
+
+    const meta =
+        isBooking
+            ? bookingSyncMeta
+            : airbnbSyncMeta;
+
+
+    if (
+        feed &&
+        feed.enabled !== false
+    ) {
+
+        input.value =
+            feed.feed_url ||
+            "";
+
+        status.textContent =
+            "CONNECTED";
+
+        status.classList.add(
+            "connected"
+        );
+
+        saveButton.textContent =
+            "UPDATE";
+
+        removeButton.style.display =
+            "";
+
+        meta.className =
+            "sync-meta";
+
+        if (
+            feed.last_sync_status ===
+            "error"
+        ) {
+
+            meta.classList.add(
+                "error"
+            );
+
+            meta.textContent =
+                "Last sync: " +
+                formatSyncDate(
+                    feed.last_synced_at
+                ) +
+                " · Error: " +
+                (
+                    feed.last_error ||
+                    "Unknown sync error"
+                );
+
+        }
+
+        else {
+
+            meta.textContent =
+                "Last sync: " +
+                formatSyncDate(
+                    feed.last_synced_at
+                ) +
+                (
+                    feed.last_sync_status ===
+                    "success"
+                        ? " · Success"
+                        : ""
+                );
+
+        }
+
+    }
+
+    else {
+
+        input.value =
+            "";
+
+        status.textContent =
+            "NOT CONNECTED";
+
+        status.classList.remove(
+            "connected"
+        );
+
+        saveButton.textContent =
+            "CONNECT";
+
+        removeButton.style.display =
+            "none";
+
+        meta.className =
+            "sync-meta";
+
+        meta.textContent =
+            "Last sync: Never";
+
+    }
+
+}
+
+
+async function loadCalendarFeeds() {
+
+    if (
+        !ownerProperty
+    ) {
+        return;
+    }
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from(
+                "property_calendar_feeds"
+            )
+            .select(
+                "id, account_id, property_id, provider, name, feed_url, enabled, last_synced_at, last_sync_status, last_error"
+            )
+            .eq(
+                "property_id",
+                ownerProperty.id
+            )
+            .in(
+                "provider",
+                [
+                    "booking_com",
+                    "airbnb"
+                ]
+            );
+
+
+    if (
+        error
+    ) {
+
+        console.error(
+            "Could not load calendar feeds.",
+            error
+        );
+
+        bookingSyncMessage.textContent =
+            "Could not load calendar connection.";
+
+        bookingSyncMessage.className =
+            "sync-message error";
+
+        airbnbSyncMessage.textContent =
+            "Could not load calendar connection.";
+
+        airbnbSyncMessage.className =
+            "sync-message error";
+
+        return;
+
+    }
+
+
+    ownerCalendarFeeds =
+        data ||
+        [];
+
+
+    updateCalendarFeedUi(
+        "booking_com"
+    );
+
+    updateCalendarFeedUi(
+        "airbnb"
+    );
+
+}
+
+
+async function saveCalendarFeed(
+    provider
+) {
+
+    if (
+        !ownerProperty
+    ) {
+        return;
+    }
+
+
+    const isBooking =
+        provider ===
+        "booking_com";
+
+
+    const input =
+        isBooking
+            ? bookingIcalUrl
+            : airbnbIcalUrl;
+
+    const message =
+        isBooking
+            ? bookingSyncMessage
+            : airbnbSyncMessage;
+
+    const saveButton =
+        isBooking
+            ? saveBookingFeedButton
+            : saveAirbnbFeedButton;
+
+    const removeButton =
+        isBooking
+            ? removeBookingFeedButton
+            : removeAirbnbFeedButton;
+
+
+    const feedUrl =
+        input.value.trim();
+
+
+    message.className =
+        "sync-message";
+
+    message.textContent =
+        "";
+
+
+    if (
+        !feedUrl
+    ) {
+
+        message.textContent =
+            "Paste the private iCal export URL first.";
+
+        message.classList.add(
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !isValidPrivateFeedUrl(
+            feedUrl
+        )
+    ) {
+
+        message.textContent =
+            "Please enter a valid http or https iCal URL.";
+
+        message.classList.add(
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    saveButton.disabled =
+        true;
+
+    removeButton.disabled =
+        true;
+
+    saveButton.textContent =
+        "SAVING...";
+
+
+    try {
+
+        const existing =
+            getCalendarFeed(
+                provider
+            );
+
+
+        let result;
+
+
+        if (
+            existing
+        ) {
+
+            result =
+                await supabaseClient
+                    .from(
+                        "property_calendar_feeds"
+                    )
+                    .update({
+                        feed_url:
+                            feedUrl,
+
+                        enabled:
+                            true,
+
+                        name:
+                            isBooking
+                                ? "Booking.com iCal"
+                                : "Airbnb iCal"
+                    })
+                    .eq(
+                        "id",
+                        existing.id
+                    )
+                    .eq(
+                        "property_id",
+                        ownerProperty.id
+                    )
+                    .select(
+                        "id, account_id, property_id, provider, name, feed_url, enabled, last_synced_at, last_sync_status, last_error"
+                    )
+                    .single();
+
+        }
+
+        else {
+
+            result =
+                await supabaseClient
+                    .from(
+                        "property_calendar_feeds"
+                    )
+                    .insert({
+                        account_id:
+                            ownerProperty.account_id,
+
+                        property_id:
+                            ownerProperty.id,
+
+                        provider:
+                            provider,
+
+                        name:
+                            isBooking
+                                ? "Booking.com iCal"
+                                : "Airbnb iCal",
+
+                        feed_url:
+                            feedUrl,
+
+                        enabled:
+                            true
+                    })
+                    .select(
+                        "id, account_id, property_id, provider, name, feed_url, enabled, last_synced_at, last_sync_status, last_error"
+                    )
+                    .single();
+
+        }
+
+
+        if (
+            result.error
+        ) {
+
+            throw result.error;
+
+        }
+
+
+        ownerCalendarFeeds =
+            ownerCalendarFeeds
+                .filter(
+                    feed =>
+                        feed.provider !==
+                        provider
+                );
+
+
+        ownerCalendarFeeds.push(
+            result.data
+        );
+
+
+        updateCalendarFeedUi(
+            provider
+        );
+
+
+        message.textContent =
+            "Calendar feed saved securely.";
+
+        message.classList.add(
+            "success"
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not save calendar feed.",
+            error
+        );
+
+
+        message.textContent =
+            error?.message ||
+            "Could not save calendar feed.";
+
+        message.classList.add(
+            "error"
+        );
+
+    }
+
+    finally {
+
+        saveButton.disabled =
+            false;
+
+        removeButton.disabled =
+            false;
+
+
+        updateCalendarFeedUi(
+            provider
+        );
+
+    }
+
+}
+
+
+async function removeCalendarFeed(
+    provider
+) {
+
+    if (
+        !ownerProperty
+    ) {
+        return;
+    }
+
+
+    const existing =
+        getCalendarFeed(
+            provider
+        );
+
+
+    if (
+        !existing
+    ) {
+        return;
+    }
+
+
+    const isBooking =
+        provider ===
+        "booking_com";
+
+
+    const message =
+        isBooking
+            ? bookingSyncMessage
+            : airbnbSyncMessage;
+
+    const saveButton =
+        isBooking
+            ? saveBookingFeedButton
+            : saveAirbnbFeedButton;
+
+    const removeButton =
+        isBooking
+            ? removeBookingFeedButton
+            : removeAirbnbFeedButton;
+
+
+    const confirmed =
+        window.confirm(
+            "Remove this calendar connection?"
+        );
+
+
+    if (
+        !confirmed
+    ) {
+        return;
+    }
+
+
+    saveButton.disabled =
+        true;
+
+    removeButton.disabled =
+        true;
+
+
+    try {
+
+        const {
+            error
+        } =
+            await supabaseClient
+                .from(
+                    "property_calendar_feeds"
+                )
+                .delete()
+                .eq(
+                    "id",
+                    existing.id
+                )
+                .eq(
+                    "property_id",
+                    ownerProperty.id
+                );
+
+
+        if (
+            error
+        ) {
+
+            throw error;
+
+        }
+
+
+        ownerCalendarFeeds =
+            ownerCalendarFeeds
+                .filter(
+                    feed =>
+                        feed.provider !==
+                        provider
+                );
+
+
+        updateCalendarFeedUi(
+            provider
+        );
+
+
+        message.textContent =
+            "Calendar connection removed.";
+
+        message.className =
+            "sync-message success";
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Could not remove calendar feed.",
+            error
+        );
+
+
+        message.textContent =
+            error?.message ||
+            "Could not remove calendar feed.";
+
+        message.className =
+            "sync-message error";
+
+    }
+
+    finally {
+
+        saveButton.disabled =
+            false;
+
+        removeButton.disabled =
+            false;
+
+    }
+
+}
+
+
+
+async function syncAllCalendars() {
+
+    if (
+        !ownerProperty
+    ) {
+        return;
+    }
+
+    const connectedFeeds =
+        ownerCalendarFeeds.filter(
+            feed =>
+                feed.enabled !== false
+        );
+
+    if (
+        connectedFeeds.length ===
+        0
+    ) {
+
+        window.alert(
+            "Connect at least one Booking.com or Airbnb iCal feed first."
+        );
+
+        return;
+    }
+
+    syncAllCalendarsButton.disabled =
+        true;
+
+    syncAllCalendarsButton.textContent =
+        "SYNCING...";
+
+    bookingSyncMessage.textContent =
+        "";
+
+    airbnbSyncMessage.textContent =
+        "";
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .functions
+                .invoke(
+                    "sync-ical-calendar",
+                    {
+                        body: {
+                            property_id:
+                                ownerProperty.id
+                        }
+                    }
+                );
+
+        if (
+            error
+        ) {
+            throw error;
+        }
+
+        if (
+            !data
+        ) {
+
+            throw new Error(
+                "The sync function returned no data."
+            );
+
+        }
+
+        if (
+            Array.isArray(
+                data.results
+            )
+        ) {
+
+            data.results.forEach(
+                result => {
+
+                    const message =
+                        result.provider ===
+                        "booking_com"
+                            ? bookingSyncMessage
+                            : airbnbSyncMessage;
+
+                    if (
+                        result.ok
+                    ) {
+
+                        message.textContent =
+                            "Sync complete · " +
+                            Number(
+                                result.events ||
+                                0
+                            ) +
+                            " events · " +
+                            Number(
+                                result.inserted ||
+                                0
+                            ) +
+                            " new · " +
+                            Number(
+                                result.updated ||
+                                0
+                            ) +
+                            " updated.";
+
+                        message.className =
+                            "sync-message success";
+
+                    }
+
+                    else {
+
+                        message.textContent =
+                            result.error ||
+                            "Calendar sync failed.";
+
+                        message.className =
+                            "sync-message error";
+
+                    }
+
+                }
+            );
+
+        }
+
+        await loadCalendarFeeds();
+
+        await refreshReservationData();
+
+        if (
+            Number(
+                data.synced_feeds ||
+                0
+            ) === 0
+        ) {
+
+            throw new Error(
+                "No calendar feed could be synchronized."
+            );
+
+        }
+
+    }
+
+    catch (
+        error
+    ) {
+
+        console.error(
+            "Calendar synchronization failed.",
+            error
+        );
+
+        const message =
+            error?.message ||
+            "Calendar synchronization failed.";
+
+        if (
+            !bookingSyncMessage.textContent &&
+            getCalendarFeed(
+                "booking_com"
+            )
+        ) {
+
+            bookingSyncMessage.textContent =
+                message;
+
+            bookingSyncMessage.className =
+                "sync-message error";
+
+        }
+
+        if (
+            !airbnbSyncMessage.textContent &&
+            getCalendarFeed(
+                "airbnb"
+            )
+        ) {
+
+            airbnbSyncMessage.textContent =
+                message;
+
+            airbnbSyncMessage.className =
+                "sync-message error";
+
+        }
+
+    }
+
+    finally {
+
+        syncAllCalendarsButton.disabled =
+            false;
+
+        syncAllCalendarsButton.textContent =
+            "↻ SYNC ALL NOW";
+
+    }
+
+}
+
+
+syncAllCalendarsButton.addEventListener(
+    "click",
+    syncAllCalendars
+);
+
+
+saveBookingFeedButton.addEventListener(
+    "click",
+    function () {
+
+        saveCalendarFeed(
+            "booking_com"
+        );
+
+    }
+);
+
+
+saveAirbnbFeedButton.addEventListener(
+    "click",
+    function () {
+
+        saveCalendarFeed(
+            "airbnb"
+        );
+
+    }
+);
+
+
+removeBookingFeedButton.addEventListener(
+    "click",
+    function () {
+
+        removeCalendarFeed(
+            "booking_com"
+        );
+
+    }
+);
+
+
+removeAirbnbFeedButton.addEventListener(
+    "click",
+    function () {
+
+        removeCalendarFeed(
+            "airbnb"
+        );
+
+    }
+);
+
+
 async function refreshReservationData() {
 
     await loadReservationsFromSupabase();
@@ -2345,6 +4397,8 @@ async function initializeOwnerDashboard() {
 
 
     await refreshReservationData();
+
+    await loadCalendarFeeds();
 
     showDashboard();
 
@@ -2719,6 +4773,504 @@ function renderOwnerCalendar() {
     }
 
 }
+
+
+
+/* =========================================
+   MONTHLY PRINT / SAVE AS PDF
+========================================= */
+
+function reservationOverlapsMonth(
+    reservation,
+    monthStart,
+    monthEnd
+) {
+
+    if (
+        reservation.status ===
+        "cancelled"
+    ) {
+        return false;
+    }
+
+    const checkIn =
+        parseLocalDate(
+            reservation.checkIn
+        );
+
+    const checkOut =
+        parseLocalDate(
+            reservation.checkOut
+        );
+
+    return (
+        checkIn < monthEnd &&
+        checkOut > monthStart
+    );
+
+}
+
+
+function nightsInsideMonth(
+    reservation,
+    monthStart,
+    monthEnd
+) {
+
+    const checkIn =
+        parseLocalDate(
+            reservation.checkIn
+        );
+
+    const checkOut =
+        parseLocalDate(
+            reservation.checkOut
+        );
+
+    const effectiveStart =
+        checkIn > monthStart
+            ? checkIn
+            : monthStart;
+
+    const effectiveEnd =
+        checkOut < monthEnd
+            ? checkOut
+            : monthEnd;
+
+    if (
+        effectiveEnd <=
+        effectiveStart
+    ) {
+        return 0;
+    }
+
+    return Math.round(
+        (
+            effectiveEnd -
+            effectiveStart
+        ) /
+        86400000
+    );
+
+}
+
+
+function buildPrintMonthReport() {
+
+    const year =
+        ownerCalendarDate
+            .getFullYear();
+
+    const month =
+        ownerCalendarDate
+            .getMonth();
+
+    const monthStart =
+        new Date(
+            year,
+            month,
+            1
+        );
+
+    const monthEnd =
+        new Date(
+            year,
+            month + 1,
+            1
+        );
+
+    const monthLabel =
+        new Intl.DateTimeFormat(
+            "en",
+            {
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+            }
+        ).format(
+            monthStart
+        );
+
+    printMonthTitle.textContent =
+        monthLabel;
+
+    printMonthSubtitle.textContent =
+        "Reservation calendar and booking summary";
+
+    const monthReservations =
+        ownerReservations
+            .filter(
+                reservation =>
+                    reservationOverlapsMonth(
+                        reservation,
+                        monthStart,
+                        monthEnd
+                    )
+            )
+            .sort(
+                (a, b) =>
+                    a.checkIn.localeCompare(
+                        b.checkIn
+                    )
+            );
+
+    let bookedNights =
+        0;
+
+    let guestCount =
+        0;
+
+    let revenue =
+        0;
+
+    monthReservations.forEach(
+        reservation => {
+
+            bookedNights +=
+                nightsInsideMonth(
+                    reservation,
+                    monthStart,
+                    monthEnd
+                );
+
+            guestCount +=
+                Number(
+                    reservation.guests ||
+                    0
+                );
+
+            revenue +=
+                Number(
+                    reservation.amount ||
+                    0
+                );
+
+        }
+    );
+
+    printReservationCount.textContent =
+        monthReservations.length;
+
+    printBookedNights.textContent =
+        bookedNights;
+
+    printGuestCount.textContent =
+        guestCount;
+
+    printRevenue.textContent =
+        "€" +
+        revenue.toLocaleString(
+            "en",
+            {
+                minimumFractionDigits:
+                    revenue % 1 === 0
+                        ? 0
+                        : 2,
+
+                maximumFractionDigits:
+                    2
+            }
+        );
+
+    printCalendarGrid.innerHTML =
+        "";
+
+    const weekDays =
+        [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+        ];
+
+    weekDays.forEach(
+        day => {
+
+            const element =
+                document.createElement(
+                    "div"
+                );
+
+            element.className =
+                "print-day-name";
+
+            element.textContent =
+                day;
+
+            printCalendarGrid.appendChild(
+                element
+            );
+
+        }
+    );
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        );
+
+    const startOffset =
+        (
+            firstDay.getDay() + 6
+        ) % 7;
+
+    for (
+        let i = 0;
+        i < startOffset;
+        i++
+    ) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "print-day empty";
+
+        printCalendarGrid.appendChild(
+            empty
+        );
+
+    }
+
+    const totalDays =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+    for (
+        let day = 1;
+        day <= totalDays;
+        day++
+    ) {
+
+        const dateKey =
+            ownerDateKey(
+                year,
+                month,
+                day
+            );
+
+        const info =
+            getOwnerDayInfo(
+                dateKey
+            );
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+        element.className =
+            "print-day " +
+            info.status;
+
+        const dayNumber =
+            document.createElement(
+                "span"
+            );
+
+        dayNumber.className =
+            "print-day-number";
+
+        dayNumber.textContent =
+            day;
+
+        const label =
+            document.createElement(
+                "span"
+            );
+
+        label.className =
+            "print-day-label";
+
+        label.textContent =
+            info.status ===
+                "available"
+                ? "Available"
+                : info.label;
+
+        element.appendChild(
+            dayNumber
+        );
+
+        element.appendChild(
+            label
+        );
+
+        printCalendarGrid.appendChild(
+            element
+        );
+
+    }
+
+    printBookingsList.innerHTML =
+        "";
+
+    const header =
+        document.createElement(
+            "div"
+        );
+
+    header.className =
+        "print-booking-row header";
+
+    header.innerHTML =
+        "<strong>Guest</strong>" +
+        "<strong>Dates</strong>" +
+        "<strong>Guests</strong>" +
+        "<strong>Status</strong>" +
+        "<strong>Amount</strong>";
+
+    printBookingsList.appendChild(
+        header
+    );
+
+    if (
+        monthReservations.length ===
+        0
+    ) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "print-empty-bookings";
+
+        empty.textContent =
+            "No reservations for this month.";
+
+        printBookingsList.appendChild(
+            empty
+        );
+
+        return;
+
+    }
+
+    monthReservations.forEach(
+        reservation => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "print-booking-row";
+
+            const guest =
+                document.createElement(
+                    "strong"
+                );
+
+            guest.textContent =
+                reservation.guest ||
+                "Reservation";
+
+            const dates =
+                document.createElement(
+                    "span"
+                );
+
+            dates.textContent =
+                reservation.checkIn +
+                " → " +
+                reservation.checkOut;
+
+            const guests =
+                document.createElement(
+                    "span"
+                );
+
+            guests.textContent =
+                reservation.guests ||
+                0;
+
+            const status =
+                document.createElement(
+                    "span"
+                );
+
+            status.textContent =
+                reservation.status ===
+                    "pending"
+                    ? "Pending"
+                    : "Confirmed";
+
+            const amount =
+                document.createElement(
+                    "span"
+                );
+
+            amount.textContent =
+                "€" +
+                Number(
+                    reservation.amount ||
+                    0
+                ).toLocaleString(
+                    "en",
+                    {
+                        minimumFractionDigits:
+                            0,
+
+                        maximumFractionDigits:
+                            2
+                    }
+                );
+
+            row.appendChild(
+                guest
+            );
+
+            row.appendChild(
+                dates
+            );
+
+            row.appendChild(
+                guests
+            );
+
+            row.appendChild(
+                status
+            );
+
+            row.appendChild(
+                amount
+            );
+
+            printBookingsList.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+printMonthButton.addEventListener(
+    "click",
+    function () {
+
+        buildPrintMonthReport();
+
+        window.print();
+
+    }
+);
 
 
 /* =========================================
