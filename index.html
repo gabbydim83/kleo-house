@@ -3244,6 +3244,27 @@
 }
 
 
+.calendar-load-message {
+    grid-column: 1 / -1;
+
+    padding: 22px 18px;
+
+    border: 1px dashed #d8e2e9;
+
+    border-radius: 12px;
+
+    background: #f6f8fa;
+
+    color: #6f7f8c;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
 
 /* DIRECT BOOKING */
 
@@ -5975,9 +5996,9 @@
                     class="calendar-note"
                     data-i18n="calendarNote"
                 >
-                    Availability shown here is for demonstration.
-                    The final calendar will synchronize with the
-                    owner's Booking.com and Airbnb calendars via iCal.
+                    Availability is updated from the Kleo House
+                    reservation calendar. Check-out day becomes
+                    available again.
                 </p>
 
             </div>
@@ -6603,7 +6624,7 @@ const translations = {
         availabilityLabel: "AVAILABILITY",
         calendarAvailable: "Available",
         calendarBooked: "Booked",
-        calendarNote: "Availability shown here is for demonstration. The final calendar will synchronize with the owner's Booking.com and Airbnb calendars via iCal.",
+        calendarNote: "Availability is updated from the Kleo House reservation calendar. Check-out day becomes available again.",
         directKicker: "BOOK DIRECT",
         directTitle: "Contact the owner without an intermediary",
         directText: "Ask about availability, prices and your preferred dates directly through WhatsApp.",
@@ -6612,7 +6633,7 @@ const translations = {
         zeroCommission: "No booking commission",
         zeroCommissionText: "No intermediary between guest and owner",
         liveCalendar: "Live availability",
-        liveCalendarText: "Calendar synchronization via iCal",
+        liveCalendarText: "Availability updated from the property reservation calendar",
         directLocation: "Direct navigation",
         directLocationText: "Open the property directly in Google Maps",
         checkIn: "Check-in",
@@ -6718,7 +6739,7 @@ const translations = {
         availabilityLabel: "DISPONIBILITATE",
         calendarAvailable: "Disponibil",
         calendarBooked: "Ocupat",
-        calendarNote: "Disponibilitatea afișată aici este demonstrativă. Calendarul final se va sincroniza cu calendarele Booking.com și Airbnb ale proprietarului prin iCal.",
+        calendarNote: "Disponibilitatea este actualizată din calendarul de rezervări Kleo House. Ziua de check-out devine din nou disponibilă.",
         directKicker: "REZERVĂ DIRECT",
         directTitle: "Contactează proprietarul fără intermediar",
         directText: "Întreabă direct pe WhatsApp despre disponibilitate, prețuri și datele dorite.",
@@ -6727,7 +6748,7 @@ const translations = {
         zeroCommission: "Fără comision de rezervare",
         zeroCommissionText: "Fără intermediar între oaspete și proprietar",
         liveCalendar: "Disponibilitate actualizată",
-        liveCalendarText: "Sincronizare calendar prin iCal",
+        liveCalendarText: "Disponibilitate actualizată din calendarul proprietății",
         directLocation: "Navigare directă",
         directLocationText: "Deschide proprietatea direct în Google Maps",
         checkIn: "Check-in",
@@ -6833,7 +6854,7 @@ const translations = {
         availabilityLabel: "ΔΙΑΘΕΣΙΜΟΤΗΤΑ",
         calendarAvailable: "Διαθέσιμο",
         calendarBooked: "Κρατημένο",
-        calendarNote: "Η διαθεσιμότητα που εμφανίζεται εδώ είναι ενδεικτική. Το τελικό ημερολόγιο θα συγχρονίζεται με τα ημερολόγια Booking.com και Airbnb του ιδιοκτήτη μέσω iCal.",
+        calendarNote: "Η διαθεσιμότητα ενημερώνεται από το ημερολόγιο κρατήσεων του Kleo House. Η ημέρα αναχώρησης γίνεται ξανά διαθέσιμη.",
         directKicker: "ΚΡΑΤΗΣΤΕ ΑΠΕΥΘΕΙΑΣ",
         directTitle: "Επικοινωνήστε με τον ιδιοκτήτη χωρίς μεσάζοντα",
         directText: "Ρωτήστε απευθείας μέσω WhatsApp για διαθεσιμότητα, τιμές και τις ημερομηνίες που προτιμάτε.",
@@ -6842,7 +6863,7 @@ const translations = {
         zeroCommission: "Χωρίς προμήθεια κράτησης",
         zeroCommissionText: "Χωρίς μεσάζοντα μεταξύ επισκέπτη και ιδιοκτήτη",
         liveCalendar: "Ζωντανή διαθεσιμότητα",
-        liveCalendarText: "Συγχρονισμός ημερολογίου μέσω iCal",
+        liveCalendarText: "Διαθεσιμότητα ενημερωμένη από το ημερολόγιο του καταλύματος",
         directLocation: "Άμεση πλοήγηση",
         directLocationText: "Ανοίξτε το κατάλυμα απευθείας στο Google Maps",
         checkIn: "Check-in",
@@ -6948,7 +6969,7 @@ const translations = {
         availabilityLabel: "НАЛИЧНОСТ",
         calendarAvailable: "Свободно",
         calendarBooked: "Заето",
-        calendarNote: "Показаната тук наличност е демонстрационна. Финалният календар ще се синхронизира с календарите на собственика в Booking.com и Airbnb чрез iCal.",
+        calendarNote: "Наличността се актуализира от календара за резервации на Kleo House. Денят за напускане отново става свободен.",
         directKicker: "РЕЗЕРВИРАЙТЕ ДИРЕКТНО",
         directTitle: "Свържете се със собственика без посредник",
         directText: "Попитайте директно чрез WhatsApp за наличност, цени и желаните от вас дати.",
@@ -6957,7 +6978,7 @@ const translations = {
         zeroCommission: "Без комисиона за резервация",
         zeroCommissionText: "Без посредник между госта и собственика",
         liveCalendar: "Актуална наличност",
-        liveCalendarText: "Синхронизация на календара чрез iCal",
+        liveCalendarText: "Наличност, актуализирана от календара на мястото за настаняване",
         directLocation: "Директна навигация",
         directLocationText: "Отворете мястото директно в Google Maps",
         checkIn: "Настаняване",
@@ -7063,7 +7084,7 @@ const translations = {
         availabilityLabel: "DOSTUPNOST",
         calendarAvailable: "Slobodno",
         calendarBooked: "Zauzeto",
-        calendarNote: "Prikazana dostupnost je demonstraciona. Konačni kalendar će se sinhronizovati sa vlasnikovim Booking.com i Airbnb kalendarima putem iCal-a.",
+        calendarNote: "Dostupnost se ažurira iz kalendara rezervacija Kleo House. Dan odjave ponovo postaje slobodan.",
         directKicker: "REZERVIŠITE DIREKTNO",
         directTitle: "Kontaktirajte vlasnika bez posrednika",
         directText: "Pitajte direktno preko WhatsApp-a za dostupnost, cene i željene datume.",
@@ -7072,7 +7093,7 @@ const translations = {
         zeroCommission: "Bez provizije za rezervaciju",
         zeroCommissionText: "Bez posrednika između gosta i vlasnika",
         liveCalendar: "Ažurna dostupnost",
-        liveCalendarText: "Sinhronizacija kalendara putem iCal-a",
+        liveCalendarText: "Dostupnost ažurirana iz kalendara objekta",
         directLocation: "Direktna navigacija",
         directLocationText: "Otvorite objekat direktno u Google Maps",
         checkIn: "Prijava",
@@ -7178,7 +7199,7 @@ const translations = {
         availabilityLabel: "VERFÜGBARKEIT",
         calendarAvailable: "Verfügbar",
         calendarBooked: "Belegt",
-        calendarNote: "Die hier angezeigte Verfügbarkeit dient zur Demonstration. Der endgültige Kalender wird über iCal mit den Booking.com- und Airbnb-Kalendern des Eigentümers synchronisiert.",
+        calendarNote: "Die Verfügbarkeit wird aus dem Reservierungskalender des Kleo House aktualisiert. Der Check-out-Tag ist wieder verfügbar.",
         directKicker: "DIREKT BUCHEN",
         directTitle: "Kontaktieren Sie den Eigentümer ohne Vermittler",
         directText: "Fragen Sie direkt über WhatsApp nach Verfügbarkeit, Preisen und Ihren Wunschdaten.",
@@ -7187,7 +7208,7 @@ const translations = {
         zeroCommission: "Keine Buchungsprovision",
         zeroCommissionText: "Kein Vermittler zwischen Gast und Eigentümer",
         liveCalendar: "Aktuelle Verfügbarkeit",
-        liveCalendarText: "Kalendersynchronisierung über iCal",
+        liveCalendarText: "Verfügbarkeit aus dem Reservierungskalender der Unterkunft",
         directLocation: "Direkte Navigation",
         directLocationText: "Öffnen Sie die Unterkunft direkt in Google Maps",
         checkIn: "Check-in",
@@ -11269,116 +11290,269 @@ loadDynamicBeachBars();
 
 
 /* =========================================================
-   DEMO AVAILABILITY CALENDAR
+   LIVE PUBLIC AVAILABILITY - SUPABASE
 ========================================================= */
 
+const SUPABASE_PUBLIC_URL =
+    "https://cimdefypgbkfizyykhkm.supabase.co";
+
+const SUPABASE_PUBLIC_KEY =
+    "sb_publishable_Ps8bDeuKhgf2NY4lNdGoOA_fQP15uAD";
+
+const PUBLIC_WEBSITE_SLUG =
+    "kleo-house";
+
+const PUBLIC_PROPERTY_SLUG =
+    "kleo-house";
+
+
 const calendarElement =
-    document.getElementById("calendar");
+    document.getElementById(
+        "calendar"
+    );
 
 const calendarMonth =
-    document.getElementById("calendarMonth");
+    document.getElementById(
+        "calendarMonth"
+    );
 
 const prevMonthButton =
-    document.getElementById("prevMonth");
+    document.getElementById(
+        "prevMonth"
+    );
 
 const nextMonthButton =
-    document.getElementById("nextMonth");
+    document.getElementById(
+        "nextMonth"
+    );
 
 
 let calendarDate =
     new Date();
 
+let calendarAvailabilityRequestId =
+    0;
 
-function getPublicBookedDates() {
 
-    const savedReservations =
-        localStorage.getItem(
-            "kleoReservations"
+const publicCalendarErrorText = {
+
+    en:
+        "Live availability is temporarily unavailable. Please contact Kleo House directly to confirm your dates.",
+
+    ro:
+        "Disponibilitatea live nu este disponibilă momentan. Contactează direct Kleo House pentru confirmarea datelor.",
+
+    el:
+        "Η ζωντανή διαθεσιμότητα δεν είναι προσωρινά διαθέσιμη. Επικοινωνήστε απευθείας με το Kleo House για επιβεβαίωση ημερομηνιών.",
+
+    bg:
+        "Актуалната наличност временно не е достъпна. Свържете се директно с Kleo House, за да потвърдите датите.",
+
+    sr:
+        "Ažurna dostupnost trenutno nije dostupna. Kontaktirajte Kleo House direktno radi potvrde datuma.",
+
+    de:
+        "Die Live-Verfügbarkeit ist vorübergehend nicht verfügbar. Kontaktieren Sie Kleo House direkt, um Ihre Daten zu bestätigen."
+
+};
+
+
+function formatDateKey(
+    year,
+    month,
+    day
+) {
+
+    return (
+        year +
+        "-" +
+        String(
+            month + 1
+        ).padStart(
+            2,
+            "0"
+        ) +
+        "-" +
+        String(
+            day
+        ).padStart(
+            2,
+            "0"
+        )
+    );
+
+}
+
+
+function parseCalendarDateKey(
+    value
+) {
+
+    const parts =
+        String(value)
+            .split("-")
+            .map(Number);
+
+
+    return new Date(
+        parts[0],
+        parts[1] - 1,
+        parts[2]
+    );
+
+}
+
+
+function monthBoundaryKey(
+    year,
+    month
+) {
+
+    const date =
+        new Date(
+            year,
+            month,
+            1
+        );
+
+
+    return formatDateKey(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate()
+    );
+
+}
+
+
+async function loadPublicBookedDates(
+    year,
+    month
+) {
+
+    const fromDate =
+        monthBoundaryKey(
+            year,
+            month
+        );
+
+    const toDate =
+        monthBoundaryKey(
+            year,
+            month + 1
+        );
+
+
+    const response =
+        await fetch(
+            SUPABASE_PUBLIC_URL +
+            "/rest/v1/rpc/get_public_availability",
+            {
+                method:
+                    "POST",
+
+                headers: {
+                    "apikey":
+                        SUPABASE_PUBLIC_KEY,
+
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body:
+                    JSON.stringify({
+                        p_website_slug:
+                            PUBLIC_WEBSITE_SLUG,
+
+                        p_property_slug:
+                            PUBLIC_PROPERTY_SLUG,
+
+                        p_from:
+                            fromDate,
+
+                        p_to:
+                            toDate
+                    }),
+
+                cache:
+                    "no-store"
+            }
         );
 
 
     if (
-        !savedReservations
+        !response.ok
     ) {
 
-        return [];
+        const errorText =
+            await response.text();
 
-    }
-
-
-    let reservations;
-
-
-    try {
-
-        reservations =
-            JSON.parse(
-                savedReservations
-            );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Could not read reservation calendar.",
-            error
+        throw new Error(
+            "Availability HTTP " +
+            response.status +
+            ": " +
+            errorText
         );
 
-        return [];
-
     }
 
 
+    const ranges =
+        await response.json();
+
     const bookedDates =
-        [];
+        new Set();
+
+    const monthStart =
+        parseCalendarDateKey(
+            fromDate
+        );
+
+    const monthEnd =
+        parseCalendarDateKey(
+            toDate
+        );
 
 
-    reservations.forEach(
-        reservation => {
+    (ranges || []).forEach(
+        range => {
 
-            if (
-                reservation.status ===
-                "cancelled"
-            ) {
-                return;
-            }
-
-
-            const currentDate =
-                new Date(
-                    reservation.checkIn +
-                    "T00:00:00"
+            let currentDate =
+                parseCalendarDateKey(
+                    range.check_in
                 );
-
 
             const checkOutDate =
-                new Date(
-                    reservation.checkOut +
-                    "T00:00:00"
+                parseCalendarDateKey(
+                    range.check_out
                 );
+
+
+            if (
+                currentDate <
+                monthStart
+            ) {
+
+                currentDate =
+                    new Date(
+                        monthStart
+                    );
+
+            }
 
 
             while (
                 currentDate <
-                checkOutDate
+                    checkOutDate &&
+                currentDate <
+                    monthEnd
             ) {
 
-                const year =
-                    currentDate.getFullYear();
-
-                const month =
-                    currentDate.getMonth();
-
-                const day =
-                    currentDate.getDate();
-
-
-                bookedDates.push(
+                bookedDates.add(
                     formatDateKey(
-                        year,
-                        month,
-                        day
+                        currentDate.getFullYear(),
+                        currentDate.getMonth(),
+                        currentDate.getDate()
                     )
                 );
 
@@ -11398,31 +11572,11 @@ function getPublicBookedDates() {
 }
 
 
-function formatDateKey(
+function renderCalendarGrid(
     year,
     month,
-    day
+    bookedDates
 ) {
-
-    return (
-        year +
-        "-" +
-        String(month + 1).padStart(2, "0") +
-        "-" +
-        String(day).padStart(2, "0")
-    );
-
-}
-
-
-function renderCalendar() {
-
-    const year =
-        calendarDate.getFullYear();
-
-    const month =
-        calendarDate.getMonth();
-
 
     const firstDay =
         new Date(
@@ -11430,7 +11584,6 @@ function renderCalendar() {
             month,
             1
         );
-
 
     const totalDays =
         new Date(
@@ -11440,28 +11593,20 @@ function renderCalendar() {
         ).getDate();
 
 
-    const monthName =
-        new Intl.DateTimeFormat(
-            document.documentElement.lang || "en",
-            {
-                month: "long",
-                year: "numeric"
-            }
-        ).format(
-            firstDay
-        );
-
-
-    calendarMonth.textContent =
-        monthName;
-
-
     calendarElement.innerHTML =
         "";
 
 
     const dayNames =
-        ["M","T","W","T","F","S","S"];
+        [
+            "M",
+            "T",
+            "W",
+            "T",
+            "F",
+            "S",
+            "S"
+        ];
 
 
     dayNames.forEach(
@@ -11494,7 +11639,8 @@ function renderCalendar() {
         startDay === 0
     ) {
 
-        startDay = 7;
+        startDay =
+            7;
 
     }
 
@@ -11519,8 +11665,6 @@ function renderCalendar() {
 
     }
 
-const bookedDates =
-    getPublicBookedDates();
 
     for (
         let day = 1;
@@ -11547,22 +11691,24 @@ const bookedDates =
 
 
         if (
-    bookedDates.includes(
-        dateKey
-    )
-) {
+            bookedDates.has(
+                dateKey
+            )
+        ) {
 
-    element.classList.add(
-        "booked"
-    );
+            element.classList.add(
+                "booked"
+            );
 
-} else {
+        }
 
-    element.classList.add(
-        "available"
-    );
+        else {
 
-}
+            element.classList.add(
+                "available"
+            );
+
+        }
 
 
         element.textContent =
@@ -11577,6 +11723,182 @@ const bookedDates =
 
 }
 
+
+function renderCalendarUnavailable(
+    year,
+    month
+) {
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        );
+
+
+    calendarElement.innerHTML =
+        "";
+
+
+    const dayNames =
+        [
+            "M",
+            "T",
+            "W",
+            "T",
+            "F",
+            "S",
+            "S"
+        ];
+
+
+    dayNames.forEach(
+        name => {
+
+            const element =
+                document.createElement(
+                    "div"
+                );
+
+            element.className =
+                "calendar-day-name";
+
+            element.textContent =
+                name;
+
+            calendarElement.appendChild(
+                element
+            );
+
+        }
+    );
+
+
+    const message =
+        document.createElement(
+            "div"
+        );
+
+    message.className =
+        "calendar-load-message";
+
+
+    const lang =
+        document.documentElement.lang ||
+        "en";
+
+
+    message.textContent =
+        publicCalendarErrorText[lang] ||
+        publicCalendarErrorText.en;
+
+
+    calendarElement.appendChild(
+        message
+    );
+
+}
+
+
+async function renderCalendar() {
+
+    const requestId =
+        ++calendarAvailabilityRequestId;
+
+    const year =
+        calendarDate.getFullYear();
+
+    const month =
+        calendarDate.getMonth();
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        );
+
+
+    const monthName =
+        new Intl.DateTimeFormat(
+            document.documentElement.lang ||
+            "en",
+            {
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+            }
+        ).format(
+            firstDay
+        );
+
+
+    calendarMonth.textContent =
+        monthName;
+
+
+    calendarElement.innerHTML =
+        '<div class="calendar-load-message">' +
+        'Loading availability...' +
+        "</div>";
+
+
+    try {
+
+        const bookedDates =
+            await loadPublicBookedDates(
+                year,
+                month
+            );
+
+
+        if (
+            requestId !==
+            calendarAvailabilityRequestId
+        ) {
+
+            return;
+
+        }
+
+
+        renderCalendarGrid(
+            year,
+            month,
+            bookedDates
+        );
+
+    }
+
+    catch (error) {
+
+        if (
+            requestId !==
+            calendarAvailabilityRequestId
+        ) {
+
+            return;
+
+        }
+
+
+        console.error(
+            "Could not load public availability.",
+            error
+        );
+
+
+        renderCalendarUnavailable(
+            year,
+            month
+        );
+
+    }
+
+}
 
 
 prevMonthButton.addEventListener(
@@ -11593,7 +11915,6 @@ prevMonthButton.addEventListener(
 );
 
 
-
 nextMonthButton.addEventListener(
     "click",
     function () {
@@ -11608,24 +11929,8 @@ nextMonthButton.addEventListener(
 );
 
 
-
 renderCalendar();
 
-window.addEventListener(
-    "storage",
-    function (event) {
-
-        if (
-            event.key ===
-            "kleoReservations"
-        ) {
-
-            renderCalendar();
-
-        }
-
-    }
-);
 
 /* =========================================================
    WHATSAPP BOOKING REQUEST
