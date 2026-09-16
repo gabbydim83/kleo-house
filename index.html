@@ -1446,6 +1446,415 @@
 
 
 
+
+/* =========================================================
+   KLEO HOUSE MINI GALLERY
+========================================================= */
+
+.kleo-gallery-section {
+    padding: 32px 0 78px;
+    background: #ffffff;
+}
+
+.kleo-gallery-container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 55px;
+}
+
+.kleo-gallery-heading {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    text-align: center;
+}
+
+.kleo-gallery-heading h2 {
+    margin: 8px 0 12px;
+    font-family: Georgia, serif;
+    font-size: 40px;
+    font-weight: normal;
+    color: #082d50;
+}
+
+.kleo-gallery-heading p {
+    color: #697887;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.kleo-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 205px;
+    gap: 12px;
+}
+
+.mini-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #edf3f6;
+    cursor: zoom-in;
+    box-shadow: 0 12px 32px rgba(8,45,80,0.08);
+}
+
+.mini-gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.mini-gallery-item.wide {
+    grid-column: span 2;
+}
+
+.mini-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.mini-gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.mini-gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 70%, rgba(4,29,50,0.16));
+}
+
+
+/* =========================================================
+   EXTRA-SEASON / EXTENDED STAY
+========================================================= */
+
+.long-stay-section {
+    padding: 30px 0 85px;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f3f7f9 100%
+        );
+}
+
+.long-stay-container {
+    max-width: 1270px;
+    margin: 0 auto;
+    padding: 0 55px;
+}
+
+.long-stay-card {
+    display: grid;
+    grid-template-columns: 1.03fr 0.97fr;
+    min-height: 465px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: #082d50;
+    box-shadow: 0 24px 65px rgba(8,45,80,0.18);
+}
+
+.long-stay-image {
+    position: relative;
+    min-height: 465px;
+}
+
+.long-stay-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.long-stay-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,45,80,0.03) 55%,
+            rgba(8,45,80,0.35) 100%
+        );
+}
+
+.long-stay-season {
+    position: absolute;
+    left: 22px;
+    bottom: 22px;
+    z-index: 2;
+    padding: 14px 20px;
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 50px;
+    background: rgba(5,31,54,0.88);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+}
+
+.long-stay-content {
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.long-stay-kicker {
+    width: fit-content;
+    margin-bottom: 16px;
+    padding: 9px 13px;
+    border: 1px solid rgba(240,197,95,0.38);
+    border-radius: 50px;
+    background: rgba(240,197,95,0.12);
+    color: #f6d477;
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1.35;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+.long-stay-content h2 {
+    margin: 0 0 18px;
+    max-width: 520px;
+    font-family: Georgia, serif;
+    font-size: 43px;
+    line-height: 1.08;
+    font-weight: normal;
+}
+
+.long-stay-content > p {
+    margin: 0 0 24px;
+    color: #d7e6ef;
+    font-size: 14px;
+    line-height: 1.72;
+}
+
+.long-stay-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-bottom: 26px;
+}
+
+.long-stay-feature {
+    min-height: 58px;
+    padding: 11px 12px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.07);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.long-stay-feature span {
+    color: #f0c55f;
+    font-size: 17px;
+}
+
+.long-stay-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.long-stay-quote {
+    min-height: 50px;
+    padding: 0 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: #c99a3d;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    transition: all 0.25s;
+}
+
+.long-stay-quote:hover {
+    background: #ddb558;
+    transform: translateY(-2px);
+}
+
+.long-stay-small {
+    max-width: 280px;
+    color: #afc7d7;
+    font-size: 9px;
+    line-height: 1.55;
+}
+
+
+@media (max-width: 900px) {
+    .kleo-gallery-container,
+    .long-stay-container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .kleo-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .long-stay-card {
+        grid-template-columns: 1fr;
+    }
+
+    .long-stay-image {
+        min-height: 340px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .kleo-gallery-section {
+        padding: 18px 0 46px;
+    }
+
+    .kleo-gallery-container,
+    .long-stay-container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .kleo-gallery-heading {
+        margin-bottom: 20px;
+    }
+
+    .kleo-gallery-heading h2 {
+        font-size: 27px;
+    }
+
+    .kleo-gallery-heading p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .kleo-gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: 108px;
+        gap: 6px;
+    }
+
+    .mini-gallery-item {
+        border-radius: 10px;
+    }
+
+    .mini-gallery-item.large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .mini-gallery-item.wide {
+        grid-column: span 2;
+    }
+
+    .long-stay-section {
+        padding: 12px 0 50px;
+    }
+
+    .long-stay-card {
+        grid-template-columns: 43% 57%;
+        min-height: 335px;
+        border-radius: 17px;
+    }
+
+    .long-stay-image {
+        min-height: 335px;
+    }
+
+    .long-stay-image::after {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(8,45,80,0.02) 45%,
+                rgba(8,45,80,0.55) 100%
+            );
+    }
+
+    .long-stay-season {
+        left: 9px;
+        bottom: 9px;
+        padding: 8px 10px;
+        font-size: 11px;
+        line-height: 1.15;
+        letter-spacing: 0.7px;
+    }
+
+    .long-stay-content {
+        padding: 21px 14px;
+    }
+
+    .long-stay-kicker {
+        margin-bottom: 9px;
+        padding: 6px 8px;
+        font-size: 7px;
+        line-height: 1.3;
+        letter-spacing: 0.7px;
+    }
+
+    .long-stay-content h2 {
+        margin-bottom: 10px;
+        font-size: 23px;
+        line-height: 1.05;
+    }
+
+    .long-stay-content > p {
+        margin-bottom: 12px;
+        font-size: 8.5px;
+        line-height: 1.42;
+    }
+
+    .long-stay-features {
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+        margin-bottom: 12px;
+    }
+
+    .long-stay-feature {
+        min-height: 44px;
+        padding: 6px;
+        gap: 5px;
+        font-size: 6.5px;
+        line-height: 1.2;
+    }
+
+    .long-stay-feature span {
+        font-size: 12px;
+    }
+
+    .long-stay-actions {
+        display: block;
+    }
+
+    .long-stay-quote {
+        width: 100%;
+        min-height: 40px;
+        padding: 0 10px;
+        font-size: 7px;
+    }
+
+    .long-stay-small {
+        margin-top: 7px;
+        font-size: 6.5px;
+        line-height: 1.35;
+    }
+}
+
+
 /* =========================================================
    BEACH
 ========================================================= */
@@ -4606,6 +5015,7 @@
 .house-feature-image img,
 .room-image img,
 .outdoor-image img,
+.mini-gallery-item img,
 .beach-background > img {
     cursor: zoom-in;
 }
@@ -6579,6 +6989,514 @@
 
 
 
+
+<!-- =========================================================
+     KLEO HOUSE PHOTO GALLERY
+========================================================= -->
+
+<section class="kleo-gallery-section" id="gallery">
+
+    <div class="kleo-gallery-container">
+
+        <div class="kleo-gallery-heading">
+            <span
+                class="section-kicker"
+                data-i18n="galleryKicker"
+            >
+                PHOTO GALLERY
+            </span>
+
+            <h2 data-i18n="galleryTitle">
+                A closer look at Kleo House
+            </h2>
+
+            <p data-i18n="galleryIntro">
+                Explore the rooms, terrace, kitchen and relaxed outdoor setting
+                before planning your stay.
+            </p>
+        </div>
+
+        <div class="kleo-gallery-grid">
+
+            <figure class="mini-gallery-item large">
+                <img
+                    src="assets/images/kleo_living.png"
+                    alt="Kleo House living room"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item">
+                <img
+                    src="assets/images/kleo_double_bedroom.png"
+                    alt="Kleo House double bedroom"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item">
+                <img
+                    src="assets/images/kleo_twin_bedroom.png"
+                    alt="Kleo House twin bedroom"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item wide">
+                <img
+                    src="assets/images/kleo_terrace.png"
+                    alt="Kleo House terrace"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item">
+                <img
+                    src="assets/images/kleo_kitchen.png"
+                    alt="Kleo House kitchen"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item">
+                <img
+                    src="assets/images/kleo_hero.png"
+                    alt="Kleo House exterior"
+                    loading="lazy"
+                >
+            </figure>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXTRA-SEASON EXTENDED STAYS
+========================================================= -->
+
+<section class="long-stay-section" id="long-stay">
+
+    <div class="long-stay-container">
+
+        <div class="long-stay-card">
+
+            <div class="long-stay-image">
+
+                <img
+                    src="assets/images/kleo_terrace.png"
+                    alt="Kleo House terrace for an extended stay"
+                    loading="lazy"
+                >
+
+                <div
+                    class="long-stay-season"
+                    data-i18n="longStayPeriod"
+                >
+                    OCTOBER – MAY
+                </div>
+
+            </div>
+
+            <div class="long-stay-content">
+
+                <span
+                    class="long-stay-kicker"
+                    data-i18n="longStayKicker"
+                >
+                    EXTRA-SEASON LONG STAYS
+                </span>
+
+                <h2 data-i18n="longStayTitle">
+                    Stay longer by the sea
+                </h2>
+
+                <p data-i18n="longStayText">
+                    Kleo House is also available for extended stays outside the
+                    summer season. Ideal for couples, remote workers or guests
+                    looking for a comfortable base in Halkidiki for several
+                    weeks or months.
+                </p>
+
+                <div class="long-stay-features">
+
+                    <div class="long-stay-feature">
+                        <span>◷</span>
+                        <div data-i18n="longStayFeature1">
+                            Flexible extended stays
+                        </div>
+                    </div>
+
+                    <div class="long-stay-feature">
+                        <span>⌂</span>
+                        <div data-i18n="longStayFeature2">
+                            Fully equipped home
+                        </div>
+                    </div>
+
+                    <div class="long-stay-feature">
+                        <span>≈</span>
+                        <div data-i18n="longStayFeature3">
+                            190 m from the beach
+                        </div>
+                    </div>
+
+                    <div class="long-stay-feature">
+                        <span>↗</span>
+                        <div data-i18n="longStayFeature4">
+                            Direct owner contact
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="long-stay-actions">
+
+                    <a
+                        class="long-stay-quote"
+                        href="https://wa.me/306944424043"
+                        target="_blank"
+                        rel="noopener"
+                        data-i18n="longStayQuote"
+                    >
+                        ASK FOR A QUOTATION
+                    </a>
+
+                    <span
+                        class="long-stay-small"
+                        data-i18n="longStaySmall"
+                    >
+                        Rates and conditions are provided directly according
+                        to your dates and length of stay.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     AVAILABILITY & DIRECT BOOKING
+========================================================= -->
+
+<section
+    class="availability-section"
+    id="availability"
+>
+
+    <div class="availability-container">
+
+        <div class="availability-heading">
+
+            <span
+                class="section-kicker"
+                data-i18n="availabilityKicker"
+            >
+                DIRECT BOOKING
+            </span>
+
+            <h2 data-i18n="availabilityTitle">
+                Check availability and contact Kleo House directly
+            </h2>
+
+            <p data-i18n="availabilityIntro">
+                Choose your preferred dates and contact the owner directly.
+                No intermediary and no booking commission.
+            </p>
+
+        </div>
+
+
+        <div class="booking-layout">
+
+
+            <!-- CALENDAR -->
+
+            <div class="calendar-card">
+
+                <div class="calendar-top">
+
+                    <div>
+
+                        <span
+                            class="calendar-small"
+                            data-i18n="availabilityLabel"
+                        >
+                            AVAILABILITY
+                        </span>
+
+                        <h3 id="calendarMonth">
+                            September 2026
+                        </h3>
+
+                    </div>
+
+
+                    <div class="calendar-controls">
+
+                        <button
+                            type="button"
+                            id="prevMonth"
+                            aria-label="Previous month"
+                        >
+                            ‹
+                        </button>
+
+                        <button
+                            type="button"
+                            id="nextMonth"
+                            aria-label="Next month"
+                        >
+                            ›
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="calendar-legend">
+
+                    <div>
+                        <span class="legend-dot available-dot"></span>
+
+                        <span data-i18n="calendarAvailable">
+                            Available
+                        </span>
+                    </div>
+
+                    <div>
+                        <span class="legend-dot booked-dot"></span>
+
+                        <span data-i18n="calendarBooked">
+                            Booked
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="calendar-grid"
+                    id="calendar"
+                >
+                </div>
+
+
+                <p
+                    class="calendar-note"
+                    data-i18n="calendarNote"
+                >
+                    Availability is updated from the Kleo House
+                    reservation calendar. Check-out day becomes
+                    available again.
+                </p>
+
+            </div>
+
+
+
+            <!-- DIRECT BOOKING CARD -->
+
+            <div class="direct-booking-card">
+
+                <span
+                    class="direct-small"
+                    data-i18n="directKicker"
+                >
+                    BOOK DIRECT
+                </span>
+
+                <h3 data-i18n="directTitle">
+                    Contact the owner without an intermediary
+                </h3>
+
+
+                <p data-i18n="directText">
+                    Ask about availability, prices and your preferred
+                    dates directly through WhatsApp.
+                </p>
+
+
+
+                <div class="direct-benefits">
+
+
+                    <div>
+
+                        <span>💬</span>
+
+                        <div>
+
+                            <strong data-i18n="directContact">
+                                Direct contact
+                            </strong>
+
+                            <small data-i18n="directContactText">
+                                Speak directly with Kleo House
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>0%</span>
+
+                        <div>
+
+                            <strong data-i18n="zeroCommission">
+                                No booking commission
+                            </strong>
+
+                            <small data-i18n="zeroCommissionText">
+                                No intermediary between guest and owner
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>📅</span>
+
+                        <div>
+
+                            <strong data-i18n="liveCalendar">
+                                Live availability
+                            </strong>
+
+                            <small data-i18n="liveCalendarText">
+                                Calendar synchronization via iCal
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>📍</span>
+
+                        <div>
+
+                            <strong data-i18n="directLocation">
+                                Direct navigation
+                            </strong>
+
+                            <small data-i18n="directLocationText">
+                                Open the property directly in Google Maps
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="booking-dates">
+
+                    <label>
+                        <span data-i18n="checkIn">
+                            Check-in
+                        </span>
+
+                        <input
+                            type="date"
+                            id="checkIn"
+                        >
+                    </label>
+
+
+                    <label>
+                        <span data-i18n="checkOut">
+                            Check-out
+                        </span>
+
+                        <input
+                            type="date"
+                            id="checkOut"
+                        >
+                    </label>
+
+                    <label class="booking-guests">
+                        <span data-i18n="guestsLabel">
+                            Guests
+                        </span>
+
+                        <select id="guestCount" aria-label="Guests">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </label>
+
+                </div>
+
+
+
+                <a
+                    href="#"
+                    id="whatsappBooking"
+                    target="_blank"
+                    rel="noopener"
+                    class="direct-whatsapp-button"
+                    data-i18n="contactWhatsapp"
+                >
+                    CONTACT ON WHATSAPP
+                </a>
+
+
+                <a
+                    href="https://www.google.com/maps?q=40.28235615783561,23.402900696893038"
+                    target="_blank"
+                    rel="noopener"
+                    class="directions-button"
+                    data-i18n="getDirections"
+                >
+                    GET DIRECTIONS
+                </a>
+
+
+                <p
+                    class="booking-small-print"
+                    data-i18n="bookingSmallPrint"
+                >
+                    Your booking is confirmed only after direct
+                    confirmation from the property.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <!-- =========================================================
      KALYVES BEACH
 ========================================================= -->
@@ -7003,319 +7921,6 @@
 
 
         
-    </div>
-
-</section>
-
-<!-- =========================================================
-     AVAILABILITY & DIRECT BOOKING
-========================================================= -->
-
-<section
-    class="availability-section"
-    id="availability"
->
-
-    <div class="availability-container">
-
-        <div class="availability-heading">
-
-            <span
-                class="section-kicker"
-                data-i18n="availabilityKicker"
-            >
-                DIRECT BOOKING
-            </span>
-
-            <h2 data-i18n="availabilityTitle">
-                Check availability and contact Kleo House directly
-            </h2>
-
-            <p data-i18n="availabilityIntro">
-                Choose your preferred dates and contact the owner directly.
-                No intermediary and no booking commission.
-            </p>
-
-        </div>
-
-
-        <div class="booking-layout">
-
-
-            <!-- CALENDAR -->
-
-            <div class="calendar-card">
-
-                <div class="calendar-top">
-
-                    <div>
-
-                        <span
-                            class="calendar-small"
-                            data-i18n="availabilityLabel"
-                        >
-                            AVAILABILITY
-                        </span>
-
-                        <h3 id="calendarMonth">
-                            September 2026
-                        </h3>
-
-                    </div>
-
-
-                    <div class="calendar-controls">
-
-                        <button
-                            type="button"
-                            id="prevMonth"
-                            aria-label="Previous month"
-                        >
-                            ‹
-                        </button>
-
-                        <button
-                            type="button"
-                            id="nextMonth"
-                            aria-label="Next month"
-                        >
-                            ›
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <div class="calendar-legend">
-
-                    <div>
-                        <span class="legend-dot available-dot"></span>
-
-                        <span data-i18n="calendarAvailable">
-                            Available
-                        </span>
-                    </div>
-
-                    <div>
-                        <span class="legend-dot booked-dot"></span>
-
-                        <span data-i18n="calendarBooked">
-                            Booked
-                        </span>
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="calendar-grid"
-                    id="calendar"
-                >
-                </div>
-
-
-                <p
-                    class="calendar-note"
-                    data-i18n="calendarNote"
-                >
-                    Availability is updated from the Kleo House
-                    reservation calendar. Check-out day becomes
-                    available again.
-                </p>
-
-            </div>
-
-
-
-            <!-- DIRECT BOOKING CARD -->
-
-            <div class="direct-booking-card">
-
-                <span
-                    class="direct-small"
-                    data-i18n="directKicker"
-                >
-                    BOOK DIRECT
-                </span>
-
-                <h3 data-i18n="directTitle">
-                    Contact the owner without an intermediary
-                </h3>
-
-
-                <p data-i18n="directText">
-                    Ask about availability, prices and your preferred
-                    dates directly through WhatsApp.
-                </p>
-
-
-
-                <div class="direct-benefits">
-
-
-                    <div>
-
-                        <span>💬</span>
-
-                        <div>
-
-                            <strong data-i18n="directContact">
-                                Direct contact
-                            </strong>
-
-                            <small data-i18n="directContactText">
-                                Speak directly with Kleo House
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div>
-
-                        <span>0%</span>
-
-                        <div>
-
-                            <strong data-i18n="zeroCommission">
-                                No booking commission
-                            </strong>
-
-                            <small data-i18n="zeroCommissionText">
-                                No intermediary between guest and owner
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div>
-
-                        <span>📅</span>
-
-                        <div>
-
-                            <strong data-i18n="liveCalendar">
-                                Live availability
-                            </strong>
-
-                            <small data-i18n="liveCalendarText">
-                                Calendar synchronization via iCal
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div>
-
-                        <span>📍</span>
-
-                        <div>
-
-                            <strong data-i18n="directLocation">
-                                Direct navigation
-                            </strong>
-
-                            <small data-i18n="directLocationText">
-                                Open the property directly in Google Maps
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="booking-dates">
-
-                    <label>
-                        <span data-i18n="checkIn">
-                            Check-in
-                        </span>
-
-                        <input
-                            type="date"
-                            id="checkIn"
-                        >
-                    </label>
-
-
-                    <label>
-                        <span data-i18n="checkOut">
-                            Check-out
-                        </span>
-
-                        <input
-                            type="date"
-                            id="checkOut"
-                        >
-                    </label>
-
-                    <label class="booking-guests">
-                        <span data-i18n="guestsLabel">
-                            Guests
-                        </span>
-
-                        <select id="guestCount" aria-label="Guests">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </label>
-
-                </div>
-
-
-
-                <a
-                    href="#"
-                    id="whatsappBooking"
-                    target="_blank"
-                    rel="noopener"
-                    class="direct-whatsapp-button"
-                    data-i18n="contactWhatsapp"
-                >
-                    CONTACT ON WHATSAPP
-                </a>
-
-
-                <a
-                    href="https://www.google.com/maps?q=40.28235615783561,23.402900696893038"
-                    target="_blank"
-                    rel="noopener"
-                    class="directions-button"
-                    data-i18n="getDirections"
-                >
-                    GET DIRECTIONS
-                </a>
-
-
-                <p
-                    class="booking-small-print"
-                    data-i18n="bookingSmallPrint"
-                >
-                    Your booking is confirmed only after direct
-                    confirmation from the property.
-                </p>
-
-            </div>
-
-
-        </div>
-
     </div>
 
 </section>
@@ -7816,7 +8421,20 @@ const translations = {
         contactWhatsappButton: "WHATSAPP KLEO HOUSE",
         contactEmailButton: "SEND AN EMAIL",
         footerBooking: "BOOKING",
-        footerDirect: "Direct accommodation website"
+        footerDirect: "Direct accommodation website",
+        galleryKicker: "PHOTO GALLERY",
+        galleryTitle: "A closer look at Kleo House",
+        galleryIntro: "Explore the rooms, terrace, kitchen and relaxed outdoor setting before planning your stay.",
+        longStayKicker: "AVAILABLE · EXTRA-SEASON LONG STAY · GET YOUR QUOTE",
+        longStayTitle: "Stay longer by the sea",
+        longStayPeriod: "OCTOBER – MAY",
+        longStayText: "Kleo House is also available for extended stays outside the summer season. Ideal for couples, remote workers or guests looking for a comfortable base in Halkidiki for several weeks or months.",
+        longStayFeature1: "Flexible extended stays",
+        longStayFeature2: "Fully equipped home",
+        longStayFeature3: "190 m from the beach",
+        longStayFeature4: "Direct owner contact",
+        longStayQuote: "ASK FOR A QUOTATION",
+        longStaySmall: "Rates and conditions are provided directly according to your dates and length of stay."
     },
 
     /* =====================================================
@@ -7932,7 +8550,20 @@ const translations = {
         contactWhatsappButton: "WHATSAPP KLEO HOUSE",
         contactEmailButton: "TRIMITE UN EMAIL",
         footerBooking: "REZERVARE",
-        footerDirect: "Website direct al proprietății"
+        footerDirect: "Website direct al proprietății",
+        galleryKicker: "GALERIE FOTO",
+        galleryTitle: "Descoperă Kleo House în imagini",
+        galleryIntro: "Explorează camerele, terasa, bucătăria și atmosfera relaxată din jurul casei înainte să îți planifici sejurul.",
+        longStayKicker: "DISPONIBIL · ȘEDERI LUNGI ÎN EXTRASEZON · CERE OFERTA",
+        longStayTitle: "Stai mai mult aproape de mare",
+        longStayPeriod: "OCTOMBRIE – MAI",
+        longStayText: "Kleo House este disponibilă și pentru șederi prelungite în afara sezonului de vară. Ideală pentru cupluri, lucru la distanță sau pentru cei care caută o bază confortabilă în Halkidiki pentru câteva săptămâni sau luni.",
+        longStayFeature1: "Șederi prelungite flexibile",
+        longStayFeature2: "Casă complet utilată",
+        longStayFeature3: "190 m de plajă",
+        longStayFeature4: "Contact direct cu proprietarul",
+        longStayQuote: "CERE O OFERTĂ",
+        longStaySmall: "Tarifele și condițiile sunt oferite direct în funcție de perioadă și durata șederii."
     },
 
     /* =====================================================
@@ -8048,7 +8679,20 @@ const translations = {
         contactWhatsappButton: "WHATSAPP KLEO HOUSE",
         contactEmailButton: "ΣΤΕΙΛΤΕ EMAIL",
         footerBooking: "ΚΡΑΤΗΣΗ",
-        footerDirect: "Απευθείας ιστοσελίδα καταλύματος"
+        footerDirect: "Απευθείας ιστοσελίδα καταλύματος",
+        galleryKicker: "ΦΩΤΟΓΡΑΦΙΕΣ",
+        galleryTitle: "Μια πιο κοντινή ματιά στο Kleo House",
+        galleryIntro: "Δείτε τα δωμάτια, τη βεράντα, την κουζίνα και το χαλαρό εξωτερικό περιβάλλον πριν οργανώσετε τη διαμονή σας.",
+        longStayKicker: "ΔΙΑΘΕΣΙΜΟ · ΜΑΚΡΟΧΡΟΝΙΑ ΔΙΑΜΟΝΗ ΕΚΤΟΣ ΣΕΖΟΝ · ΖΗΤΗΣΤΕ ΠΡΟΣΦΟΡΑ",
+        longStayTitle: "Μείνετε περισσότερο δίπλα στη θάλασσα",
+        longStayPeriod: "ΟΚΤΩΒΡΙΟΣ – ΜΑΪΟΣ",
+        longStayText: "Το Kleo House είναι διαθέσιμο και για παρατεταμένες διαμονές εκτός θερινής περιόδου. Ιδανικό για ζευγάρια, εξ αποστάσεως εργασία ή επισκέπτες που αναζητούν μια άνετη βάση στη Χαλκιδική για μερικές εβδομάδες ή μήνες.",
+        longStayFeature1: "Ευέλικτες παρατεταμένες διαμονές",
+        longStayFeature2: "Πλήρως εξοπλισμένο σπίτι",
+        longStayFeature3: "190 μ. από την παραλία",
+        longStayFeature4: "Άμεση επικοινωνία με τον ιδιοκτήτη",
+        longStayQuote: "ΖΗΤΗΣΤΕ ΠΡΟΣΦΟΡΑ",
+        longStaySmall: "Οι τιμές και οι όροι δίνονται απευθείας ανάλογα με τις ημερομηνίες και τη διάρκεια της διαμονής."
     },
 
     /* =====================================================
@@ -8164,7 +8808,20 @@ const translations = {
         contactWhatsappButton: "WHATSAPP KLEO HOUSE",
         contactEmailButton: "ИЗПРАТЕТЕ ИМЕЙЛ",
         footerBooking: "РЕЗЕРВАЦИЯ",
-        footerDirect: "Директен уебсайт на мястото за настаняване"
+        footerDirect: "Директен уебсайт на мястото за настаняване",
+        galleryKicker: "ФОТОГАЛЕРИЯ",
+        galleryTitle: "Разгледайте Kleo House отблизо",
+        galleryIntro: "Разгледайте стаите, терасата, кухнята и спокойната външна обстановка, преди да планирате престоя си.",
+        longStayKicker: "НАЛИЧНО · ДЪЛГОСРОЧЕН ПРЕСТОЙ ИЗВЪН СЕЗОНА · ПОИСКАЙТЕ ОФЕРТА",
+        longStayTitle: "Останете по-дълго край морето",
+        longStayPeriod: "ОКТОМВРИ – МАЙ",
+        longStayText: "Kleo House се предлага и за продължителен престой извън летния сезон. Подходящо за двойки, дистанционна работа или гости, които търсят удобна база в Халкидики за няколко седмици или месеца.",
+        longStayFeature1: "Гъвкав продължителен престой",
+        longStayFeature2: "Напълно оборудван дом",
+        longStayFeature3: "190 м от плажа",
+        longStayFeature4: "Директен контакт със собственика",
+        longStayQuote: "ПОИСКАЙТЕ ОФЕРТА",
+        longStaySmall: "Цените и условията се предоставят директно според датите и продължителността на престоя."
     },
 
     /* =====================================================
@@ -8280,7 +8937,20 @@ const translations = {
         contactWhatsappButton: "WHATSAPP KLEO HOUSE",
         contactEmailButton: "POŠALJITE EMAIL",
         footerBooking: "REZERVACIJA",
-        footerDirect: "Direktni sajt smeštaja"
+        footerDirect: "Direktni sajt smeštaja",
+        galleryKicker: "FOTO GALERIJA",
+        galleryTitle: "Pogledajte Kleo House izbliza",
+        galleryIntro: "Pogledajte sobe, terasu, kuhinju i opušteni spoljašnji ambijent pre nego što isplanirate boravak.",
+        longStayKicker: "DOSTUPNO · DUŽI BORAVAK VAN SEZONE · ZATRAŽITE PONUDU",
+        longStayTitle: "Ostanite duže pored mora",
+        longStayPeriod: "OKTOBAR – MAJ",
+        longStayText: "Kleo House je dostupan i za duže boravke van letnje sezone. Idealan je za parove, rad na daljinu ili goste koji traže udobnu bazu na Halkidikiju na nekoliko nedelja ili meseci.",
+        longStayFeature1: "Fleksibilni duži boravci",
+        longStayFeature2: "Potpuno opremljen dom",
+        longStayFeature3: "190 m od plaže",
+        longStayFeature4: "Direktan kontakt sa vlasnikom",
+        longStayQuote: "ZATRAŽITE PONUDU",
+        longStaySmall: "Cene i uslovi se daju direktno prema datumima i dužini boravka."
     },
 
     /* =====================================================
@@ -8396,7 +9066,20 @@ const translations = {
         contactWhatsappButton: "WHATSAPP KLEO HOUSE",
         contactEmailButton: "E-MAIL SENDEN",
         footerBooking: "BUCHUNG",
-        footerDirect: "Direkte Website der Unterkunft"
+        footerDirect: "Direkte Website der Unterkunft",
+        galleryKicker: "FOTOGALERIE",
+        galleryTitle: "Kleo House aus der Nähe",
+        galleryIntro: "Entdecken Sie Zimmer, Terrasse, Küche und die entspannte Außenumgebung, bevor Sie Ihren Aufenthalt planen.",
+        longStayKicker: "VERFÜGBAR · LANGZEITAUFENTHALT IN DER NEBENSAISON · ANGEBOT ANFRAGEN",
+        longStayTitle: "Bleiben Sie länger am Meer",
+        longStayPeriod: "OKTOBER – MAI",
+        longStayText: "Kleo House ist auch für längere Aufenthalte außerhalb der Sommersaison verfügbar. Ideal für Paare, Remote-Arbeit oder Gäste, die für mehrere Wochen oder Monate eine komfortable Basis in Halkidiki suchen.",
+        longStayFeature1: "Flexible Langzeitaufenthalte",
+        longStayFeature2: "Voll ausgestattetes Haus",
+        longStayFeature3: "190 m vom Strand",
+        longStayFeature4: "Direkter Kontakt zum Eigentümer",
+        longStayQuote: "ANGEBOT ANFRAGEN",
+        longStaySmall: "Preise und Bedingungen werden direkt entsprechend Ihren Reisedaten und der Aufenthaltsdauer angeboten."
     }
 
 };
@@ -13226,6 +13909,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .house-feature-image img,
         .room-image img,
         .outdoor-image img,
+        .mini-gallery-item img,
         .beach-background > img
     `;
 
