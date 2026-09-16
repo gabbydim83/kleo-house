@@ -469,7 +469,7 @@
                 ),
 
                 url(
-                    "assets/images/kleo_hero.png"
+                    "assets/images/kleo_hero.webp"
                 );
 
             background-size:
@@ -5014,6 +5014,7 @@
 /* Property photo lightbox */
 .house-feature-image img,
 .room-image img,
+.house-detail-photo img,
 .outdoor-image img,
 .mini-gallery-item img,
 .beach-background > img {
@@ -5217,7 +5218,7 @@
                 rgba(3,24,43,0.76) 64%,
                 rgba(3,24,43,0.97) 100%
             ),
-            url("assets/images/kleo_hero.png");
+            url("assets/images/kleo_hero.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -6111,6 +6112,952 @@
     }
 }
 
+
+/* =========================================================
+   KLEO HOUSE 2026 — MODERN ACCOMMODATION REFRESH
+   Applies only to the accommodation-focused upper page.
+========================================================= */
+
+.hero {
+    min-height: 780px;
+    position: relative;
+    overflow: hidden;
+    align-items: flex-end;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(4,24,42,0.94) 0%,
+            rgba(4,24,42,0.78) 34%,
+            rgba(4,24,42,0.34) 67%,
+            rgba(4,24,42,0.10) 100%
+        ),
+        url("assets/images/kleo_hero.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 150px;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0), #f5f8fa 100%);
+    opacity: 0.16;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1450px;
+    padding: 135px 55px 85px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-location {
+    margin-bottom: 16px;
+    padding: 9px 13px;
+    border: 1px solid rgba(240,197,95,0.36);
+    border-radius: 999px;
+    background: rgba(4,24,42,0.34);
+    backdrop-filter: blur(8px);
+    color: #f6d477;
+    font-size: 10px;
+    letter-spacing: 2.1px;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    font-size: clamp(62px, 7vw, 102px);
+    letter-spacing: -2.2px;
+}
+
+.hero-subtitle {
+    max-width: 610px;
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 1.62;
+}
+
+.hero-facts {
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: 26px;
+    padding: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 16px;
+    background: rgba(4,24,42,0.36);
+    backdrop-filter: blur(13px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.16);
+}
+
+.hero-fact {
+    min-width: 118px;
+    padding: 11px 14px;
+    border-radius: 11px;
+    background: rgba(255,255,255,0.07);
+}
+
+.hero-fact strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: normal;
+}
+
+.hero-fact span {
+    color: rgba(255,255,255,0.76);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.hero-fact-accent {
+    background: rgba(201,154,61,0.22);
+    box-shadow: inset 0 0 0 1px rgba(240,197,95,0.28);
+}
+
+.hero-buttons {
+    gap: 10px;
+}
+
+.hero-button {
+    min-height: 52px;
+    padding: 0 23px;
+    border-radius: 12px;
+}
+
+.availability-button {
+    box-shadow: 0 11px 28px rgba(201,154,61,0.25);
+}
+
+.hero-photo-note {
+    position: absolute;
+    right: 55px;
+    bottom: 88px;
+    width: 260px;
+    min-height: 82px;
+    padding: 13px 15px;
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    align-items: center;
+    gap: 11px;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 17px;
+    background: rgba(5,31,54,0.58);
+    color: #ffffff;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 16px 42px rgba(0,0,0,0.18);
+}
+
+.hero-photo-note > span {
+    color: #f0c55f;
+    font-size: 19px;
+}
+
+.hero-photo-note strong,
+.hero-photo-note small {
+    display: block;
+}
+
+.hero-photo-note strong {
+    margin-bottom: 4px;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.hero-photo-note small {
+    color: rgba(255,255,255,0.67);
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.hero-photo-note b {
+    color: #f6d477;
+    font-size: 13px;
+}
+
+
+/* Overview becomes a premium floating property card */
+.property-overview {
+    position: relative;
+    border-bottom: 0;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(201,154,61,0.08), transparent 28%),
+        linear-gradient(180deg, #f5f8fa 0%, #ffffff 100%);
+}
+
+.overview-container {
+    max-width: 1320px;
+    padding: 46px 55px 62px;
+}
+
+.overview-intro {
+    max-width: 720px;
+    margin-bottom: 30px;
+}
+
+.overview-small {
+    margin-bottom: 10px;
+    font-size: 9px;
+    letter-spacing: 2.8px;
+}
+
+.overview-intro h2 {
+    font-size: 42px;
+    letter-spacing: -0.7px;
+}
+
+.overview-intro p {
+    font-size: 15px;
+}
+
+.overview-main {
+    border: 1px solid rgba(8,45,80,0.08);
+    border-radius: 21px;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 18px 55px rgba(8,45,80,0.09);
+}
+
+.overview-stat {
+    min-height: 112px;
+    gap: 13px;
+    border-right: 1px solid #edf1f4;
+}
+
+.overview-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #f3f7f9;
+    font-size: 21px;
+}
+
+.overview-stat strong {
+    font-size: 25px;
+}
+
+.highlight-stat {
+    background:
+        linear-gradient(135deg, #082d50 0%, #0c4a73 100%);
+}
+
+.highlight-stat .overview-icon {
+    background: rgba(255,255,255,0.11);
+}
+
+.amenities-strip {
+    margin-top: 17px;
+    gap: 8px;
+}
+
+.amenity-item {
+    min-height: 40px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 8px 22px rgba(8,45,80,0.04);
+}
+
+
+/* Inside house: large editorial image composition */
+.inside-house {
+    padding: 92px 0 80px;
+    background:
+        linear-gradient(180deg, #ffffff 0%, #f8fafb 100%);
+}
+
+.inside-container {
+    max-width: 1380px;
+}
+
+.section-heading {
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-size: 46px;
+    letter-spacing: -0.8px;
+}
+
+.house-feature {
+    min-height: 560px;
+    margin-bottom: 24px;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+    border: 1px solid rgba(8,45,80,0.08);
+    border-radius: 28px;
+    background: #ffffff;
+    box-shadow: 0 24px 68px rgba(8,45,80,0.10);
+}
+
+.house-media-grid {
+    min-width: 0;
+    min-height: 560px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(170px, 0.55fr);
+    gap: 8px;
+    padding: 8px;
+    background: #edf3f6;
+}
+
+.house-feature-image {
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 19px;
+}
+
+.house-feature-main {
+    min-height: 544px;
+}
+
+.house-media-side {
+    min-width: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+}
+
+.house-media-side .house-feature-image {
+    min-height: 0;
+}
+
+.house-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.house-feature-content {
+    padding: 54px 42px;
+}
+
+.house-feature-content h3 {
+    font-size: 39px;
+}
+
+.feature-points {
+    gap: 8px;
+}
+
+.feature-point {
+    min-height: 78px;
+    padding: 12px;
+    border-radius: 13px;
+    background: #f9fbfc;
+}
+
+.room-grid {
+    gap: 15px;
+}
+
+.room-card {
+    border-radius: 19px;
+    box-shadow: 0 12px 38px rgba(8,45,80,0.06);
+}
+
+.room-image {
+    height: 285px;
+}
+
+.room-content {
+    padding: 22px 22px 25px;
+}
+
+.house-detail-strip {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1.08fr 0.96fr 0.96fr;
+    gap: 12px;
+}
+
+.house-detail-photo {
+    height: 190px;
+    overflow: hidden;
+    border-radius: 17px;
+    background: #edf3f6;
+    box-shadow: 0 10px 28px rgba(8,45,80,0.06);
+}
+
+.house-detail-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: zoom-in;
+    transition: transform 0.4s ease;
+}
+
+.house-detail-photo:hover img {
+    transform: scale(1.035);
+}
+
+
+/* Outdoor: visual mosaic + content */
+.outdoor-section {
+    padding: 35px 0 92px;
+    background: #f8fafb;
+}
+
+.outdoor-card {
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+    min-height: 540px;
+    border: 1px solid rgba(8,45,80,0.08);
+    border-radius: 28px;
+    background: #ffffff;
+}
+
+.outdoor-media-grid {
+    min-height: 540px;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    background: #edf3f6;
+}
+
+.outdoor-image {
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.outdoor-image-main {
+    grid-row: 1 / span 2;
+}
+
+.outdoor-content {
+    padding: 55px 48px;
+}
+
+.outdoor-content h2 {
+    font-size: 43px;
+}
+
+.outdoor-features {
+    gap: 8px;
+}
+
+.outdoor-feature {
+    min-height: 74px;
+    padding: 12px;
+    border-radius: 13px;
+    background: #f8fafb;
+}
+
+
+/* Full WebP gallery */
+.kleo-gallery-section {
+    padding: 76px 0 88px;
+    background: #ffffff;
+}
+
+.kleo-gallery-heading {
+    margin-bottom: 31px;
+}
+
+.kleo-gallery-heading h2 {
+    font-size: 44px;
+}
+
+.kleo-gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 190px;
+    gap: 9px;
+}
+
+.mini-gallery-item {
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+.mini-gallery-item::after {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4,29,50,0) 58%,
+            rgba(4,29,50,0.20) 100%
+        );
+}
+
+.gallery-feature {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-tall {
+    grid-row: span 2;
+}
+
+.gallery-wide {
+    grid-column: span 2;
+}
+
+
+/* Long stay: stronger marketing moment */
+.long-stay-section {
+    padding: 18px 0 92px;
+    background:
+        linear-gradient(180deg, #ffffff 0%, #f2f6f8 100%);
+}
+
+.long-stay-card {
+    min-height: 500px;
+    grid-template-columns: 1.08fr 0.92fr;
+    border-radius: 30px;
+    box-shadow: 0 28px 75px rgba(8,45,80,0.20);
+}
+
+.long-stay-image {
+    min-height: 500px;
+}
+
+.long-stay-image::after {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,31,54,0.03) 48%,
+            rgba(5,31,54,0.42) 100%
+        );
+}
+
+.long-stay-season {
+    left: 25px;
+    bottom: 25px;
+    padding: 16px 23px;
+    font-size: 21px;
+    letter-spacing: 2.2px;
+}
+
+.long-stay-content {
+    padding: 58px 50px;
+}
+
+.long-stay-kicker {
+    padding: 10px 14px;
+    font-size: 10px;
+}
+
+.long-stay-content h2 {
+    font-size: 45px;
+}
+
+.long-stay-quote {
+    min-height: 52px;
+    border-radius: 11px;
+    box-shadow: 0 10px 28px rgba(201,154,61,0.22);
+}
+
+
+/* Tablet */
+@media (max-width: 1050px) {
+
+    .hero-photo-note {
+        display: none;
+    }
+
+    .house-feature,
+    .outdoor-card {
+        grid-template-columns: 1fr;
+    }
+
+    .house-feature-content,
+    .outdoor-content {
+        padding: 42px 35px;
+    }
+
+    .house-media-grid,
+    .outdoor-media-grid {
+        min-height: 470px;
+    }
+
+    .house-feature-main {
+        min-height: 454px;
+    }
+
+    .kleo-gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .gallery-feature {
+        grid-column: span 2;
+    }
+
+    .long-stay-card {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* Phone */
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: 620px;
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(3,24,43,0.02) 0%,
+                rgba(3,24,43,0.08) 31%,
+                rgba(3,24,43,0.79) 64%,
+                rgba(3,24,43,0.98) 100%
+            ),
+            url("assets/images/kleo_hero.webp");
+        background-position: center;
+    }
+
+    .hero-container {
+        padding: 275px 16px 36px;
+    }
+
+    .hero-location {
+        margin-bottom: 8px;
+        padding: 7px 9px;
+        font-size: 7px;
+        letter-spacing: 1.2px;
+    }
+
+    .hero h1 {
+        margin-bottom: 10px;
+        font-size: 48px;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 14px;
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .hero-facts {
+        width: 100%;
+        margin-bottom: 13px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        border-radius: 13px;
+        scrollbar-width: none;
+    }
+
+    .hero-facts::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-fact {
+        min-width: 104px;
+        padding: 8px 10px;
+    }
+
+    .hero-fact strong {
+        font-size: 15px;
+    }
+
+    .hero-fact span {
+        font-size: 6.5px;
+    }
+
+    .hero-button {
+        min-height: 43px;
+        border-radius: 10px;
+    }
+
+    .property-overview {
+        background: #f7fafc;
+    }
+
+    .overview-container {
+        padding: 31px 14px 42px;
+    }
+
+    .overview-intro {
+        margin-bottom: 19px;
+    }
+
+    .overview-intro h2 {
+        font-size: 28px;
+    }
+
+    .overview-main {
+        border-radius: 14px;
+    }
+
+    .inside-house {
+        padding: 50px 0 42px;
+    }
+
+    .section-heading h2,
+    .kleo-gallery-heading h2 {
+        font-size: 29px;
+    }
+
+    .house-feature {
+        display: block;
+        min-height: 0;
+        border-radius: 17px;
+    }
+
+    .house-media-grid {
+        min-height: 320px;
+        grid-template-columns: 1.45fr 0.55fr;
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .house-feature-main {
+        min-height: 310px;
+    }
+
+    .house-media-side {
+        gap: 5px;
+    }
+
+    .house-feature-image {
+        border-radius: 11px;
+    }
+
+    .house-feature-content {
+        padding: 24px 18px 26px;
+    }
+
+    .house-feature-content h3 {
+        font-size: 27px;
+    }
+
+    .house-feature-content p {
+        display: block;
+        font-size: 10px;
+        -webkit-line-clamp: unset;
+    }
+
+    .feature-points {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .feature-point {
+        min-height: 58px;
+        padding: 8px;
+    }
+
+    .room-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .room-card:nth-child(3) {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 44% 56%;
+    }
+
+    .room-image {
+        height: 150px;
+    }
+
+    .room-card:nth-child(3) .room-image {
+        height: 160px;
+    }
+
+    .room-content {
+        padding: 12px 10px 14px;
+    }
+
+    .room-content h3 {
+        font-size: 15px;
+    }
+
+    .room-content p {
+        font-size: 8.5px;
+        line-height: 1.42;
+    }
+
+    .house-detail-strip {
+        margin-top: 8px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+
+    .house-detail-photo {
+        height: 92px;
+        border-radius: 9px;
+    }
+
+    .outdoor-section {
+        padding: 15px 0 52px;
+    }
+
+    .outdoor-card {
+        display: block;
+        min-height: 0;
+        border-radius: 17px;
+    }
+
+    .outdoor-media-grid {
+        min-height: 305px;
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .outdoor-image {
+        border-radius: 10px;
+    }
+
+    .outdoor-content {
+        padding: 26px 18px 28px;
+    }
+
+    .outdoor-content h2 {
+        font-size: 28px;
+    }
+
+    .outdoor-content p {
+        font-size: 10px;
+    }
+
+    .kleo-gallery-section {
+        padding: 47px 0 55px;
+    }
+
+    .kleo-gallery-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .kleo-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 120px;
+        gap: 5px;
+    }
+
+    .mini-gallery-item {
+        border-radius: 9px;
+    }
+
+    .gallery-feature,
+    .gallery-wide {
+        grid-column: span 2;
+    }
+
+    .gallery-feature {
+        grid-row: span 2;
+    }
+
+    .gallery-tall {
+        grid-row: span 2;
+    }
+
+    .long-stay-section {
+        padding: 7px 0 54px;
+    }
+
+    .long-stay-card {
+        display: block;
+        min-height: 0;
+        border-radius: 18px;
+    }
+
+    .long-stay-image {
+        min-height: 255px;
+    }
+
+    .long-stay-image::after {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5,31,54,0.02) 45%,
+                rgba(5,31,54,0.60) 100%
+            );
+    }
+
+    .long-stay-season {
+        left: 13px;
+        bottom: 13px;
+        padding: 10px 13px;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .long-stay-content {
+        padding: 27px 18px 29px;
+    }
+
+    .long-stay-kicker {
+        margin-bottom: 11px;
+        font-size: 7px;
+    }
+
+    .long-stay-content h2 {
+        margin-bottom: 12px;
+        font-size: 29px;
+    }
+
+    .long-stay-content > p {
+        font-size: 10px;
+    }
+
+    .long-stay-feature {
+        font-size: 7.5px;
+    }
+
+    .long-stay-quote {
+        min-height: 44px;
+        font-size: 8px;
+    }
+
+    .long-stay-small {
+        font-size: 7px;
+    }
+}
+
+
+/* =========================================================
+   KLEO HOUSE — CLEAN HERO ADJUSTMENT
+========================================================= */
+
+.hero-container {
+    position: relative;
+}
+
+.hero-location {
+    position: absolute;
+    top: 95px;
+    left: 55px;
+    margin: 0;
+    z-index: 4;
+}
+
+.hero-buttons {
+    width: fit-content;
+}
+
+.hero-buttons .availability-button {
+    min-width: 190px;
+}
+
+@media (max-width: 700px) {
+    .hero-location {
+        top: 80px;
+        left: 16px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .hero-buttons .availability-button {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
 </style>
 
 </head>
@@ -6328,18 +7275,14 @@
 
 
 <!-- =========================================================
-     HERO
+     HERO — MODERN KLEO HOUSE
 ========================================================= -->
 
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
     <div class="hero-container">
 
         <div class="hero-content">
-
 
             <span
                 class="hero-location"
@@ -6348,11 +7291,7 @@
                 KALYVES POLYGYROU · HALKIDIKI
             </span>
 
-
-            <h1>
-                Kleo House
-            </h1>
-
+            <h1>Kleo House</h1>
 
             <p
                 class="hero-subtitle"
@@ -6362,56 +7301,31 @@
                 A welcoming holiday home just a short walk from the beach.
             </p>
 
-
-
             <div class="hero-buttons">
 
                 <a
                     href="#availability"
-                    class="
-                        hero-button
-                        availability-button
-                    "
+                    class="hero-button availability-button"
                     data-i18n="checkAvailability"
                 >
                     CHECK AVAILABILITY
                 </a>
 
-
-                <a
-                    href="https://wa.me/306944424043?text=Hello%20Kleo%20House!%20I%20would%20like%20to%20check%20availability."
-                    target="_blank"
-                    rel="noopener"
-                    class="
-                        hero-button
-                        whatsapp-button
-                    "
-                    data-i18n="whatsapp"
-                >
-                    WHATSAPP
-                </a>
-
             </div>
 
         </div>
-
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
      PROPERTY OVERVIEW
 ========================================================= -->
 
-<section
-    class="property-overview"
-    id="amenities"
->
+<section class="property-overview" id="amenities">
 
     <div class="overview-container">
-
 
         <div class="overview-intro">
 
@@ -6419,11 +7333,9 @@
                 KLEO HOUSE
             </span>
 
-
             <h2 data-i18n="overviewTitle">
                 Everything you need for a relaxing stay
             </h2>
-
 
             <p data-i18n="overviewText">
                 A comfortable 65 m² holiday home near Kalyves Beach,
@@ -6432,207 +7344,87 @@
 
         </div>
 
-
-
         <div class="overview-main">
 
-
             <div class="overview-stat">
-
-                <span class="overview-icon">
-                    👥
-                </span>
-
+                <span class="overview-icon">👥</span>
                 <div>
-
-                    <strong>
-                        5
-                    </strong>
-
-                    <span data-i18n="overviewGuests">
-                        Guests
-                    </span>
-
+                    <strong>5</strong>
+                    <span data-i18n="overviewGuests">Guests</span>
                 </div>
-
             </div>
 
-
-
             <div class="overview-stat">
-
-                <span class="overview-icon">
-                    📐
-                </span>
-
+                <span class="overview-icon">📐</span>
                 <div>
-
-                    <strong>
-                        65 m²
-                    </strong>
-
-                    <span data-i18n="overviewSize">
-                        Property size
-                    </span>
-
+                    <strong>65 m²</strong>
+                    <span data-i18n="overviewSize">Property size</span>
                 </div>
-
             </div>
 
-
-
             <div class="overview-stat">
-
-                <span class="overview-icon">
-                    🛏️
-                </span>
-
+                <span class="overview-icon">🛏️</span>
                 <div>
-
-                    <strong>
-                        2
-                    </strong>
-
-                    <span data-i18n="overviewBedrooms">
-                        Bedrooms
-                    </span>
-
+                    <strong>2</strong>
+                    <span data-i18n="overviewBedrooms">Bedrooms</span>
                 </div>
-
             </div>
 
-
-
             <div class="overview-stat">
-
-                <span class="overview-icon">
-                    🚿
-                </span>
-
+                <span class="overview-icon">🚿</span>
                 <div>
-
-                    <strong>
-                        1
-                    </strong>
-
-                    <span data-i18n="overviewBathroom">
-                        Bathroom
-                    </span>
-
+                    <strong>1</strong>
+                    <span data-i18n="overviewBathroom">Bathroom</span>
                 </div>
-
             </div>
 
-
-
-            <div
-                class="
-                    overview-stat
-                    highlight-stat
-                "
-            >
-
-                <span class="overview-icon">
-                    🏖️
-                </span>
-
+            <div class="overview-stat highlight-stat">
+                <span class="overview-icon">🏖️</span>
                 <div>
-
-                    <strong>
-                        190 m
-                    </strong>
-
-                    <span data-i18n="overviewBeach">
-                        From Kalyves Beach
-                    </span>
-
+                    <strong>190 m</strong>
+                    <span data-i18n="overviewBeach">From Kalyves Beach</span>
                 </div>
-
             </div>
 
         </div>
-
-
 
         <div class="overview-swipe-hint">SWIPE PROPERTY DETAILS</div>
 
         <div class="amenities-strip">
 
-
             <div class="amenity-item">
-
                 📶
-
-                <span data-i18n="amenityWifi">
-                    Free Wi-Fi
-                </span>
-
+                <span data-i18n="amenityWifi">Free Wi-Fi</span>
             </div>
 
-
             <div class="amenity-item">
-
                 ❄️
-
-                <span data-i18n="amenityAc">
-                    Air conditioning
-                </span>
-
+                <span data-i18n="amenityAc">Air conditioning</span>
             </div>
 
-
             <div class="amenity-item">
-
                 🍳
-
-                <span data-i18n="amenityKitchen">
-                    Fully equipped kitchen
-                </span>
-
+                <span data-i18n="amenityKitchen">Fully equipped kitchen</span>
             </div>
 
-
             <div class="amenity-item">
-
                 🌿
-
-                <span data-i18n="amenityGarden">
-                    Garden view
-                </span>
-
+                <span data-i18n="amenityGarden">Garden view</span>
             </div>
 
-
             <div class="amenity-item">
-
                 🔥
-
-                <span data-i18n="amenityBbq">
-                    Private terrace & BBQ
-                </span>
-
+                <span data-i18n="amenityBbq">Private terrace & BBQ</span>
             </div>
 
-
             <div class="amenity-item">
-
                 🚗
-
-                <span data-i18n="amenityParking">
-                    Free parking
-                </span>
-
+                <span data-i18n="amenityParking">Free parking</span>
             </div>
 
-
             <div class="amenity-item">
-
                 🧺
-
-                <span data-i18n="amenityWasher">
-                    Washing machine
-                </span>
-
+                <span data-i18n="amenityWasher">Washing machine</span>
             </div>
 
         </div>
@@ -6642,18 +7434,13 @@
 </section>
 
 
-
 <!-- =========================================================
-     INSIDE KLEO HOUSE
+     INSIDE KLEO HOUSE — EDITORIAL LAYOUT
 ========================================================= -->
 
-<section
-    class="inside-house"
-    id="house"
->
+<section class="inside-house" id="house">
 
     <div class="inside-container">
-
 
         <div class="section-heading">
 
@@ -6664,11 +7451,9 @@
                 DISCOVER THE HOUSE
             </span>
 
-
             <h2 data-i18n="insideTitle">
                 Welcome inside Kleo House
             </h2>
-
 
             <p data-i18n="insideIntro">
                 Comfortable spaces, Mediterranean character and
@@ -6677,30 +7462,47 @@
 
         </div>
 
-
-
-        <!-- MAIN LIVING ROOM -->
-
         <div class="house-feature">
 
+            <div class="house-media-grid">
 
-            <div class="house-feature-image">
+                <div class="house-feature-image house-feature-main">
 
-                <img
-                    src="assets/images/kleo_living.png"
-                    alt="Kleo House living room"
-                >
+                    <img
+                        src="assets/images/kleo_living.webp"
+                        alt="Kleo House living room"
+                    >
 
-                <div
-                    class="photo-label"
-                    data-i18n="livingRoom"
-                >
-                    Living room
+                    <div
+                        class="photo-label"
+                        data-i18n="livingRoom"
+                    >
+                        Living room
+                    </div>
+
+                </div>
+
+                <div class="house-media-side">
+
+                    <div class="house-feature-image">
+                        <img
+                            src="assets/images/kleo_sitting_area.webp"
+                            alt="Kleo House sitting area"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="house-feature-image">
+                        <img
+                            src="assets/images/kleo_kitchen_tv.webp"
+                            alt="Kleo House kitchen and TV area"
+                            loading="lazy"
+                        >
+                    </div>
+
                 </div>
 
             </div>
-
-
 
             <div class="house-feature-content">
 
@@ -6711,11 +7513,9 @@
                     FEEL AT HOME
                 </span>
 
-
                 <h3 data-i18n="livingTitle">
                     A bright and welcoming living space
                 </h3>
-
 
                 <p data-i18n="livingText">
                     The open-space living area is designed for
@@ -6724,60 +7524,34 @@
                     stone fireplace.
                 </p>
 
-
-
                 <div class="feature-points">
 
-
                     <div class="feature-point">
-
-                        <span>
-                            🔥
-                        </span>
-
+                        <span>🔥</span>
                         <strong data-i18n="fireplace">
                             Stone fireplace
                         </strong>
-
                     </div>
 
-
                     <div class="feature-point">
-
-                        <span>
-                            🌿
-                        </span>
-
+                        <span>🌿</span>
                         <strong data-i18n="terraceAccess">
                             Direct terrace access
                         </strong>
-
                     </div>
 
-
                     <div class="feature-point">
-
-                        <span>
-                            📺
-                        </span>
-
+                        <span>📺</span>
                         <strong data-i18n="flatTv">
                             Flat-screen TV
                         </strong>
-
                     </div>
 
-
                     <div class="feature-point">
-
-                        <span>
-                            ❄️
-                        </span>
-
+                        <span>❄️</span>
                         <strong data-i18n="airConditioning">
                             Air conditioning
                         </strong>
-
                     </div>
 
                 </div>
@@ -6786,127 +7560,113 @@
 
         </div>
 
-
-
-        <!-- ROOMS -->
-
         <div class="room-grid">
-
-
-            <!-- DOUBLE BEDROOM -->
 
             <article class="room-card">
 
                 <div class="room-image">
-
                     <img
-                        src="assets/images/kleo_double_bedroom.png"
+                        src="assets/images/kleo_double_bedroom.webp"
                         alt="Kleo House double bedroom"
+                        loading="lazy"
                     >
-
-                    <span class="room-number">
-                        01
-                    </span>
-
+                    <span class="room-number">01</span>
                 </div>
 
-
                 <div class="room-content">
-
                     <h3 data-i18n="doubleBedroom">
                         Double Bedroom
                     </h3>
-
-
                     <p data-i18n="doubleBedroomText">
                         A peaceful bedroom with a comfortable
                         double bed, storage space and natural light.
                     </p>
-
                 </div>
 
             </article>
 
-
-
-            <!-- TWIN BEDROOM -->
-
             <article class="room-card">
 
                 <div class="room-image">
-
                     <img
-                        src="assets/images/kleo_twin_bedroom.png"
+                        src="assets/images/kleo_twin_bedroom.webp"
                         alt="Kleo House twin bedroom"
+                        loading="lazy"
                     >
-
-                    <span class="room-number">
-                        02
-                    </span>
-
+                    <span class="room-number">02</span>
                 </div>
 
-
                 <div class="room-content">
-
                     <h3 data-i18n="twinBedroom">
                         Twin Bedroom
                     </h3>
-
-
                     <p data-i18n="twinBedroomText">
                         A comfortable second bedroom with two
                         single beds, ideal for children,
                         friends or family members.
                     </p>
-
                 </div>
 
             </article>
 
-
-
-            <!-- KITCHEN -->
-
             <article class="room-card">
 
                 <div class="room-image">
-
                     <img
-                        src="assets/images/kleo_kitchen.png"
+                        src="assets/images/kleo_kitchen.webp"
                         alt="Kleo House kitchen"
+                        loading="lazy"
                     >
-
-                    <span class="room-number">
-                        03
-                    </span>
-
+                    <span class="room-number">03</span>
                 </div>
 
-
                 <div class="room-content">
-
                     <h3 data-i18n="kitchenTitle">
                         Fully Equipped Kitchen
                     </h3>
-
-
                     <p data-i18n="kitchenText">
                         Everything needed for a comfortable stay,
                         including cooking facilities, refrigerator,
                         microwave and dining area.
                     </p>
-
                 </div>
 
             </article>
 
+        </div>
+
+        <div class="house-detail-strip">
+
+            <div class="house-detail-photo">
+                <img
+                    src="assets/images/kleo_bathroom_02.webp"
+                    alt="Kleo House bathroom"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="house-detail-photo">
+                <img
+                    src="assets/images/kleo_kitchen_tv.webp"
+                    alt="Kleo House kitchen and television"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="house-detail-photo">
+                <img
+                    src="assets/images/kleo_sitting_area.webp"
+                    alt="Kleo House sitting corner"
+                    loading="lazy"
+                >
+            </div>
 
         </div>
 
     </div>
 
 </section>
+
 
 <!-- =========================================================
      OUTDOOR LIVING
@@ -6918,12 +7678,31 @@
 
         <div class="outdoor-card">
 
-            <div class="outdoor-image">
+            <div class="outdoor-media-grid">
 
-                <img
-                    src="assets/images/kleo_terrace.png"
-                    alt="Kleo House terrace"
-                >
+                <div class="outdoor-image outdoor-image-main">
+                    <img
+                        src="assets/images/kleo_terrace.webp"
+                        alt="Kleo House terrace"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="outdoor-image">
+                    <img
+                        src="assets/images/kleo_outdoor_table.webp"
+                        alt="Kleo House outdoor dining table"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="outdoor-image">
+                    <img
+                        src="assets/images/kleo_garden_exterior.webp"
+                        alt="Kleo House garden exterior"
+                        loading="lazy"
+                    >
+                </div>
 
             </div>
 
@@ -6988,8 +7767,6 @@
 </section>
 
 
-
-
 <!-- =========================================================
      KLEO HOUSE PHOTO GALLERY
 ========================================================= -->
@@ -6999,6 +7776,7 @@
     <div class="kleo-gallery-container">
 
         <div class="kleo-gallery-heading">
+
             <span
                 class="section-kicker"
                 data-i18n="galleryKicker"
@@ -7014,13 +7792,22 @@
                 Explore the rooms, terrace, kitchen and relaxed outdoor setting
                 before planning your stay.
             </p>
+
         </div>
 
         <div class="kleo-gallery-grid">
 
-            <figure class="mini-gallery-item large">
+            <figure class="mini-gallery-item gallery-feature">
                 <img
-                    src="assets/images/kleo_living.png"
+                    src="assets/images/kleo_hero.webp"
+                    alt="Kleo House"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item gallery-tall">
+                <img
+                    src="assets/images/kleo_living.webp"
                     alt="Kleo House living room"
                     loading="lazy"
                 >
@@ -7028,7 +7815,7 @@
 
             <figure class="mini-gallery-item">
                 <img
-                    src="assets/images/kleo_double_bedroom.png"
+                    src="assets/images/kleo_double_bedroom.webp"
                     alt="Kleo House double bedroom"
                     loading="lazy"
                 >
@@ -7036,15 +7823,15 @@
 
             <figure class="mini-gallery-item">
                 <img
-                    src="assets/images/kleo_twin_bedroom.png"
+                    src="assets/images/kleo_twin_bedroom.webp"
                     alt="Kleo House twin bedroom"
                     loading="lazy"
                 >
             </figure>
 
-            <figure class="mini-gallery-item wide">
+            <figure class="mini-gallery-item gallery-wide">
                 <img
-                    src="assets/images/kleo_terrace.png"
+                    src="assets/images/kleo_terrace.webp"
                     alt="Kleo House terrace"
                     loading="lazy"
                 >
@@ -7052,7 +7839,7 @@
 
             <figure class="mini-gallery-item">
                 <img
-                    src="assets/images/kleo_kitchen.png"
+                    src="assets/images/kleo_kitchen.webp"
                     alt="Kleo House kitchen"
                     loading="lazy"
                 >
@@ -7060,8 +7847,40 @@
 
             <figure class="mini-gallery-item">
                 <img
-                    src="assets/images/kleo_hero.png"
-                    alt="Kleo House exterior"
+                    src="assets/images/kleo_bathroom_02.webp"
+                    alt="Kleo House bathroom"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item gallery-wide">
+                <img
+                    src="assets/images/kleo_outdoor_table.webp"
+                    alt="Kleo House outdoor dining"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item">
+                <img
+                    src="assets/images/kleo_kitchen_tv.webp"
+                    alt="Kleo House kitchen and TV area"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item">
+                <img
+                    src="assets/images/kleo_sitting_area.webp"
+                    alt="Kleo House sitting area"
+                    loading="lazy"
+                >
+            </figure>
+
+            <figure class="mini-gallery-item gallery-wide">
+                <img
+                    src="assets/images/kleo_garden_exterior.webp"
+                    alt="Kleo House garden exterior"
                     loading="lazy"
                 >
             </figure>
@@ -7086,8 +7905,8 @@
             <div class="long-stay-image">
 
                 <img
-                    src="assets/images/kleo_terrace.png"
-                    alt="Kleo House terrace for an extended stay"
+                    src="assets/images/kleo_outdoor_table.webp"
+                    alt="Kleo House outdoor dining area for an extended stay"
                     loading="lazy"
                 >
 
@@ -7509,7 +8328,7 @@
     <div class="beach-background">
 
         <img
-            src="assets/images/kalyves_beach.png"
+            src="assets/images/kalyves_beach.webp"
             alt="Kalyves Beach"
         >
 
@@ -13908,6 +14727,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const imageSelector = `
         .house-feature-image img,
         .room-image img,
+        .house-detail-photo img,
         .outdoor-image img,
         .mini-gallery-item img,
         .beach-background > img
