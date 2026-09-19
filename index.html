@@ -7058,6 +7058,756 @@
     }
 }
 
+
+
+/* =========================================================
+   SMART EXTRA-SEASON EXPERIENCE — KLEO HOUSE
+========================================================= */
+
+.hero-season-badge {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 18px;
+    padding: 10px 14px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px;
+    border: 1px solid rgba(246,212,119,0.45);
+    border-radius: 13px;
+    background: rgba(5,31,54,0.52);
+    color: #ffffff;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+    transition: transform 0.25s, background 0.25s, border-color 0.25s;
+}
+
+.hero-season-badge:hover {
+    transform: translateY(-2px);
+    background: rgba(5,31,54,0.72);
+    border-color: rgba(246,212,119,0.82);
+}
+
+.hero-season-badge span {
+    color: #f6d477;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+}
+
+.hero-season-badge small {
+    color: rgba(255,255,255,0.86);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.season-showcase {
+    padding: 88px 0 96px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(201,154,61,0.12), transparent 28%),
+        linear-gradient(180deg, #071e32 0%, #0a2a45 100%);
+    color: #ffffff;
+}
+
+.season-showcase-container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 55px;
+}
+
+.season-showcase-heading {
+    max-width: 870px;
+    margin: 0 auto 34px;
+    text-align: center;
+}
+
+.season-kicker {
+    color: #f0c55f;
+}
+
+.season-showcase-heading h2 {
+    margin: 8px 0 14px;
+    font-family: Georgia, serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: normal;
+    line-height: 1.02;
+    letter-spacing: -1.2px;
+}
+
+.season-showcase-heading p {
+    max-width: 740px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.72);
+    font-size: 15px;
+    line-height: 1.72;
+}
+
+.season-months {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.season-months span {
+    min-width: 52px;
+    min-height: 34px;
+    padding: 0 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+}
+
+.season-month-active {
+    border: 1px solid rgba(240,197,95,0.38);
+    background: rgba(240,197,95,0.14);
+    color: #f6d477;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.season-month-peak {
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.045);
+    color: rgba(255,255,255,0.36);
+}
+
+.season-carousel {
+    position: relative;
+    min-height: 540px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 30px;
+    background: #0a253b;
+    box-shadow: 0 30px 85px rgba(0,0,0,0.28);
+}
+
+.season-track {
+    display: flex;
+    min-height: 540px;
+    transition: transform 0.72s cubic-bezier(.22,.61,.36,1);
+    will-change: transform;
+}
+
+.season-slide {
+    position: relative;
+    min-width: 100%;
+    min-height: 540px;
+    overflow: hidden;
+}
+
+.season-slide > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    transition: transform 6s ease;
+}
+
+.season-slide.is-active > img {
+    transform: scale(1.075);
+}
+
+.season-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(3,21,36,0.91) 0%, rgba(3,21,36,0.70) 43%, rgba(3,21,36,0.14) 78%, rgba(3,21,36,0.03) 100%),
+        linear-gradient(0deg, rgba(3,21,36,0.50) 0%, transparent 55%);
+}
+
+.season-slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 610px;
+    min-height: 540px;
+    padding: 64px 66px 62px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.season-slide-badge {
+    margin-bottom: auto;
+    padding: 8px 11px;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 50px;
+    background: rgba(5,31,54,0.48);
+    color: rgba(255,255,255,0.82);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.15px;
+    backdrop-filter: blur(10px);
+}
+
+.season-slide-label {
+    margin-bottom: 11px;
+    color: #f6d477;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2.2px;
+}
+
+.season-slide-content h3 {
+    margin: 0 0 15px;
+    max-width: 560px;
+    font-family: Georgia, serif;
+    font-size: clamp(39px, 4.3vw, 62px);
+    line-height: 1.02;
+    font-weight: normal;
+}
+
+.season-slide-content p {
+    max-width: 520px;
+    margin: 0 0 23px;
+    color: rgba(255,255,255,0.84);
+    font-size: 14px;
+    line-height: 1.66;
+}
+
+.season-slide-cta {
+    min-height: 47px;
+    padding: 0 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #c99a3d;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 28px rgba(201,154,61,0.24);
+    transition: transform 0.25s, background 0.25s;
+}
+
+.season-slide-cta:hover {
+    transform: translateY(-2px);
+    background: #ddb558;
+}
+
+.season-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    width: 48px;
+    height: 48px;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 50%;
+    background: rgba(5,31,54,0.52);
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.season-arrow:hover {
+    background: rgba(201,154,61,0.90);
+    border-color: rgba(201,154,61,1);
+    transform: translateY(-50%) scale(1.04);
+}
+
+.season-arrow-prev { left: 17px; }
+.season-arrow-next { right: 17px; }
+
+.season-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    z-index: 5;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+}
+
+.season-dots button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.40);
+    cursor: pointer;
+    transition: width 0.25s, border-radius 0.25s, background 0.25s;
+}
+
+.season-dots button.is-active {
+    width: 28px;
+    border-radius: 50px;
+    background: #f0c55f;
+}
+
+.season-showcase-footer {
+    margin-top: 18px;
+    padding: 18px 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.055);
+}
+
+.season-showcase-footer strong,
+.season-showcase-footer span {
+    display: block;
+}
+
+.season-showcase-footer strong {
+    margin-bottom: 4px;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.season-showcase-footer span {
+    color: rgba(255,255,255,0.58);
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+.season-showcase-footer > a {
+    flex-shrink: 0;
+    color: #f6d477;
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+}
+
+/* Keep the local ecosystem useful but visually secondary to Kleo House. */
+.ecosystem-container {
+    max-width: 1240px;
+    padding-top: 48px;
+    padding-bottom: 62px;
+}
+
+.ecosystem-heading {
+    max-width: 640px;
+    margin-bottom: 24px;
+}
+
+.ecosystem-heading h3 {
+    font-size: 31px;
+}
+
+.ecosystem-heading p {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.dynamic-restaurants,
+.dynamic-beachbars,
+.dynamic-activities,
+.dynamic-local-businesses,
+.dynamic-nearby-beaches {
+    margin-top: 26px;
+    margin-bottom: 30px;
+}
+
+.dynamic-restaurants-heading,
+.dynamic-beachbars-heading,
+.dynamic-activities-heading,
+.local-businesses-heading,
+.nearby-beaches-heading {
+    margin-bottom: 14px;
+}
+
+.dynamic-restaurants-heading h4,
+.dynamic-beachbars-heading h4,
+.dynamic-activities-heading h4,
+.local-businesses-heading h4,
+.nearby-beaches-heading h4 {
+    font-size: 24px;
+}
+
+.dynamic-restaurants-heading p,
+.dynamic-beachbars-heading p,
+.dynamic-activities-heading p,
+.local-businesses-heading p,
+.nearby-beaches-heading p {
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.restaurant-cards-grid,
+.beachbar-cards-grid,
+.activities-grid,
+.local-businesses-grid,
+.nearby-beaches-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x proximity;
+    padding: 3px 2px 12px;
+    scrollbar-width: thin;
+}
+
+.restaurant-card,
+.beachbar-card,
+.activity-card,
+.local-business-card,
+.nearby-beach-card {
+    flex: 0 0 min(390px, 82vw);
+    scroll-snap-align: start;
+    min-height: 185px;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(8,45,80,0.07);
+}
+
+.restaurant-card,
+.beachbar-card,
+.activity-card,
+.local-business-card {
+    grid-template-columns: 138px minmax(0, 1fr);
+}
+
+.restaurant-card-image,
+.beachbar-card-image,
+.activity-card-image,
+.local-business-image {
+    min-height: 185px;
+    height: auto;
+}
+
+.restaurant-card-content,
+.beachbar-card-content,
+.activity-card-content,
+.local-business-content {
+    padding: 16px 15px;
+}
+
+.restaurant-card h5,
+.beachbar-card h5,
+.activity-card h5,
+.local-business-card h5,
+.nearby-beach-content h5 {
+    font-size: 18px;
+}
+
+.restaurant-description,
+.beachbar-description,
+.activity-description,
+.local-business-description {
+    font-size: 9px;
+    line-height: 1.45;
+}
+
+.nearby-beach-card {
+    display: grid;
+    grid-template-columns: 145px minmax(0, 1fr);
+}
+
+.nearby-beach-image {
+    height: auto;
+    min-height: 185px;
+}
+
+.nearby-beach-content {
+    padding: 15px;
+}
+
+.gabriel-design-link {
+    min-height: 38px;
+    padding: 7px 12px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+    border: 1px solid rgba(201,154,61,0.32);
+    border-radius: 10px;
+    background: rgba(201,154,61,0.08);
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.gabriel-design-link:hover {
+    transform: translateY(-2px);
+    background: rgba(201,154,61,0.14);
+    border-color: rgba(201,154,61,0.62);
+}
+
+.gabriel-design-link span {
+    color: #74818d;
+    font-size: 7px;
+    font-weight: 800;
+}
+
+.gabriel-design-link strong {
+    color: #c99a3d;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 700px) {
+    .hero-season-badge {
+        margin-bottom: 10px;
+        padding: 7px 9px;
+        border-radius: 9px;
+    }
+
+    .hero-season-badge span { font-size: 6.5px; }
+    .hero-season-badge small { font-size: 5.8px; }
+
+    .season-showcase {
+        padding: 50px 0 58px;
+    }
+
+    .season-showcase-container {
+        padding: 0 14px;
+    }
+
+    .season-showcase-heading {
+        margin-bottom: 20px;
+    }
+
+    .season-showcase-heading h2 {
+        font-size: 31px;
+    }
+
+    .season-showcase-heading p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .season-months {
+        margin-top: 16px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+    }
+
+    .season-months::-webkit-scrollbar { display: none; }
+
+    .season-months span {
+        min-width: 43px;
+        min-height: 29px;
+        font-size: 7px;
+    }
+
+    .season-carousel,
+    .season-track,
+    .season-slide {
+        min-height: 430px;
+    }
+
+    .season-carousel {
+        border-radius: 19px;
+    }
+
+    .season-slide-overlay {
+        background:
+            linear-gradient(0deg, rgba(3,21,36,0.96) 0%, rgba(3,21,36,0.70) 52%, rgba(3,21,36,0.12) 100%);
+    }
+
+    .season-slide-content {
+        min-height: 430px;
+        max-width: none;
+        padding: 25px 22px 42px;
+        justify-content: flex-end;
+    }
+
+    .season-slide-badge {
+        margin-bottom: auto;
+        font-size: 6px;
+    }
+
+    .season-slide-label {
+        margin-bottom: 7px;
+        font-size: 7px;
+    }
+
+    .season-slide-content h3 {
+        margin-bottom: 9px;
+        font-size: 30px;
+    }
+
+    .season-slide-content p {
+        margin-bottom: 15px;
+        font-size: 9.5px;
+        line-height: 1.5;
+    }
+
+    .season-slide-cta {
+        min-height: 40px;
+        font-size: 7px;
+    }
+
+    .season-arrow {
+        width: 36px;
+        height: 36px;
+        top: 46%;
+        font-size: 24px;
+    }
+
+    .season-arrow-prev { left: 8px; }
+    .season-arrow-next { right: 8px; }
+
+    .season-showcase-footer {
+        padding: 13px 14px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .season-showcase-footer strong { font-size: 14px; }
+    .season-showcase-footer span { font-size: 7px; }
+    .season-showcase-footer > a { font-size: 7px; }
+
+    .ecosystem-container {
+        padding: 36px 14px 42px;
+    }
+
+    .ecosystem-heading h3 {
+        font-size: 25px;
+    }
+
+    .restaurant-card,
+    .beachbar-card,
+    .activity-card,
+    .local-business-card,
+    .nearby-beach-card {
+        flex-basis: 80vw;
+    }
+
+    .restaurant-card,
+    .beachbar-card,
+    .activity-card,
+    .local-business-card,
+    .nearby-beach-card {
+        grid-template-columns: 118px minmax(0, 1fr) !important;
+        display: grid !important;
+    }
+
+    .restaurant-card-image,
+    .beachbar-card-image,
+    .activity-card-image,
+    .local-business-image,
+    .nearby-beach-image {
+        min-height: 170px !important;
+        height: auto !important;
+    }
+
+    .footer-bottom {
+        gap: 8px;
+    }
+
+    .gabriel-design-link {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
+
+/* =========================================================
+   V2 REFINEMENTS — EXTRA SEASON + LIVE BOOKING SAFETY
+========================================================= */
+
+/* Give every extra-season slide a distinct photographic mood without needing new assets. */
+.season-slide[data-season="spring"] > img {
+    filter: saturate(1.18) brightness(1.05) contrast(1.02);
+}
+
+.season-slide[data-season="may"] > img {
+    filter: saturate(1.15) brightness(1.08) contrast(1.03);
+}
+
+.season-slide[data-season="september"] > img {
+    filter: saturate(1.10) brightness(1.03) contrast(1.05) sepia(0.04);
+}
+
+.season-slide[data-season="october"] > img {
+    filter: saturate(1.04) brightness(0.96) contrast(1.06) sepia(0.10);
+}
+
+.season-months {
+    gap: 10px;
+}
+
+.season-months span {
+    min-width: 70px;
+    min-height: 38px;
+    font-size: 10px;
+}
+
+.calendar-controls button:disabled {
+    opacity: 0.28;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.calendar-day.past {
+    background: #f1f3f5;
+    color: #b5bdc4;
+    border-color: #eceff1;
+    cursor: default;
+    opacity: 0.72;
+}
+
+.calendar-day.today {
+    box-shadow: inset 0 0 0 2px rgba(201,154,61,0.55);
+}
+
+.booking-date-status {
+    min-height: 20px;
+    margin: 11px 0 3px;
+    font-size: 10px;
+    line-height: 1.45;
+    font-weight: 700;
+    color: #72808d;
+}
+
+.booking-date-status.is-ok {
+    color: #1c7a4f;
+}
+
+.booking-date-status.is-error {
+    color: #b63b3b;
+}
+
+.booking-date-status.is-warning {
+    color: #9a6a13;
+}
+
+@media (max-width: 700px) {
+    .season-months {
+        justify-content: flex-start;
+    }
+
+    .season-months span {
+        min-width: 62px;
+    }
+
+    .booking-date-status {
+        font-size: 7px;
+        margin-top: 7px;
+    }
+}
+
 </style>
 
 </head>
@@ -7291,6 +8041,11 @@
                 KALYVES POLYGYROU · HALKIDIKI
             </span>
 
+            <a class="hero-season-badge" href="#beyond-summer" aria-label="Explore stays beyond summer">
+                <span data-i18n="seasonHeroBadge">OPEN BEYOND SUMMER</span>
+                <small data-i18n="seasonHeroMonths">SPRING &amp; EASTER · MAY · SEPTEMBER · OCTOBER</small>
+            </a>
+
             <h1>Kleo House</h1>
 
             <p
@@ -7433,6 +8188,113 @@
 
 </section>
 
+
+<!-- =========================================================
+     BEYOND SUMMER — SMART EXTRA-SEASON CAROUSEL
+========================================================= -->
+
+<section class="season-showcase" id="beyond-summer">
+
+    <div class="season-showcase-container">
+
+        <div class="season-showcase-heading">
+            <span class="section-kicker season-kicker" data-i18n="seasonKicker">
+                BEYOND THE PEAK SEASON
+            </span>
+
+            <h2 data-i18n="seasonTitle">
+                See another side of Halkidiki.
+            </h2>
+
+            <p data-i18n="seasonIntro">
+                Discover quieter days by the sea in spring, around Easter, in May, September and October.
+            </p>
+
+            <div class="season-months" aria-label="Kleo House extra-season stays">
+                <span class="season-month-active">APR</span>
+                <span class="season-month-active">MAY</span>
+                <span class="season-month-active">SEP</span>
+                <span class="season-month-active">OCT</span>
+            </div>
+        </div>
+
+        <div class="season-carousel" id="seasonCarousel">
+
+            <div class="season-track" id="seasonTrack">
+
+                <article class="season-slide" data-season="spring">
+                    <img src="assets/images/kleo_garden_exterior.webp" alt="Kleo House in spring" loading="lazy">
+                    <div class="season-slide-overlay"></div>
+                    <div class="season-slide-content">
+                        <span class="season-slide-badge" data-i18n="seasonDirectBadge">DIRECT EXTRA-SEASON STAYS</span>
+                        <span class="season-slide-label" data-i18n="seasonSpringLabel">SPRING &amp; EASTER</span>
+                        <h3 data-i18n="seasonSpringTitle">Spring &amp; Easter in Halkidiki</h3>
+                        <p data-i18n="seasonSpringText">Green landscapes, quiet beaches and the atmosphere of Greek Easter — a slower way to experience the coast.</p>
+                        <a href="#availability" class="season-slide-cta" data-i18n="seasonCta">CHECK AVAILABILITY</a>
+                    </div>
+                </article>
+
+                <article class="season-slide" data-season="may">
+                    <img src="assets/images/kleo_outdoor_table.webp" alt="Kleo House in May" loading="lazy">
+                    <div class="season-slide-overlay"></div>
+                    <div class="season-slide-content">
+                        <span class="season-slide-badge" data-i18n="seasonDirectBadge">DIRECT EXTRA-SEASON STAYS</span>
+                        <span class="season-slide-label" data-i18n="seasonMayLabel">MAY ESCAPE</span>
+                        <h3 data-i18n="seasonMayTitle">A quiet May by the Aegean</h3>
+                        <p data-i18n="seasonMayText">Long bright days, outdoor breakfasts and beaches before the summer crowds arrive.</p>
+                        <a href="#availability" class="season-slide-cta" data-i18n="seasonCta">CHECK AVAILABILITY</a>
+                    </div>
+                </article>
+
+                <article class="season-slide" data-season="september">
+                    <img src="assets/images/kleo_terrace.webp" alt="Kleo House in September" loading="lazy">
+                    <div class="season-slide-overlay"></div>
+                    <div class="season-slide-content">
+                        <span class="season-slide-badge" data-i18n="seasonDirectBadge">DIRECT EXTRA-SEASON STAYS</span>
+                        <span class="season-slide-label" data-i18n="seasonSeptemberLabel">SEPTEMBER</span>
+                        <h3 data-i18n="seasonSeptemberTitle">September by the sea</h3>
+                        <p data-i18n="seasonSeptemberText">Summer feeling, a calmer rhythm and more space to enjoy Halkidiki at your own pace.</p>
+                        <a href="#availability" class="season-slide-cta" data-i18n="seasonCta">CHECK AVAILABILITY</a>
+                    </div>
+                </article>
+
+                <article class="season-slide" data-season="october">
+                    <img src="assets/images/kleo_living.webp" alt="Kleo House in October" loading="lazy">
+                    <div class="season-slide-overlay"></div>
+                    <div class="season-slide-content">
+                        <span class="season-slide-badge" data-i18n="seasonDirectBadge">DIRECT EXTRA-SEASON STAYS</span>
+                        <span class="season-slide-label" data-i18n="seasonOctoberLabel">OCTOBER</span>
+                        <h3 data-i18n="seasonOctoberTitle">October, differently</h3>
+                        <p data-i18n="seasonOctoberText">A calmer stay for guests who prefer space, local life and a slower pace near the sea.</p>
+                        <a href="#availability" class="season-slide-cta" data-i18n="seasonCta">CHECK AVAILABILITY</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <button class="season-arrow season-arrow-prev" id="seasonPrev" type="button" aria-label="Previous season">‹</button>
+            <button class="season-arrow season-arrow-next" id="seasonNext" type="button" aria-label="Next season">›</button>
+
+            <div class="season-dots" id="seasonDots" aria-label="Season carousel navigation">
+                <button type="button" data-slide="0" aria-label="Spring and Easter"></button>
+                <button type="button" data-slide="1" aria-label="May"></button>
+                <button type="button" data-slide="2" aria-label="September"></button>
+                <button type="button" data-slide="3" aria-label="October"></button>
+            </div>
+
+        </div>
+
+        <div class="season-showcase-footer">
+            <div>
+                <strong data-i18n="seasonFooterTitle">Kleo House, from spring to autumn.</strong>
+                <span data-i18n="seasonFooterText">Choose your dates in the live calendar and ask the property directly.</span>
+            </div>
+            <a href="#availability" data-i18n="seasonFooterCta">SEE LIVE CALENDAR →</a>
+        </div>
+
+    </div>
+
+</section>
 
 <!-- =========================================================
      INSIDE KLEO HOUSE — EDITORIAL LAYOUT
@@ -7716,14 +8578,12 @@
                 </span>
 
                 <h2 data-i18n="outdoorTitle">
-                    Slow mornings and relaxed evenings
+                    Breakfast in the sun. Evenings under the Halkidiki sky.
                 </h2>
 
                 <p data-i18n="outdoorText">
-                    Step outside and enjoy the private terrace,
-                    surrounded by greenery and designed for
-                    breakfast, family meals or quiet evenings
-                    after a day at the beach.
+                    Start the day outside, come back from the beach for a quiet afternoon,
+                    and finish with dinner on your private terrace surrounded by greenery.
                 </p>
 
                 <div class="outdoor-features">
@@ -8044,6 +8904,7 @@
 
                 </div>
 
+                <p class="booking-date-status" id="bookingDateStatus" aria-live="polite"></p>
 
 
                 <a
@@ -8085,7 +8946,6 @@
     </div>
 
 </section>
-
 
 <!-- =========================================================
      EXTRA-SEASON EXTENDED STAYS
@@ -8195,7 +9055,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -8387,17 +9246,16 @@
                 class="section-kicker"
                 data-i18n="ecosystemKicker"
             >
-                HALKIDIKI EXPLORER ECOSYSTEM
+                LOCAL GUIDE · POWERED BY HALKIDIKI EXPLORER
             </span>
 
             <h3 data-i18n="ecosystemTitle">
-                Your holiday does not stop at the accommodation
+                Everything around your stay, in one place
             </h3>
 
             <p data-i18n="ecosystemText">
-                Kleo House is connected with the Halkidiki Explorer
-                ecosystem, helping guests discover useful places and
-                services around their stay.
+                A compact local guide to beaches, food and experiences near
+                Kleo House — useful when you want it, secondary to the property itself.
             </p>
 
         </div>
@@ -9099,6 +9957,17 @@
         🔐 Owner
     </a>
 
+    <a
+        href="https://wa.me/40XXXXXXXXX?text=Hello%20Gabriel!%20I%20saw%20the%20Kleo%20House%20website%20and%20I%20would%20like%20a%20website%20like%20this."
+        class="gabriel-design-link"
+        target="_blank"
+        rel="noopener"
+        title="Contact Gabriel on WhatsApp"
+    >
+        <span>Want a website like this?</span>
+        <strong>CLICK HERE →</strong>
+    </a>
+
 </div>
 
     </div>
@@ -9183,8 +10052,8 @@ const translations = {
         kitchenTitle: "Fully Equipped Kitchen",
         kitchenText: "Everything needed for a comfortable stay, with cooking facilities, refrigerator and dining area.",
         outdoorKicker: "OUTDOOR LIVING",
-        outdoorTitle: "Slow mornings and relaxed evenings",
-        outdoorText: "Step outside and enjoy the private terrace, surrounded by greenery and designed for breakfast, family meals or quiet evenings after a day at the beach.",
+        outdoorTitle: "Breakfast in the sun. Evenings under the Halkidiki sky.",
+        outdoorText: "Start the day outside, come back from the beach for a quiet afternoon, and finish with dinner on your private terrace surrounded by greenery.",
         privateTerrace: "Private terrace",
         bbqArea: "BBQ area",
         outdoorDining: "Outdoor dining",
@@ -9192,9 +10061,9 @@ const translations = {
         beachDistance: "ONLY 190 M FROM KLEO HOUSE",
         beachText: "Leave the car at home and walk to the sea. Kalyves Beach is only a few minutes from Kleo House, making it easy to enjoy the beach whenever you want.",
         exploreBeach: "EXPLORE KALYVES BEACH",
-        ecosystemKicker: "HALKIDIKI EXPLORER ECOSYSTEM",
-        ecosystemTitle: "Your holiday does not stop at the accommodation",
-        ecosystemText: "Kleo House is connected with the Halkidiki Explorer ecosystem, helping guests discover useful places and services around their stay.",
+        ecosystemKicker: "LOCAL GUIDE · POWERED BY HALKIDIKI EXPLORER",
+        ecosystemTitle: "Everything around your stay, in one place",
+        ecosystemText: "A compact local guide to beaches, food and experiences near Kleo House — useful when you want it, secondary to the property itself.",
         ecoBeaches: "Beaches",
         ecoBeachesText: "Discover nearby beaches",
         ecoRestaurants: "Restaurants",
@@ -9260,7 +10129,29 @@ const translations = {
         longStayFeature3: "190 m from the beach",
         longStayFeature4: "Direct owner contact",
         longStayQuote: "ASK FOR A QUOTATION",
-        longStaySmall: "Rates and conditions are provided directly according to your dates and length of stay."
+        longStaySmall: "Rates and conditions are provided directly according to your dates and length of stay.",
+        seasonHeroBadge: "OPEN BEYOND SUMMER",
+        seasonHeroMonths: "SPRING & EASTER · MAY · SEPTEMBER · OCTOBER",
+        seasonKicker: "BEYOND THE PEAK SEASON",
+        seasonTitle: "See another side of Halkidiki.",
+        seasonIntro: "Discover quieter days by the sea in spring, around Easter, in May, September and October.",
+        seasonDirectBadge: "DIRECT EXTRA-SEASON STAYS",
+        seasonSpringLabel: "SPRING & EASTER",
+        seasonSpringTitle: "Spring & Easter in Halkidiki",
+        seasonSpringText: "Green landscapes, quiet beaches and the atmosphere of Greek Easter — a slower way to experience the coast.",
+        seasonMayLabel: "MAY ESCAPE",
+        seasonMayTitle: "A quiet May by the Aegean",
+        seasonMayText: "Long bright days, outdoor breakfasts and beaches before the summer crowds arrive.",
+        seasonSeptemberLabel: "SEPTEMBER",
+        seasonSeptemberTitle: "September by the sea",
+        seasonSeptemberText: "Summer feeling, a calmer rhythm and more space to enjoy Halkidiki at your own pace.",
+        seasonOctoberLabel: "OCTOBER",
+        seasonOctoberTitle: "October, differently",
+        seasonOctoberText: "A calmer stay for guests who prefer space, local life and a slower pace near the sea.",
+        seasonCta: "CHECK AVAILABILITY",
+        seasonFooterTitle: "Kleo House, from spring to autumn.",
+        seasonFooterText: "Choose your dates in the live calendar and ask the property directly.",
+        seasonFooterCta: "SEE LIVE CALENDAR →"
     },
 
     /* =====================================================
@@ -9312,7 +10203,7 @@ const translations = {
         kitchenTitle: "Bucătărie complet utilată",
         kitchenText: "Tot ce ai nevoie pentru un sejur confortabil, inclusiv facilități pentru gătit, frigider și zonă de luat masa.",
         outdoorKicker: "RELAXARE ÎN AER LIBER",
-        outdoorTitle: "Dimineți liniștite și seri relaxante",
+        outdoorTitle: "Mic dejun la soare. Seri sub cerul din Halkidiki.",
         outdoorText: "Ieși pe terasa privată și bucură-te de un spațiu înconjurat de verdeață, potrivit pentru micul dejun, mesele în familie sau serile liniștite după o zi petrecută la plajă.",
         privateTerrace: "Terasă privată",
         bbqArea: "Zonă pentru grătar",
@@ -9321,8 +10212,8 @@ const translations = {
         beachDistance: "DOAR 190 M DE KLEO HOUSE",
         beachText: "Lasă mașina și mergi pe jos până la mare. Kalyves Beach se află la doar câteva minute de Kleo House, astfel încât te poți bucura de plajă oricând dorești.",
         exploreBeach: "DESCOPERĂ KALYVES BEACH",
-        ecosystemKicker: "ECOSISTEMUL HALKIDIKI EXPLORER",
-        ecosystemTitle: "Vacanța ta nu se oprește la cazare",
+        ecosystemKicker: "GHID LOCAL · POWERED BY HALKIDIKI EXPLORER",
+        ecosystemTitle: "Tot ce ai în jurul cazării, într-un singur loc",
         ecosystemText: "Kleo House este conectată la ecosistemul Halkidiki Explorer, ajutând oaspeții să descopere locuri și servicii utile în timpul sejurului.",
         ecoBeaches: "Plaje",
         ecoBeachesText: "Descoperă plajele din apropiere",
@@ -9389,7 +10280,29 @@ const translations = {
         longStayFeature3: "190 m de plajă",
         longStayFeature4: "Contact direct cu proprietarul",
         longStayQuote: "CERE O OFERTĂ",
-        longStaySmall: "Tarifele și condițiile sunt oferite direct în funcție de perioadă și durata șederii."
+        longStaySmall: "Tarifele și condițiile sunt oferite direct în funcție de perioadă și durata șederii.",
+        seasonHeroBadge: "DESCHIS ȘI DINCOLO DE VARĂ",
+        seasonHeroMonths: "PRIMĂVARĂ & PAȘTE · MAI · SEPTEMBRIE · OCTOMBRIE",
+        seasonKicker: "DINCOLO DE SEZONUL DE VÂRF",
+        seasonTitle: "Descoperă o altă față a Halkidiki.",
+        seasonIntro: "Descoperă zile mai liniștite lângă mare primăvara, de Paște, în mai, septembrie și octombrie.",
+        seasonDirectBadge: "SEJURURI DIRECTE ÎN EXTRA-SEZON",
+        seasonSpringLabel: "PRIMĂVARĂ & PAȘTE",
+        seasonSpringTitle: "Primăvară și Paște în Halkidiki",
+        seasonSpringText: "Peisaje verzi, plaje liniștite și atmosfera Paștelui grecesc — un mod mai lent de a descoperi litoralul.",
+        seasonMayLabel: "EVADARE ÎN MAI",
+        seasonMayTitle: "Un mai liniștit lângă Marea Egee",
+        seasonMayText: "Zile lungi și luminoase, mic dejun pe terasă și plaje înainte de aglomerația verii.",
+        seasonSeptemberLabel: "SEPTEMBRIE",
+        seasonSeptemberTitle: "Septembrie lângă mare",
+        seasonSeptemberText: "Atmosferă de vară, ritm mai calm și mai mult spațiu pentru a descoperi Halkidiki în ritmul tău.",
+        seasonOctoberLabel: "OCTOMBRIE",
+        seasonOctoberTitle: "Octombrie, altfel",
+        seasonOctoberText: "Un sejur mai liniștit pentru cei care preferă spațiu, viață locală și un ritm relaxat aproape de mare.",
+        seasonCta: "VERIFICĂ DISPONIBILITATEA",
+        seasonFooterTitle: "Kleo House, din primăvară până în toamnă.",
+        seasonFooterText: "Alege datele în calendarul live și întreabă direct proprietatea.",
+        seasonFooterCta: "VEZI CALENDARUL LIVE →"
     },
 
     /* =====================================================
@@ -9518,7 +10431,29 @@ const translations = {
         longStayFeature3: "190 μ. από την παραλία",
         longStayFeature4: "Άμεση επικοινωνία με τον ιδιοκτήτη",
         longStayQuote: "ΖΗΤΗΣΤΕ ΠΡΟΣΦΟΡΑ",
-        longStaySmall: "Οι τιμές και οι όροι δίνονται απευθείας ανάλογα με τις ημερομηνίες και τη διάρκεια της διαμονής."
+        longStaySmall: "Οι τιμές και οι όροι δίνονται απευθείας ανάλογα με τις ημερομηνίες και τη διάρκεια της διαμονής.",
+        seasonHeroBadge: "ΑΝΟΙΧΤΑ ΚΑΙ ΠΕΡΑ ΑΠΟ ΤΟ ΚΑΛΟΚΑΙΡΙ",
+        seasonHeroMonths: "ΑΝΟΙΞΗ & ΠΑΣΧΑ · ΜΑΪΟΣ · ΣΕΠΤΕΜΒΡΙΟΣ · ΟΚΤΩΒΡΙΟΣ",
+        seasonKicker: "ΠΕΡΑ ΑΠΟ ΤΗΝ ΥΨΗΛΗ ΣΕΖΟΝ",
+        seasonTitle: "Ανακαλύψτε μια άλλη πλευρά της Χαλκιδικής.",
+        seasonIntro: "Απολαύστε πιο ήσυχες μέρες δίπλα στη θάλασσα την άνοιξη, το Πάσχα, τον Μάιο, τον Σεπτέμβριο και τον Οκτώβριο.",
+        seasonDirectBadge: "ΑΜΕΣΕΣ ΔΙΑΜΟΝΕΣ ΕΚΤΟΣ ΥΨΗΛΗΣ ΣΕΖΟΝ",
+        seasonSpringLabel: "ΑΝΟΙΞΗ & ΠΑΣΧΑ",
+        seasonSpringTitle: "Άνοιξη και Πάσχα στη Χαλκιδική",
+        seasonSpringText: "Πράσινα τοπία, ήσυχες παραλίες και η ατμόσφαιρα του ελληνικού Πάσχα — ένας πιο αργός τρόπος να γνωρίσετε την ακτή.",
+        seasonMayLabel: "ΑΠΟΔΡΑΣΗ ΤΟΝ ΜΑΪΟ",
+        seasonMayTitle: "Ένας ήσυχος Μάιος δίπλα στο Αιγαίο",
+        seasonMayText: "Μεγάλες φωτεινές μέρες, πρωινό έξω και παραλίες πριν από την καλοκαιρινή κίνηση.",
+        seasonSeptemberLabel: "ΣΕΠΤΕΜΒΡΙΟΣ",
+        seasonSeptemberTitle: "Σεπτέμβριος δίπλα στη θάλασσα",
+        seasonSeptemberText: "Καλοκαιρινή αίσθηση, πιο ήρεμος ρυθμός και περισσότερος χώρος για να απολαύσετε τη Χαλκιδική.",
+        seasonOctoberLabel: "ΟΚΤΩΒΡΙΟΣ",
+        seasonOctoberTitle: "Οκτώβριος, αλλιώς",
+        seasonOctoberText: "Μια πιο ήρεμη διαμονή για όσους προτιμούν χώρο, τοπική ζωή και χαλαρούς ρυθμούς κοντά στη θάλασσα.",
+        seasonCta: "ΕΛΕΓΧΟΣ ΔΙΑΘΕΣΙΜΟΤΗΤΑΣ",
+        seasonFooterTitle: "Kleo House, από την άνοιξη έως το φθινόπωρο.",
+        seasonFooterText: "Επιλέξτε ημερομηνίες στο ζωντανό ημερολόγιο και ρωτήστε απευθείας το κατάλυμα.",
+        seasonFooterCta: "ΔΕΙΤΕ ΤΟ ΖΩΝΤΑΝΟ ΗΜΕΡΟΛΟΓΙΟ →"
     },
 
     /* =====================================================
@@ -9647,7 +10582,29 @@ const translations = {
         longStayFeature3: "190 м от плажа",
         longStayFeature4: "Директен контакт със собственика",
         longStayQuote: "ПОИСКАЙТЕ ОФЕРТА",
-        longStaySmall: "Цените и условията се предоставят директно според датите и продължителността на престоя."
+        longStaySmall: "Цените и условията се предоставят директно според датите и продължителността на престоя.",
+        seasonHeroBadge: "ОТВОРЕНО И ИЗВЪН ЛЯТОТО",
+        seasonHeroMonths: "ПРОЛЕТ & ВЕЛИКДЕН · МАЙ · СЕПТЕМВРИ · ОКТОМВРИ",
+        seasonKicker: "ИЗВЪН ПИКОВИЯ СЕЗОН",
+        seasonTitle: "Открийте друга страна на Халкидики.",
+        seasonIntro: "Открийте по-спокойни дни край морето през пролетта, около Великден, през май, септември и октомври.",
+        seasonDirectBadge: "ДИРЕКТНИ ПРЕСТОИ ИЗВЪН ПИКОВИЯ СЕЗОН",
+        seasonSpringLabel: "ПРОЛЕТ & ВЕЛИКДЕН",
+        seasonSpringTitle: "Пролет и Великден в Халкидики",
+        seasonSpringText: "Зелени пейзажи, тихи плажове и атмосферата на гръцкия Великден — по-спокоен начин да опознаете крайбрежието.",
+        seasonMayLabel: "БЯГСТВО ПРЕЗ МАЙ",
+        seasonMayTitle: "Спокоен май край Егейско море",
+        seasonMayText: "Дълги светли дни, закуска навън и плажове преди летните тълпи.",
+        seasonSeptemberLabel: "СЕПТЕМВРИ",
+        seasonSeptemberTitle: "Септември край морето",
+        seasonSeptemberText: "Лятно усещане, по-спокоен ритъм и повече пространство да се насладите на Халкидики.",
+        seasonOctoberLabel: "ОКТОМВРИ",
+        seasonOctoberTitle: "Октомври, различно",
+        seasonOctoberText: "По-спокоен престой за гости, които предпочитат пространство, местен живот и бавен ритъм край морето.",
+        seasonCta: "ПРОВЕРИ НАЛИЧНОСТТА",
+        seasonFooterTitle: "Kleo House, от пролетта до есента.",
+        seasonFooterText: "Изберете дати в живия календар и попитайте директно мястото за настаняване.",
+        seasonFooterCta: "ВИЖ ЖИВИЯ КАЛЕНДАР →"
     },
 
     /* =====================================================
@@ -9776,7 +10733,29 @@ const translations = {
         longStayFeature3: "190 m od plaže",
         longStayFeature4: "Direktan kontakt sa vlasnikom",
         longStayQuote: "ZATRAŽITE PONUDU",
-        longStaySmall: "Cene i uslovi se daju direktno prema datumima i dužini boravka."
+        longStaySmall: "Cene i uslovi se daju direktno prema datumima i dužini boravka.",
+        seasonHeroBadge: "OTVORENO I VAN LETA",
+        seasonHeroMonths: "PROLEĆE & USKRS · MAJ · SEPTEMBAR · OKTOBAR",
+        seasonKicker: "VAN GLAVNE SEZONE",
+        seasonTitle: "Otkrijte drugu stranu Halkidikija.",
+        seasonIntro: "Otkrijte mirnije dane pored mora u proleće, za Uskrs, u maju, septembru i oktobru.",
+        seasonDirectBadge: "DIREKTNI BORAVCI VAN GLAVNE SEZONE",
+        seasonSpringLabel: "PROLEĆE & USKRS",
+        seasonSpringTitle: "Proleće i Uskrs na Halkidikiju",
+        seasonSpringText: "Zeleni pejzaži, mirne plaže i atmosfera grčkog Uskrsa — sporiji način da upoznate obalu.",
+        seasonMayLabel: "MAJSKI ODMOR",
+        seasonMayTitle: "Miran maj pored Egejskog mora",
+        seasonMayText: "Dugi svetli dani, doručak napolju i plaže pre letnje gužve.",
+        seasonSeptemberLabel: "SEPTEMBAR",
+        seasonSeptemberTitle: "Septembar pored mora",
+        seasonSeptemberText: "Letnji osećaj, mirniji ritam i više prostora da uživate u Halkidikiju svojim tempom.",
+        seasonOctoberLabel: "OKTOBAR",
+        seasonOctoberTitle: "Oktobar, drugačije",
+        seasonOctoberText: "Mirniji boravak za goste koji vole prostor, lokalni život i sporiji ritam blizu mora.",
+        seasonCta: "PROVERI DOSTUPNOST",
+        seasonFooterTitle: "Kleo House, od proleća do jeseni.",
+        seasonFooterText: "Izaberite datume u kalendaru uživo i pitajte smeštaj direktno.",
+        seasonFooterCta: "POGLEDAJ KALENDAR UŽIVO →"
     },
 
     /* =====================================================
@@ -9905,7 +10884,29 @@ const translations = {
         longStayFeature3: "190 m vom Strand",
         longStayFeature4: "Direkter Kontakt zum Eigentümer",
         longStayQuote: "ANGEBOT ANFRAGEN",
-        longStaySmall: "Preise und Bedingungen werden direkt entsprechend Ihren Reisedaten und der Aufenthaltsdauer angeboten."
+        longStaySmall: "Preise und Bedingungen werden direkt entsprechend Ihren Reisedaten und der Aufenthaltsdauer angeboten.",
+        seasonHeroBadge: "AUCH AUSSERHALB DES SOMMERS GEÖFFNET",
+        seasonHeroMonths: "FRÜHLING & OSTERN · MAI · SEPTEMBER · OKTOBER",
+        seasonKicker: "JENSEITS DER HAUPTSAISON",
+        seasonTitle: "Entdecken Sie eine andere Seite von Halkidiki.",
+        seasonIntro: "Entdecken Sie ruhigere Tage am Meer im Frühling, zu Ostern, im Mai, September und Oktober.",
+        seasonDirectBadge: "DIREKTE AUFENTHALTE AUSSERHALB DER HAUPTSAISON",
+        seasonSpringLabel: "FRÜHLING & OSTERN",
+        seasonSpringTitle: "Frühling und Ostern in Halkidiki",
+        seasonSpringText: "Grüne Landschaften, ruhige Strände und die Atmosphäre des griechischen Osterfestes — eine entspanntere Art, die Küste zu erleben.",
+        seasonMayLabel: "MAI-AUSZEIT",
+        seasonMayTitle: "Ein ruhiger Mai an der Ägäis",
+        seasonMayText: "Lange helle Tage, Frühstück im Freien und Strände vor dem Sommerandrang.",
+        seasonSeptemberLabel: "SEPTEMBER",
+        seasonSeptemberTitle: "September am Meer",
+        seasonSeptemberText: "Sommergefühl, ein ruhigerer Rhythmus und mehr Platz, um Halkidiki in Ihrem eigenen Tempo zu genießen.",
+        seasonOctoberLabel: "OKTOBER",
+        seasonOctoberTitle: "Oktober, anders",
+        seasonOctoberText: "Ein ruhigerer Aufenthalt für Gäste, die Raum, lokales Leben und ein langsameres Tempo am Meer schätzen.",
+        seasonCta: "VERFÜGBARKEIT PRÜFEN",
+        seasonFooterTitle: "Kleo House, vom Frühling bis in den Herbst.",
+        seasonFooterText: "Wählen Sie Ihre Daten im Live-Kalender und fragen Sie die Unterkunft direkt an.",
+        seasonFooterCta: "LIVE-KALENDER ANSEHEN →"
     }
 
 };
@@ -14000,8 +15001,27 @@ const nextMonthButton =
     );
 
 
-let calendarDate =
+const calendarToday =
     new Date();
+
+calendarToday.setHours(
+    0,
+    0,
+    0,
+    0
+);
+
+const calendarMinimumMonth =
+    new Date(
+        calendarToday.getFullYear(),
+        calendarToday.getMonth(),
+        1
+    );
+
+let calendarDate =
+    new Date(
+        calendarMinimumMonth
+    );
 
 let calendarAvailabilityRequestId =
     0;
@@ -14363,7 +15383,32 @@ function renderCalendarGrid(
             "calendar-day";
 
 
+        const cellDate =
+            new Date(
+                year,
+                month,
+                day
+            );
+
+        cellDate.setHours(
+            0,
+            0,
+            0,
+            0
+        );
+
         if (
+            cellDate <
+            calendarToday
+        ) {
+
+            element.classList.add(
+                "past"
+            );
+
+        }
+
+        else if (
             bookedDates.has(
                 dateKey
             )
@@ -14379,6 +15424,17 @@ function renderCalendarGrid(
 
             element.classList.add(
                 "available"
+            );
+
+        }
+
+        if (
+            cellDate.getTime() ===
+            calendarToday.getTime()
+        ) {
+
+            element.classList.add(
+                "today"
             );
 
         }
@@ -14474,7 +15530,35 @@ function renderCalendarUnavailable(
 }
 
 
+function updateCalendarNavigationState() {
+
+    const displayedMonth =
+        new Date(
+            calendarDate.getFullYear(),
+            calendarDate.getMonth(),
+            1
+        );
+
+    const atMinimumMonth =
+        displayedMonth <=
+        calendarMinimumMonth;
+
+    prevMonthButton.disabled =
+        atMinimumMonth;
+
+    prevMonthButton.setAttribute(
+        "aria-disabled",
+        atMinimumMonth
+            ? "true"
+            : "false"
+    );
+
+}
+
+
 async function renderCalendar() {
+
+    updateCalendarNavigationState();
 
     const requestId =
         ++calendarAvailabilityRequestId;
@@ -14578,9 +15662,22 @@ prevMonthButton.addEventListener(
     "click",
     function () {
 
-        calendarDate.setMonth(
-            calendarDate.getMonth() - 1
-        );
+        const previousMonth =
+            new Date(
+                calendarDate.getFullYear(),
+                calendarDate.getMonth() - 1,
+                1
+            );
+
+        if (
+            previousMonth <
+            calendarMinimumMonth
+        ) {
+            return;
+        }
+
+        calendarDate =
+            previousMonth;
 
         renderCalendar();
 
@@ -14592,9 +15689,12 @@ nextMonthButton.addEventListener(
     "click",
     function () {
 
-        calendarDate.setMonth(
-            calendarDate.getMonth() + 1
-        );
+        calendarDate =
+            new Date(
+                calendarDate.getFullYear(),
+                calendarDate.getMonth() + 1,
+                1
+            );
 
         renderCalendar();
 
@@ -14629,6 +15729,211 @@ const whatsappBooking =
         "whatsappBooking"
     );
 
+
+const bookingDateStatus =
+    document.getElementById(
+        "bookingDateStatus"
+    );
+
+const bookingValidationText = {
+    en: {
+        checkInBooked: "That check-in date is already occupied. Please choose another available date.",
+        rangeBooked: "Those dates cross an occupied night. Please choose another period.",
+        order: "Check-out must be after check-in.",
+        available: "These dates are currently free in the live calendar. Final confirmation comes directly from Kleo House.",
+        verifyError: "We could not verify these dates automatically. You can still send the request and Kleo House will confirm availability."
+    },
+    ro: {
+        checkInBooked: "Data de check-in este deja ocupată. Alege o altă dată disponibilă.",
+        rangeBooked: "Perioada aleasă trece peste cel puțin o noapte ocupată. Alege o altă perioadă.",
+        order: "Check-out trebuie să fie după check-in.",
+        available: "Perioada este liberă acum în calendarul live. Confirmarea finală vine direct de la Kleo House.",
+        verifyError: "Nu am putut verifica automat datele. Poți trimite cererea, iar Kleo House va confirma disponibilitatea."
+    },
+    el: {
+        checkInBooked: "Η ημερομηνία άφιξης είναι ήδη κατειλημμένη. Επιλέξτε άλλη διαθέσιμη ημερομηνία.",
+        rangeBooked: "Οι ημερομηνίες περιλαμβάνουν τουλάχιστον μία κατειλημμένη νύχτα. Επιλέξτε άλλη περίοδο.",
+        order: "Η αναχώρηση πρέπει να είναι μετά την άφιξη.",
+        available: "Οι ημερομηνίες είναι αυτή τη στιγμή διαθέσιμες στο ζωντανό ημερολόγιο. Η τελική επιβεβαίωση γίνεται απευθείας από το Kleo House.",
+        verifyError: "Δεν ήταν δυνατός ο αυτόματος έλεγχος. Μπορείτε να στείλετε το αίτημα και το Kleo House θα επιβεβαιώσει τη διαθεσιμότητα."
+    },
+    bg: {
+        checkInBooked: "Датата за настаняване вече е заета. Изберете друга свободна дата.",
+        rangeBooked: "Избраният период включва поне една заета нощ. Изберете друг период.",
+        order: "Напускането трябва да е след настаняването.",
+        available: "Датите в момента са свободни в живия календар. Окончателното потвърждение идва директно от Kleo House.",
+        verifyError: "Не успяхме да проверим датите автоматично. Можете да изпратите запитването и Kleo House ще потвърди наличността."
+    },
+    sr: {
+        checkInBooked: "Datum prijave je već zauzet. Izaberite drugi slobodan datum.",
+        rangeBooked: "Izabrani period prelazi preko najmanje jedne zauzete noći. Izaberite drugi period.",
+        order: "Datum odjave mora biti posle datuma prijave.",
+        available: "Datumi su trenutno slobodni u kalendaru uživo. Konačnu potvrdu daje Kleo House direktno.",
+        verifyError: "Nismo uspeli automatski da proverimo datume. Možete poslati upit, a Kleo House će potvrditi dostupnost."
+    },
+    de: {
+        checkInBooked: "Dieses Anreisedatum ist bereits belegt. Bitte wählen Sie ein anderes verfügbares Datum.",
+        rangeBooked: "Der gewählte Zeitraum enthält mindestens eine belegte Nacht. Bitte wählen Sie einen anderen Zeitraum.",
+        order: "Der Check-out muss nach dem Check-in liegen.",
+        available: "Diese Daten sind im Live-Kalender derzeit frei. Die endgültige Bestätigung erfolgt direkt durch Kleo House.",
+        verifyError: "Die Daten konnten nicht automatisch geprüft werden. Sie können die Anfrage trotzdem senden; Kleo House bestätigt die Verfügbarkeit."
+    }
+};
+
+let bookingValidationRequestId = 0;
+
+function getBookingValidationText(key) {
+    const lang = document.documentElement.lang || "en";
+    const group = bookingValidationText[lang] || bookingValidationText.en;
+    return group[key] || bookingValidationText.en[key] || "";
+}
+
+function setBookingDateStatus(message, type = "") {
+    if (!bookingDateStatus) return;
+    bookingDateStatus.textContent = message || "";
+    bookingDateStatus.classList.remove("is-ok", "is-error", "is-warning");
+    if (type) bookingDateStatus.classList.add(type);
+}
+
+function addDaysToDateKey(dateKey, days) {
+    const date = parseCalendarDateKey(dateKey);
+    date.setDate(date.getDate() + days);
+    return formatDateKey(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+async function loadPublicBookedDatesRange(fromDate, toDate) {
+    const response = await fetch(
+        SUPABASE_PUBLIC_URL + "/rest/v1/rpc/get_public_availability",
+        {
+            method: "POST",
+            headers: {
+                "apikey": SUPABASE_PUBLIC_KEY,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                p_website_slug: PUBLIC_WEBSITE_SLUG,
+                p_property_slug: PUBLIC_PROPERTY_SLUG,
+                p_from: fromDate,
+                p_to: toDate
+            }),
+            cache: "no-store"
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error("Could not validate booking dates.");
+    }
+
+    const ranges = await response.json();
+    const bookedDates = new Set();
+
+    (ranges || []).forEach(range => {
+        let currentDate = parseCalendarDateKey(range.check_in);
+        const checkOutDate = parseCalendarDateKey(range.check_out);
+
+        while (currentDate < checkOutDate) {
+            bookedDates.add(
+                formatDateKey(
+                    currentDate.getFullYear(),
+                    currentDate.getMonth(),
+                    currentDate.getDate()
+                )
+            );
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+    });
+
+    return bookedDates;
+}
+
+async function validateBookingDates() {
+    const requestId = ++bookingValidationRequestId;
+    const arrival = checkIn.value;
+    const departure = checkOut.value;
+
+    checkIn.setCustomValidity("");
+    checkOut.setCustomValidity("");
+    setBookingDateStatus("");
+
+    if (!arrival) return true;
+
+    if (departure && departure <= arrival) {
+        const message = getBookingValidationText("order");
+        checkOut.setCustomValidity(message);
+        setBookingDateStatus(message, "is-error");
+        checkOut.reportValidity();
+        return false;
+    }
+
+    const validationEnd = departure || addDaysToDateKey(arrival, 1);
+
+    try {
+        const bookedDates = await loadPublicBookedDatesRange(arrival, validationEnd);
+
+        if (requestId !== bookingValidationRequestId) return false;
+
+        if (bookedDates.has(arrival)) {
+            const message = getBookingValidationText("checkInBooked");
+            checkIn.setCustomValidity(message);
+            setBookingDateStatus(message, "is-error");
+            checkIn.reportValidity();
+            return false;
+        }
+
+        if (departure) {
+            let night = parseCalendarDateKey(arrival);
+            const departureDate = parseCalendarDateKey(departure);
+            let overlaps = false;
+
+            while (night < departureDate) {
+                const nightKey = formatDateKey(
+                    night.getFullYear(),
+                    night.getMonth(),
+                    night.getDate()
+                );
+
+                if (bookedDates.has(nightKey)) {
+                    overlaps = true;
+                    break;
+                }
+
+                night.setDate(night.getDate() + 1);
+            }
+
+            if (overlaps) {
+                const message = getBookingValidationText("rangeBooked");
+                checkOut.setCustomValidity(message);
+                setBookingDateStatus(message, "is-error");
+                checkOut.reportValidity();
+                return false;
+            }
+
+            setBookingDateStatus(
+                getBookingValidationText("available"),
+                "is-ok"
+            );
+        }
+
+        return true;
+    }
+    catch (error) {
+        console.warn("Could not validate selected booking dates.", error);
+        setBookingDateStatus(
+            getBookingValidationText("verifyError"),
+            "is-warning"
+        );
+        return null;
+    }
+}
+
+const todayKey = formatDateKey(
+    calendarToday.getFullYear(),
+    calendarToday.getMonth(),
+    calendarToday.getDate()
+);
+
+checkIn.min = todayKey;
+checkOut.min = todayKey;
 
 function updateWhatsAppBooking() {
 
@@ -14688,13 +15993,46 @@ function updateWhatsAppBooking() {
 
 checkIn.addEventListener(
     "change",
-    updateWhatsAppBooking
+    async function () {
+
+        if (checkIn.value) {
+            const minimumCheckout =
+                addDaysToDateKey(
+                    checkIn.value,
+                    1
+                );
+
+            checkOut.min =
+                minimumCheckout;
+
+            if (
+                checkOut.value &&
+                checkOut.value <
+                    minimumCheckout
+            ) {
+                checkOut.value = "";
+            }
+        }
+        else {
+            checkOut.min =
+                todayKey;
+        }
+
+        updateWhatsAppBooking();
+        await validateBookingDates();
+
+    }
 );
 
 
 checkOut.addEventListener(
     "change",
-    updateWhatsAppBooking
+    async function () {
+
+        updateWhatsAppBooking();
+        await validateBookingDates();
+
+    }
 );
 
 
@@ -14707,6 +16045,23 @@ if (guestCount) {
 
 
 updateWhatsAppBooking();
+
+
+whatsappBooking.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            !checkIn.checkValidity() ||
+            !checkOut.checkValidity()
+        ) {
+            event.preventDefault();
+            checkIn.reportValidity();
+            checkOut.reportValidity();
+        }
+
+    }
+);
 
  /* =========================================================
            FOOTER YEAR
@@ -15000,6 +16355,88 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
+});
+</script>
+
+
+
+<script>
+/* =========================================================
+   SMART EXTRA-SEASON CAROUSEL
+========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const carousel = document.getElementById("seasonCarousel");
+    const track = document.getElementById("seasonTrack");
+    const prev = document.getElementById("seasonPrev");
+    const next = document.getElementById("seasonNext");
+    const dots = Array.from(document.querySelectorAll("#seasonDots button"));
+    const slides = Array.from(document.querySelectorAll(".season-slide"));
+
+    if (!carousel || !track || !slides.length) return;
+
+    let current = 0;
+    let autoplay = null;
+    let touchStartX = 0;
+
+    const month = new Date().getMonth() + 1;
+    if (month === 5) current = 1;
+    else if (month >= 6 && month <= 9) current = 2;
+    else if (month === 10) current = 3;
+    else current = 0;
+
+    function renderSeason(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("is-active", i === current);
+        });
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("is-active", i === current);
+            dot.setAttribute("aria-current", i === current ? "true" : "false");
+        });
+    }
+
+    function restartAutoplay() {
+        clearInterval(autoplay);
+        autoplay = setInterval(() => renderSeason(current + 1), 6500);
+    }
+
+    prev?.addEventListener("click", () => {
+        renderSeason(current - 1);
+        restartAutoplay();
+    });
+
+    next?.addEventListener("click", () => {
+        renderSeason(current + 1);
+        restartAutoplay();
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            renderSeason(index);
+            restartAutoplay();
+        });
+    });
+
+    carousel.addEventListener("mouseenter", () => clearInterval(autoplay));
+    carousel.addEventListener("mouseleave", restartAutoplay);
+
+    carousel.addEventListener("touchstart", event => {
+        touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener("touchend", event => {
+        const delta = event.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(delta) < 45) return;
+        renderSeason(delta < 0 ? current + 1 : current - 1);
+        restartAutoplay();
+    }, { passive: true });
+
+    renderSeason(current);
+    restartAutoplay();
 });
 </script>
 
