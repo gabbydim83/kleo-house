@@ -8398,6 +8398,507 @@
 
 }
 
+
+/* =========================================================
+   KLEO HOUSE V3 — COMPACT SEASONS + MOBILE CLEANUP
+========================================================= */
+
+/* Seasonal Edition: deliberately shorter and narrower */
+.season-swipe-section {
+    padding: 52px 0 52px;
+}
+
+.season-swipe-head {
+    max-width: 1240px;
+    margin-bottom: 24px;
+    padding-left: 34px;
+    padding-right: 34px;
+}
+
+.season-swipe-kicker {
+    margin-bottom: 8px;
+    font-size: 8px;
+    letter-spacing: 2.2px;
+}
+
+.season-swipe-head h2 {
+    font-size: clamp(40px, 4.2vw, 60px);
+    line-height: .98;
+    letter-spacing: -1.8px;
+}
+
+.season-swipe-head p {
+    max-width: 560px;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.season-swipe-stage {
+    max-width: 1240px;
+    height: 460px;
+    min-height: 460px;
+    border-radius: 24px;
+}
+
+.season-swipe-slide > img {
+    object-position: center 64%;
+}
+
+.season-swipe-slide[data-season="easter"] > img {
+    object-position: center 62%;
+}
+
+.season-swipe-slide[data-season="may"] > img {
+    object-position: center 66%;
+}
+
+.season-swipe-slide[data-season="september"] > img {
+    object-position: center 70%;
+}
+
+.season-swipe-slide[data-season="october"] > img {
+    object-position: center 68%;
+}
+
+.season-swipe-content {
+    width: min(590px, 52%);
+    padding: 34px 54px 48px;
+}
+
+.season-swipe-topline {
+    margin-bottom: 15px;
+}
+
+.season-swipe-content h3 {
+    margin-bottom: 13px;
+    font-size: clamp(40px, 4vw, 57px);
+    line-height: .96;
+}
+
+.season-swipe-content p {
+    max-width: 470px;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.season-swipe-tags {
+    margin-top: 14px;
+}
+
+.season-swipe-cta {
+    min-height: 42px;
+    margin-top: 17px;
+}
+
+.season-swipe-progress {
+    left: 54px;
+    right: 54px;
+    bottom: 16px;
+}
+
+/* The winter product now lives only inside Work remotely from Halkidiki */
+.remote-swipe-banner {
+    display: none !important;
+}
+
+.remote-work-selector {
+    margin: 0 0 22px;
+    padding: 14px;
+    border: 1px solid rgba(143,216,255,0.20);
+    border-radius: 15px;
+    background:
+        radial-gradient(circle at 0% 50%, rgba(81,164,207,0.14), transparent 34%),
+        rgba(255,255,255,0.055);
+}
+
+.remote-work-selector-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.remote-work-selector-head span {
+    color: #8fd8ff;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+}
+
+.remote-work-selector-head strong {
+    padding: 6px 9px;
+    border: 1px solid rgba(126,230,166,0.20);
+    border-radius: 50px;
+    background: rgba(126,230,166,0.07);
+    color: #a4efbf;
+    font-size: 7px;
+    letter-spacing: .65px;
+    white-space: nowrap;
+}
+
+.remote-work-months {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.remote-work-months button {
+    min-height: 42px;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .7px;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.remote-work-months button:hover {
+    transform: translateY(-2px);
+    border-color: rgba(240,197,95,.50);
+    background: rgba(240,197,95,.13);
+}
+
+.remote-work-selector > small {
+    display: block;
+    margin-top: 9px;
+    color: #afc7d7;
+    font-size: 8px;
+    line-height: 1.4;
+}
+
+/* Bottom mobile CTA is now navigation, not WhatsApp */
+.mobile-booking-bar .mobile-location {
+    color: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            #c99a3d,
+            #e0b65c
+        );
+}
+
+/* Clear horizontal hint for rooms */
+.rooms-swipe-hint {
+    display: none;
+}
+
+/* PHONE */
+@media (max-width: 700px) {
+
+    /* Seasonal Edition fits much more comfortably into one phone screen */
+    .season-swipe-section {
+        padding: 34px 0 38px;
+    }
+
+    .season-swipe-head {
+        margin-bottom: 17px;
+        padding: 0 15px;
+    }
+
+    .season-swipe-kicker {
+        margin-bottom: 6px;
+        font-size: 6.5px;
+        letter-spacing: 1.6px;
+    }
+
+    .season-swipe-head h2 {
+        font-size: 34px;
+        line-height: 1;
+        letter-spacing: -1px;
+    }
+
+    .season-swipe-head p {
+        margin-top: 8px;
+        max-width: 92%;
+        font-size: 9.5px;
+        line-height: 1.4;
+    }
+
+    .season-swipe-edition {
+        margin-top: 12px;
+        padding: 7px 9px;
+        font-size: 6px;
+    }
+
+    .season-swipe-stage {
+        height: clamp(445px, 61vh, 490px);
+        min-height: 445px;
+        border-radius: 0;
+    }
+
+    /* Keep a clean image zone above the text instead of covering the photo */
+    .season-swipe-slide > img {
+        top: 0;
+        bottom: auto;
+        height: 60%;
+        object-position: center 69%;
+        transform: scale(1.015);
+    }
+
+    .season-swipe-slide[data-season="easter"] > img {
+        object-position: center 66%;
+    }
+
+    .season-swipe-slide[data-season="may"] > img {
+        object-position: center 70%;
+    }
+
+    .season-swipe-slide[data-season="september"] > img {
+        object-position: center 73%;
+    }
+
+    .season-swipe-slide[data-season="october"] > img {
+        object-position: center 71%;
+    }
+
+    .season-swipe-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(3,19,31,0.03) 0%,
+                rgba(3,19,31,0.03) 48%,
+                rgba(3,19,31,0.30) 58%,
+                rgba(3,19,31,0.98) 67%,
+                rgba(3,19,31,1) 100%
+            );
+    }
+
+    .season-swipe-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 45%;
+        padding: 17px 17px 42px;
+        justify-content: flex-start;
+        background:
+            linear-gradient(
+                180deg,
+                rgba(4,24,40,0.91),
+                #061827 32%
+            );
+    }
+
+    .season-swipe-topline {
+        margin-bottom: 8px;
+        gap: 9px;
+        font-size: 6.5px;
+    }
+
+    .season-swipe-topline span:first-child {
+        width: 27px;
+        height: 27px;
+        font-size: 6px;
+    }
+
+    .season-swipe-content h3 {
+        margin-bottom: 7px;
+        font-size: 30px;
+        line-height: .95;
+        letter-spacing: -1px;
+    }
+
+    .season-swipe-content h3 br {
+        display: none;
+    }
+
+    .season-swipe-content p {
+        max-width: 95%;
+        font-size: 9px;
+        line-height: 1.4;
+    }
+
+    .season-swipe-tags {
+        display: none;
+    }
+
+    .season-swipe-cta {
+        width: fit-content;
+        min-height: 35px;
+        margin-top: 10px;
+        padding: 0 11px;
+        gap: 11px;
+        font-size: 6.5px;
+        border-radius: 8px;
+    }
+
+    .season-swipe-arrow {
+        top: 29%;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .season-swipe-progress {
+        left: 17px;
+        right: 17px;
+        bottom: 12px;
+    }
+
+    .season-swipe-hint {
+        font-size: 5.5px;
+    }
+
+    /* Welcome Inside: rooms and detail photos become deliberate swipe rows */
+    .inside-house {
+        padding-top: 42px;
+        padding-bottom: 34px;
+    }
+
+    .house-media-grid {
+        min-height: 270px;
+    }
+
+    .house-feature-main {
+        min-height: 260px;
+    }
+
+    .house-feature-content {
+        padding: 21px 16px 22px;
+    }
+
+    .rooms-swipe-hint {
+        margin: 15px 0 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: #7a8b99;
+        font-size: 7px;
+        font-weight: 900;
+        letter-spacing: .8px;
+    }
+
+    .room-grid {
+        display: flex;
+        grid-template-columns: none;
+        gap: 9px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-inline: contain;
+        padding: 2px 2px 8px;
+        scrollbar-width: none;
+    }
+
+    .room-grid::-webkit-scrollbar,
+    .house-detail-strip::-webkit-scrollbar {
+        display: none;
+    }
+
+    .room-card,
+    .room-card:nth-child(3) {
+        flex: 0 0 76vw;
+        min-width: 76vw;
+        display: block;
+        grid-column: auto;
+        grid-template-columns: none;
+        scroll-snap-align: center;
+        border-radius: 13px;
+    }
+
+    .room-image,
+    .room-card:nth-child(3) .room-image {
+        height: 155px;
+    }
+
+    .room-content {
+        min-height: 93px;
+        padding: 11px 11px 13px;
+    }
+
+    .room-content h3 {
+        font-size: 15px;
+    }
+
+    .room-content p {
+        font-size: 8.5px;
+        -webkit-line-clamp: 2;
+    }
+
+    .house-detail-strip {
+        margin-top: 4px;
+        display: flex;
+        grid-template-columns: none;
+        gap: 7px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-inline: contain;
+        padding: 4px 2px 8px;
+        scrollbar-width: none;
+    }
+
+    .house-detail-photo {
+        flex: 0 0 58vw;
+        min-width: 58vw;
+        height: 125px;
+        scroll-snap-align: center;
+        border-radius: 10px;
+    }
+
+    /* Work remotely stays compact on phones */
+    .long-stay-section {
+        padding-bottom: 46px;
+    }
+
+    .long-stay-image {
+        min-height: 225px;
+    }
+
+    .long-stay-content {
+        padding: 22px 16px 24px;
+    }
+
+    .remote-work-selector {
+        margin-bottom: 16px;
+        padding: 11px;
+        border-radius: 12px;
+    }
+
+    .remote-work-selector-head {
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .remote-work-selector-head span {
+        font-size: 6.5px;
+    }
+
+    .remote-work-selector-head strong {
+        padding: 5px 7px;
+        font-size: 5.5px;
+    }
+
+    .remote-work-months {
+        gap: 4px;
+    }
+
+    .remote-work-months button {
+        min-height: 36px;
+        border-radius: 8px;
+        font-size: 7px;
+    }
+
+    .remote-work-selector > small {
+        margin-top: 7px;
+        font-size: 6.5px;
+    }
+
+    /* Keep the sticky bar simple and readable */
+    .mobile-booking-bar {
+        grid-template-columns: .88fr 1.12fr;
+    }
+
+    .mobile-booking-bar .mobile-location {
+        font-size: 8.5px;
+    }
+}
+
 </style>
 
 </head>
@@ -9028,35 +9529,6 @@
         </div>
 
     </div>
-
-
-    <a class="remote-swipe-banner" id="remoteSwipeBanner" href="#long-stay">
-
-        <div class="remote-swipe-months">
-            <span>NOV</span>
-            <span>DEC</span>
-            <span>JAN</span>
-            <span>FEB</span>
-        </div>
-
-        <div class="remote-swipe-copy">
-            <small>WINTER LONG-TERM STAYS</small>
-
-            <strong>
-                Work remotely from Halkidiki.
-            </strong>
-
-            <p>
-                Longer stays available for remote workers from November to February.
-            </p>
-        </div>
-
-        <span class="remote-swipe-action">
-            VIEW LONG-STAY OPTION →
-        </span>
-
-    </a>
-
 </section>
 
 
@@ -9184,6 +9656,10 @@
 
             </div>
 
+        </div>
+
+        <div class="rooms-swipe-hint" data-i18n="swipeRooms">
+            SWIPE ROOMS ↔
         </div>
 
         <div class="room-grid">
@@ -9530,13 +10006,13 @@
                 </span>
 
                 <h3 data-i18n="directTitle">
-                    Contact the owner without an intermediary
+                    Direct booking without any intermediary
                 </h3>
 
 
                 <p data-i18n="directText">
-                    Ask about availability, prices and your preferred
-                    dates directly through WhatsApp.
+                    Choose your dates, number of guests and request
+                    your offer directly from Kleo House.
                 </p>
 
 
@@ -9679,12 +10155,12 @@
                     class="direct-whatsapp-button"
                     data-i18n="contactWhatsapp"
                 >
-                    CONTACT ON WHATSAPP
+                    GET OFFER
                 </a>
 
 
                 <a
-                    href="https://www.google.com/maps?q=40.28235615783561,23.402900696893038"
+                    href="https://www.google.com/maps/dir/?api=1&destination=40.28235615783561,23.402900696893038"
                     target="_blank"
                     rel="noopener"
                     class="directions-button"
@@ -9746,6 +10222,32 @@
                 >
                     WINTER LONG-TERM STAYS
                 </span>
+
+
+                <div class="remote-work-selector">
+
+                    <div class="remote-work-selector-head">
+                        <span data-i18n="remoteWorkMonths">
+                            NOVEMBER – FEBRUARY
+                        </span>
+
+                        <strong data-i18n="remoteWorkStatus">
+                            LONG-TERM AVAILABLE
+                        </strong>
+                    </div>
+
+                    <div class="remote-work-months" aria-label="Winter long-stay months">
+                        <button type="button" data-remote-month="11">NOV</button>
+                        <button type="button" data-remote-month="12">DEC</button>
+                        <button type="button" data-remote-month="1">JAN</button>
+                        <button type="button" data-remote-month="2">FEB</button>
+                    </div>
+
+                    <small data-i18n="remoteWorkHint">
+                        Choose a month to view the live availability calendar.
+                    </small>
+
+                </div>
 
                 <h2 data-i18n="longStayTitle">
                     Work remotely from Halkidiki
@@ -10747,13 +11249,13 @@
     </a>
 
     <a
-        class="mobile-whatsapp"
-        href="https://wa.me/306944424043?text=Hello%20Kleo%20House!%20I%20would%20like%20to%20check%20availability."
+        class="mobile-location"
+        href="https://www.google.com/maps/dir/?api=1&destination=40.28235615783561,23.402900696893038"
         target="_blank"
         rel="noopener"
-        data-i18n="whatsapp"
+        data-i18n="takeMeThere"
     >
-        WHATSAPP
+        TAKE ME THERE
     </a>
 </div>
 
@@ -10847,8 +11349,8 @@ const translations = {
         calendarBooked: "Booked",
         calendarNote: "Availability is updated from the Kleo House reservation calendar. Check-out day becomes available again.",
         directKicker: "BOOK DIRECT",
-        directTitle: "Contact the owner without an intermediary",
-        directText: "Ask about availability, prices and your preferred dates directly through WhatsApp.",
+        directTitle: "Direct booking without any intermediary",
+        directText: "Choose your dates, number of guests and request your offer directly from Kleo House.",
         directContact: "Direct contact",
         directContactText: "Speak directly with Kleo House",
         zeroCommission: "No booking commission",
@@ -10860,7 +11362,12 @@ const translations = {
         checkIn: "Check-in",
         checkOut: "Check-out",
         guestsLabel: "Guests",
-        contactWhatsapp: "CONTACT ON WHATSAPP",
+        contactWhatsapp: "GET OFFER",
+        takeMeThere: "TAKE ME THERE",
+        swipeRooms: "SWIPE ROOMS ↔",
+        remoteWorkMonths: "NOVEMBER – FEBRUARY",
+        remoteWorkStatus: "LONG-TERM AVAILABLE",
+        remoteWorkHint: "Choose a month to view the live availability calendar.",
         getDirections: "GET DIRECTIONS",
         bookingSmallPrint: "Your booking is confirmed only after direct confirmation from the property.",
         locationKicker: "FIND KLEO HOUSE",
@@ -10998,8 +11505,8 @@ const translations = {
         calendarBooked: "Ocupat",
         calendarNote: "Disponibilitatea este actualizată din calendarul de rezervări Kleo House. Ziua de check-out devine din nou disponibilă.",
         directKicker: "REZERVĂ DIRECT",
-        directTitle: "Contactează proprietarul fără intermediar",
-        directText: "Întreabă direct pe WhatsApp despre disponibilitate, prețuri și datele dorite.",
+        directTitle: "Rezervare directă, fără intermediar",
+        directText: "Alege datele, numărul de oaspeți și solicită oferta direct de la Kleo House.",
         directContact: "Contact direct",
         directContactText: "Vorbește direct cu Kleo House",
         zeroCommission: "Fără comision de rezervare",
@@ -11011,7 +11518,12 @@ const translations = {
         checkIn: "Check-in",
         checkOut: "Check-out",
         guestsLabel: "Oaspeți",
-        contactWhatsapp: "CONTACTEAZĂ PE WHATSAPP",
+        contactWhatsapp: "CERE OFERTA",
+        takeMeThere: "DU-MĂ ACOLO",
+        swipeRooms: "GLISEAZĂ CAMERELE ↔",
+        remoteWorkMonths: "NOIEMBRIE – FEBRUARIE",
+        remoteWorkStatus: "DISPONIBIL PENTRU ȘEDERI LUNGI",
+        remoteWorkHint: "Alege o lună pentru a vedea calendarul live de disponibilitate.",
         getDirections: "INDICAȚII DE NAVIGARE",
         bookingSmallPrint: "Rezervarea este confirmată doar după confirmarea directă din partea proprietății.",
         locationKicker: "GĂSEȘTE KLEO HOUSE",
@@ -11149,8 +11661,8 @@ const translations = {
         calendarBooked: "Κρατημένο",
         calendarNote: "Η διαθεσιμότητα ενημερώνεται από το ημερολόγιο κρατήσεων του Kleo House. Η ημέρα αναχώρησης γίνεται ξανά διαθέσιμη.",
         directKicker: "ΚΡΑΤΗΣΤΕ ΑΠΕΥΘΕΙΑΣ",
-        directTitle: "Επικοινωνήστε με τον ιδιοκτήτη χωρίς μεσάζοντα",
-        directText: "Ρωτήστε απευθείας μέσω WhatsApp για διαθεσιμότητα, τιμές και τις ημερομηνίες που προτιμάτε.",
+        directTitle: "Άμεση κράτηση χωρίς μεσάζοντα",
+        directText: "Επιλέξτε ημερομηνίες, αριθμό επισκεπτών και ζητήστε προσφορά απευθείας από το Kleo House.",
         directContact: "Άμεση επικοινωνία",
         directContactText: "Μιλήστε απευθείας με το Kleo House",
         zeroCommission: "Χωρίς προμήθεια κράτησης",
@@ -11162,7 +11674,12 @@ const translations = {
         checkIn: "Check-in",
         checkOut: "Check-out",
         guestsLabel: "Επισκέπτες",
-        contactWhatsapp: "ΕΠΙΚΟΙΝΩΝΙΑ ΣΤΟ WHATSAPP",
+        contactWhatsapp: "ΖΗΤΗΣΤΕ ΠΡΟΣΦΟΡΑ",
+        takeMeThere: "ΠΗΓΑΙΝΕ ΜΕ ΕΚΕΙ",
+        swipeRooms: "ΣΥΡΕΤΕ ΤΑ ΔΩΜΑΤΙΑ ↔",
+        remoteWorkMonths: "ΝΟΕΜΒΡΙΟΣ – ΦΕΒΡΟΥΑΡΙΟΣ",
+        remoteWorkStatus: "ΔΙΑΘΕΣΙΜΟ ΓΙΑ ΜΑΚΡΟΧΡΟΝΙΑ ΔΙΑΜΟΝΗ",
+        remoteWorkHint: "Επιλέξτε μήνα για να δείτε το ζωντανό ημερολόγιο διαθεσιμότητας.",
         getDirections: "ΟΔΗΓΙΕΣ ΠΡΟΣΒΑΣΗΣ",
         bookingSmallPrint: "Η κράτησή σας επιβεβαιώνεται μόνο μετά από άμεση επιβεβαίωση από το κατάλυμα.",
         locationKicker: "ΒΡΕΙΤΕ ΤΟ KLEO HOUSE",
@@ -11300,8 +11817,8 @@ const translations = {
         calendarBooked: "Заето",
         calendarNote: "Наличността се актуализира от календара за резервации на Kleo House. Денят за напускане отново става свободен.",
         directKicker: "РЕЗЕРВИРАЙТЕ ДИРЕКТНО",
-        directTitle: "Свържете се със собственика без посредник",
-        directText: "Попитайте директно чрез WhatsApp за наличност, цени и желаните от вас дати.",
+        directTitle: "Директна резервация без посредник",
+        directText: "Изберете дати, брой гости и поискайте оферта директно от Kleo House.",
         directContact: "Директен контакт",
         directContactText: "Говорете директно с Kleo House",
         zeroCommission: "Без комисиона за резервация",
@@ -11313,7 +11830,12 @@ const translations = {
         checkIn: "Настаняване",
         checkOut: "Напускане",
         guestsLabel: "Гости",
-        contactWhatsapp: "СВЪРЖЕТЕ СЕ ПО WHATSAPP",
+        contactWhatsapp: "ПОЛУЧИ ОФЕРТА",
+        takeMeThere: "ЗАВЕДИ МЕ ТАМ",
+        swipeRooms: "ПЛЪЗНЕТЕ СТАИТЕ ↔",
+        remoteWorkMonths: "НОЕМВРИ – ФЕВРУАРИ",
+        remoteWorkStatus: "ДОСТЪПНО ЗА ДЪЛГОСРОЧЕН ПРЕСТОЙ",
+        remoteWorkHint: "Изберете месец, за да видите календара с актуална наличност.",
         getDirections: "УПЪТВАНИЯ",
         bookingSmallPrint: "Резервацията ви е потвърдена само след директно потвърждение от мястото за настаняване.",
         locationKicker: "НАМЕРЕТЕ KLEO HOUSE",
@@ -11451,8 +11973,8 @@ const translations = {
         calendarBooked: "Zauzeto",
         calendarNote: "Dostupnost se ažurira iz kalendara rezervacija Kleo House. Dan odjave ponovo postaje slobodan.",
         directKicker: "REZERVIŠITE DIREKTNO",
-        directTitle: "Kontaktirajte vlasnika bez posrednika",
-        directText: "Pitajte direktno preko WhatsApp-a za dostupnost, cene i željene datume.",
+        directTitle: "Direktna rezervacija bez posrednika",
+        directText: "Izaberite datume, broj gostiju i zatražite ponudu direktno od Kleo House.",
         directContact: "Direktan kontakt",
         directContactText: "Razgovarajte direktno sa Kleo House",
         zeroCommission: "Bez provizije za rezervaciju",
@@ -11464,7 +11986,12 @@ const translations = {
         checkIn: "Prijava",
         checkOut: "Odjava",
         guestsLabel: "Gostiju",
-        contactWhatsapp: "KONTAKTIRAJTE PUTEM WHATSAPP-A",
+        contactWhatsapp: "ZATRAŽI PONUDU",
+        takeMeThere: "ODVEDI ME TAMO",
+        swipeRooms: "PREVUCITE SOBE ↔",
+        remoteWorkMonths: "NOVEMBAR – FEBRUAR",
+        remoteWorkStatus: "DOSTUPNO ZA DUŽI BORAVAK",
+        remoteWorkHint: "Izaberite mesec da biste videli kalendar dostupnosti uživo.",
         getDirections: "PUTANJA DO OBJEKTA",
         bookingSmallPrint: "Rezervacija je potvrđena tek nakon direktne potvrde od strane objekta.",
         locationKicker: "PRONAĐITE KLEO HOUSE",
@@ -11602,8 +12129,8 @@ const translations = {
         calendarBooked: "Belegt",
         calendarNote: "Die Verfügbarkeit wird aus dem Reservierungskalender des Kleo House aktualisiert. Der Check-out-Tag ist wieder verfügbar.",
         directKicker: "DIREKT BUCHEN",
-        directTitle: "Kontaktieren Sie den Eigentümer ohne Vermittler",
-        directText: "Fragen Sie direkt über WhatsApp nach Verfügbarkeit, Preisen und Ihren Wunschdaten.",
+        directTitle: "Direkt buchen, ohne Vermittler",
+        directText: "Wählen Sie Ihre Daten und Gästezahl und fordern Sie Ihr Angebot direkt beim Kleo House an.",
         directContact: "Direkter Kontakt",
         directContactText: "Sprechen Sie direkt mit Kleo House",
         zeroCommission: "Keine Buchungsprovision",
@@ -11615,7 +12142,12 @@ const translations = {
         checkIn: "Check-in",
         checkOut: "Check-out",
         guestsLabel: "Gäste",
-        contactWhatsapp: "ÜBER WHATSAPP KONTAKTIEREN",
+        contactWhatsapp: "ANGEBOT ANFRAGEN",
+        takeMeThere: "BRING MICH HIN",
+        swipeRooms: "ZIMMER WISCHEN ↔",
+        remoteWorkMonths: "NOVEMBER – FEBRUAR",
+        remoteWorkStatus: "FÜR LANGZEITAUFENTHALTE VERFÜGBAR",
+        remoteWorkHint: "Wählen Sie einen Monat, um den Live-Verfügbarkeitskalender zu sehen.",
         getDirections: "ROUTE ANZEIGEN",
         bookingSmallPrint: "Ihre Buchung ist erst nach direkter Bestätigung durch die Unterkunft bestätigt.",
         locationKicker: "KLEO HOUSE FINDEN",
@@ -17557,6 +18089,93 @@ document.addEventListener("DOMContentLoaded", function () {
 
     update(0, false);
     restartAutoplay();
+
+});
+</script>
+
+
+<script>
+/* =========================================================
+   REMOTE-WORK MONTH SELECTOR
+========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const monthButtons =
+        document.querySelectorAll(
+            "[data-remote-month]"
+        );
+
+    const availabilitySection =
+        document.getElementById(
+            "availability"
+        );
+
+    monthButtons.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                async function () {
+
+                    const requestedMonth =
+                        Number(
+                            this.dataset.remoteMonth
+                        );
+
+                    const now =
+                        new Date();
+
+                    let year =
+                        now.getFullYear();
+
+                    const targetMonth =
+                        requestedMonth - 1;
+
+                    if (
+                        targetMonth <
+                        now.getMonth()
+                    ) {
+                        year += 1;
+                    }
+
+                    try {
+
+                        if (
+                            typeof calendarDate !== "undefined" &&
+                            typeof renderCalendar === "function"
+                        ) {
+
+                            calendarDate =
+                                new Date(
+                                    year,
+                                    targetMonth,
+                                    1
+                                );
+
+                            await renderCalendar();
+
+                        }
+
+                    }
+                    catch (error) {
+
+                        console.warn(
+                            "Remote-work calendar jump unavailable.",
+                            error
+                        );
+
+                    }
+
+                    availabilitySection?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+            );
+
+        }
+    );
 
 });
 </script>
